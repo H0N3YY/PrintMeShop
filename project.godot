@@ -21,7 +21,7 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"ch_osci": "res://characters/ch_osci.dch"
+"ch_osci": "res://assets/characters/ch_osci.dch"
 }
 directories/dtl_directory={
 "customer_intro": "res://customer_intro.dtl"
