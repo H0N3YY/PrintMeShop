@@ -20,7 +20,7 @@ text = "Days Counter + Relation"
 
 [node name="HeartsContainer" type="HBoxContainer" parent="TopBar/DayLabel" unique_id=237922356]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 71.0
 offset_bottom = 40.0
 
 [node name="day1" type="Label" parent="TopBar/DayLabel/HeartsContainer" unique_id=1685028905]
