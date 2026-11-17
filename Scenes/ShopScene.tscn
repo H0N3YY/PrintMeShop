@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://blqexc0l8df0c"]
+
+[ext_resource type="Script" uid="uid://dx5f1f1wnqy3e" path="res://Scenes/shop_scene.gd" id="1_x7s06"]
+[ext_resource type="Texture2D" uid="uid://cqq3oiohe2g87" path="res://assets/test_base2.png" id="2_ggt0q"]
+[ext_resource type="Texture2D" uid="uid://cqblnwc6a7ppe" path="res://assets/characters/gotka.png" id="2_x7s06"]
+
+[node name="ShopScene" type="Node2D" unique_id=616358664]
+position = Vector2(0, 2)
+script = ExtResource("1_x7s06")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2000363400]
+offset_left = -6.0
+offset_top = -13.0
+offset_right = 1291.0
+offset_bottom = 723.0
+texture = ExtResource("2_ggt0q")
+
+[node name="TopBar" type="Control" parent="." unique_id=325720057]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 351.0
+offset_bottom = 64.0
+
+[node name="HeartsContainer" type="HBoxContainer" parent="TopBar" unique_id=237922356]
+layout_mode = 0
+offset_left = 220.0
+offset_top = -79.0
+offset_right = 296.0
+offset_bottom = -43.0
+
+[node name="day1" type="Label" parent="TopBar/HeartsContainer" unique_id=1685028905]
+layout_mode = 2
+text = "♥"
+
+[node name="day2" type="Label" parent="TopBar/HeartsContainer" unique_id=471753301]
+layout_mode = 2
+text = "♡"
+
+[node name="day3" type="Label" parent="TopBar/HeartsContainer" unique_id=717411200]
+layout_mode = 2
+text = "♡"
+
+[node name="day4" type="Label" parent="TopBar/HeartsContainer" unique_id=1525771928]
+layout_mode = 2
+text = "♡"
+
+[node name="day5" type="Label" parent="TopBar/HeartsContainer" unique_id=874861667]
+layout_mode = 2
+text = "♡"
+
+[node name="LeftCustomerPanel" type="Control" parent="." unique_id=360509219]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CustomerBackground" type="TextureRect" parent="LeftCustomerPanel" unique_id=502102728]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CustomerSprite" type="TextureRect" parent="LeftCustomerPanel" unique_id=131528372]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 189.0
+offset_right = 395.0
+offset_bottom = 676.0
+texture = ExtResource("2_x7s06")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -144.0
+offset_top = 42.0
+offset_right = -5.0
+offset_bottom = 206.0
+
+[node name="SpeechBubble" type="TextureRect" parent="DialogueArea" unique_id=1523478302]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BubbleText" type="RichTextLabel" parent="DialogueArea/SpeechBubble" unique_id=105429816]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChoiceArea" type="Control" parent="DialogueArea" unique_id=38326427]
+anchors_preset = 0
+offset_left = 974.0
+offset_top = 288.0
+offset_right = 1014.0
+offset_bottom = 328.0
+
+[node name="ChoiceA" type="Button" parent="DialogueArea/ChoiceArea" unique_id=323156017]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ChoiceB" type="Button" parent="DialogueArea/ChoiceArea" unique_id=47901334]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ChoiceC" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1063767626]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ShopWorkArea" type="Control" parent="." unique_id=167720252]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 434.0
+offset_top = 1.0
+offset_right = 1280.0
+offset_bottom = 718.0
+
+[node name="ProductPanel" type="Control" parent="ShopWorkArea" unique_id=160274167]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 19.0
+offset_right = 419.0
+offset_bottom = 290.0
+
+[node name="ProductSelect" type="OptionButton" parent="ShopWorkArea/ProductPanel" unique_id=1850684404]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 71.0
+offset_right = 126.0
+offset_bottom = 91.0
+
+[node name="ColorPanel" type="Control" parent="ShopWorkArea" unique_id=1671965503]
+anchors_preset = 0
+offset_left = 464.0
+offset_top = 33.0
+offset_right = 790.0
+offset_bottom = 203.0
+
+[node name="ColorSelect" type="OptionButton" parent="ShopWorkArea/ColorPanel" unique_id=77685097]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 42.0
+offset_bottom = 25.0
+
+[node name="MerchPanel" type="Control" parent="ShopWorkArea" unique_id=706203959]
+anchors_preset = 0
+offset_left = 463.0
+offset_top = 256.0
+offset_right = 817.0
+offset_bottom = 549.0
+
+[node name="MerchSelect" type="OptionButton" parent="ShopWorkArea/MerchPanel" unique_id=1990054966]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 46.0
+offset_bottom = 23.0
+
+[node name="ResultPanel" type="PanelContainer" parent="ShopWorkArea" unique_id=1019730277]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 320.0
+offset_right = 385.0
+offset_bottom = 698.0
+
+[node name="ResultLabel" type="Label" parent="ShopWorkArea/ResultPanel" unique_id=476599046]
+custom_minimum_size = Vector2(0.1, 0.24)
+layout_mode = 2
+text = "Chose product"
+autowrap_mode = 3
+
+[node name="ProductPreview" type="Control" parent="ShopWorkArea/ResultPanel" unique_id=2094835854]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="ShopWorkArea" unique_id=857070291]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 616.0
+offset_right = 540.0
+offset_bottom = 698.0
+text = "Cancel"
+
+[node name="ConfirmButton" type="Button" parent="ShopWorkArea" unique_id=1854468794]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 610.0
+offset_right = 802.0
+offset_bottom = 689.0
+text = "Allow"
