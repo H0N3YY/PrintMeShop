@@ -32,7 +32,7 @@ const DESIGNS := [
 
 const CHARACTERS := {
 	"gotka": {"name": "Gotka", "romance": true, "texture": "res://assets/characters/gotka.png"},
-	"oscar": {"name": "Oscar", "romance": true, "texture": "res://assets/characters/oscar.png"},
+	"oscar": {"name": "Osci", "romance": true, "texture": "res://assets/characters/oscar.png"},
 	"skolim": {"name": "Skolim", "romance": true, "texture": ""},
 	"ideis": {"name": "SekciaRZ Ideis", "romance": true, "texture": ""},
 	"kukuryniarz": {"name": "Kukuryniarz", "romance": true, "texture": ""},
