@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cqblnwc6a7ppe" path="res://assets/characters/gotka.png" id="2_x7s06"]
 
 [node name="ShopScene" type="Node2D" unique_id=616358664]
-position = Vector2(0, 2)
 script = ExtResource("1_x7s06")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2000363400]
@@ -125,12 +124,77 @@ offset_top = 19.0
 offset_right = 419.0
 offset_bottom = 290.0
 
-[node name="ProductSelect" type="OptionButton" parent="ShopWorkArea/ProductPanel" unique_id=1850684404]
+[node name="brelok_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=895923184]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 71.0
+offset_left = 16.0
+offset_top = 111.0
 offset_right = 126.0
-offset_bottom = 91.0
+offset_bottom = 167.0
+text = "Brelok"
+
+[node name="skarpety_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=867046734]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 115.0
+offset_right = 257.0
+offset_bottom = 171.0
+text = "Skarpety"
+
+[node name="naklejki_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=54696482]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 113.0
+offset_right = 393.0
+offset_bottom = 169.0
+text = "naklejki"
+
+[node name="koszulka_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=784427976]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 25.0
+offset_right = 122.0
+offset_bottom = 81.0
+text = "Koszulka"
+
+[node name="pin_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=57594033]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 29.0
+offset_right = 253.0
+offset_bottom = 85.0
+text = "Przypinka"
+
+[node name="torba_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=1414026880]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 27.0
+offset_right = 389.0
+offset_bottom = 83.0
+text = "Torba"
+
+[node name="kubek_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=319507144]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 195.0
+offset_right = 123.0
+offset_bottom = 251.0
+text = "Kubek"
+
+[node name="plakat_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=1446777461]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 195.0
+offset_right = 259.0
+offset_bottom = 251.0
+text = "Plakat"
+
+[node name="czapka_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=922542794]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 197.0
+offset_right = 390.0
+offset_bottom = 253.0
+text = "Czapka"
 
 [node name="ColorPanel" type="Control" parent="ShopWorkArea" unique_id=1671965503]
 anchors_preset = 0
@@ -139,12 +203,69 @@ offset_top = 33.0
 offset_right = 790.0
 offset_bottom = 203.0
 
-[node name="ColorSelect" type="OptionButton" parent="ShopWorkArea/ColorPanel" unique_id=77685097]
+[node name="white" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=2115182727]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 5.0
-offset_right = 42.0
-offset_bottom = 25.0
+offset_left = 6.0
+offset_top = 12.0
+offset_right = 57.0
+offset_bottom = 68.0
+text = "B"
+
+[node name="black" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=203091206]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 12.0
+offset_right = 137.0
+offset_bottom = 68.0
+text = "CZA"
+
+[node name="pink" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=2110030416]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 12.0
+offset_right = 225.0
+offset_bottom = 68.0
+text = "R"
+
+[node name="red" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=1600204440]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 12.0
+offset_right = 313.0
+offset_bottom = 68.0
+text = "CZE"
+
+[node name="blue" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=118468071]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 92.0
+offset_right = 57.0
+offset_bottom = 148.0
+text = "N"
+
+[node name="green" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=1082779722]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 92.0
+offset_right = 137.0
+offset_bottom = 148.0
+text = "Z"
+
+[node name="orange" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=1372627903]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 92.0
+offset_right = 225.0
+offset_bottom = 148.0
+text = "P"
+
+[node name="yellow" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=2012548335]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 92.0
+offset_right = 313.0
+offset_bottom = 148.0
+text = "ZOL"
 
 [node name="MerchPanel" type="Control" parent="ShopWorkArea" unique_id=706203959]
 anchors_preset = 0
@@ -152,13 +273,6 @@ offset_left = 463.0
 offset_top = 256.0
 offset_right = 817.0
 offset_bottom = 549.0
-
-[node name="MerchSelect" type="OptionButton" parent="ShopWorkArea/MerchPanel" unique_id=1990054966]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 3.0
-offset_right = 46.0
-offset_bottom = 23.0
 
 [node name="ResultPanel" type="PanelContainer" parent="ShopWorkArea" unique_id=1019730277]
 layout_mode = 0
