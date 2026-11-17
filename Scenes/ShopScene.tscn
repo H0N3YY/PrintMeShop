@@ -274,6 +274,13 @@ offset_top = 256.0
 offset_right = 817.0
 offset_bottom = 549.0
 
+[node name="MerchSelect" type="ItemList" parent="ShopWorkArea/MerchPanel" unique_id=1455592665]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -1.0
+offset_right = 343.0
+offset_bottom = 287.0
+
 [node name="ResultPanel" type="PanelContainer" parent="ShopWorkArea" unique_id=1019730277]
 layout_mode = 0
 offset_left = 25.0

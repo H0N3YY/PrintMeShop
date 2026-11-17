@@ -5,8 +5,7 @@ extends Node2D
 
 @onready var product_panel: Control = $ShopWorkArea/ProductPanel
 @onready var color_panel: Control = $ShopWorkArea/ColorPanel
-@onready var merch_select: OptionButton = $ShopWorkArea/MerchPanel/MerchSelect
-
+@onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
 @onready var result_label: Label = $ShopWorkArea/ResultPanel/ResultLabel
 @onready var cancel_button: Button = $ShopWorkArea/CancelButton
 @onready var confirm_button: Button = $ShopWorkArea/ConfirmButton
@@ -47,7 +46,7 @@ var colors = {
 	"black": "Czarny",
 	"pink": "Różowy",
 	"red": "Czerwony",
-	"bluc": "Niebieski",
+	"blue": "Niebieski",
 	"green": "Zielony",
 	"orange": "Pomarańczowy",
 	"yellow": "Żółty"
@@ -144,20 +143,13 @@ func _on_color_pressed(color_name: String) -> void:
 
 func setup_merch_options() -> void:
 	merch_select.clear()
-	merch_select.add_item("Wybierz nadruk")
 
 	for design in designs:
 		merch_select.add_item(design)
 
-	merch_select.select(0)
-
 
 func _on_merch_selected(index: int) -> void:
-	if index == 0:
-		selected_design = ""
-	else:
-		selected_design = merch_select.get_item_text(index)
-
+	selected_design = merch_select.get_item_text(index)
 	update_preview()
 
 
@@ -195,7 +187,7 @@ func reset_order() -> void:
 	selected_color = ""
 	selected_design = ""
 
-	merch_select.select(0)
+	merch_select.deselect_all()
 
 	update_preview()
 
