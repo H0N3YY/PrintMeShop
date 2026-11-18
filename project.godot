@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+GameState="*uid://cy6wky82g84od"
 
 [dialogic]
 
@@ -74,6 +75,14 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "green",
+"res://Scripts/": "pink",
+"res://assets/characters/": "blue"
+}
 
 [input]
 
