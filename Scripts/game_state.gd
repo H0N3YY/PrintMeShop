@@ -1,6 +1,6 @@
 extends Node
 
-# Autoload: w Project Settings > Globals/Autoload dodaj jako GameState.
+# Autoload this script as GameState in Project Settings > Globals > Autoload.
 signal love_changed(character_id: String, new_value: int)
 signal encounter_finished(result: Dictionary)
 signal day_finished(summary: Dictionary)
@@ -35,11 +35,11 @@ func current_encounter() -> Dictionary:
 func complete_encounter(order: Dictionary, intro_points: int, pickup_points: int) -> Dictionary:
 	var encounter: Dictionary = current_encounter()
 	if encounter.is_empty():
-		push_error("Nie znaleziono bieżącego spotkania")
+		push_error("Current encounter not found")
 		return {}
 	var id: String = encounter["id"]
 	if completed.has(id):
-		push_error("Spotkanie zostało już rozliczone: " + id)
+		push_error("Encounter has already been completed: " + id)
 		return {}
 	var expected: Array = encounter["order"]
 	var correct: bool = (

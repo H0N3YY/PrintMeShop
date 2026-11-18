@@ -1,7 +1,7 @@
 class_name GameData
 extends RefCounted
 
-# Schedule and Orders
+# Game configuration and ending thresholds
 const MAX_DAYS := 5
 const ENDING_GOOD_MIN := 6
 const ENDING_NEUTRAL_MIN := 3
@@ -19,14 +19,14 @@ const PRODUCTS := {
 }
 
 const COLORS := {
-	"white": "Bialy", "black": "Czarny", "pink": "Różowy",
+	"white": "Biały", "black": "Czarny", "pink": "Różowy",
 	"red": "Czerwony", "blue": "Niebieski", "green": "Zielony",
-	"orange": "Pomarańczowy", "yellow": "Żolty"
+	"orange": "Pomarańczowy", "yellow": "Żółty"
 }
 
 const DESIGNS := [
-	"Love and Deepspace", "Ideis", "League of Legends",
-	"Kukuryniarz", "Koteczek", "Hello IT", "Hatsune Miku",
+	"Kruk z Love and Deepspace", "Ideis", "Poro League of Legends",
+	"Kukuryniarz", "Fat Cat", "Hello IT", "Hatsune Miku",
 	"Monsterek", "Egzorcysta Netflix", "Piwo Janka", "Roblox", "Skolim"
 ]
 
@@ -40,7 +40,7 @@ const CHARACTERS := {
 	"npc2": {"name": "NPC 2", "romance": false, "texture": ""}
 }
 
-# Orders and Statements
+# Daily schedule: each encounter ID appears exactly once
 const DAYS := [
 	["oscar_1", "gotka_1", "npc1_1"],
 	["ideis_1", "skolim_1", "npc2_1"],
@@ -49,7 +49,7 @@ const DAYS := [
 	["skolim_2", "kukuryniarz_2", "npc1_3"]
 ]
 
-# Options consist of points (0/1/2), and ‘order’ = [product, color, pattern]
+# Encounter orders use [product display name, color display name, design display name].
 const ENCOUNTERS := {
 	"gotka_1": {"character": "gotka", "order": ["Koszulka", "Czarny", "Fat Cat"]},
 	"ideis_1": {"character": "ideis", "order": ["Przypinka", "Żółty", "Ideis"]},
@@ -80,7 +80,7 @@ static func encounter_at(day_number: int, customer_number: int) -> Dictionary:
 	return data
 
 static func choice_options(phase: String) -> Array:
-	# todo change that for Dialogic plugin
+	# TODO: Replace test dialogue options with Dialogic timelines.
 	if phase == "intro":
 		return [
 			{"text": "A. Miło cię widzieć!", "points": 2},

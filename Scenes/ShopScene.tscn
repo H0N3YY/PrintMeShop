@@ -135,10 +135,10 @@ func show_intro_dialogue() -> void:
 	current_phase = \"intro\"
 	shop_work_area.hide()
 	var encounter: Dictionary = GameState.current_encounter()
-	var name: String = GameData.CHARACTERS[encounter[\"character\"]][\"name\"]
+	var character_name: String = GameData.CHARACTERS[encounter[\"character\"]][\"name\"]
 	var order: Array = encounter[\"order\"]
 	show_choices(
-		\"%s zamawia: %s, kolor %s, wzór %s. Zapamiętaj!\" % [name, order[0], order[1], order[2]],
+		\"%s zamawia: %s, kolor %s, wzór %s. Zapamiętaj!\" % [character_name, order[0], order[1], order[2]],
 		GameData.choice_options(\"intro\")
 	)
 
@@ -493,6 +493,7 @@ offset_bottom = 689.0
 text = "Allow"
 
 [node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
