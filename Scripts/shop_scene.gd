@@ -18,7 +18,10 @@ extends Node2D
 # Add file prefixes for other item types once their textures are available.
 const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
-	"Skarpetki": "socks"
+	"Skarpetki": "socks",
+	"Kubek": "mug",
+	"Plakat": "poster"
+	
 }
 
 const COLOR_FILE_SUFFIX := {
