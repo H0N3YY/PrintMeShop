@@ -6,7 +6,6 @@ extends Control
 
 const INTRO_SCENE_PATH := "res://Scenes/Intro.tscn"
 
-
 func _ready() -> void:
 	print("Main menu loaded")
 
