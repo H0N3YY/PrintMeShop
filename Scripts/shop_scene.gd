@@ -117,22 +117,31 @@ func update_preview() -> void:
 
 func update_item_texture() -> void:
 	preview_texture_rect.texture = null
-	if selected_product == "":
+
+	if selected_product.is_empty():
 		return
 
 	if not ITEM_FILE_PREFIX.has(selected_product):
-		# No item image mapping has been configured for this product yet.
-		print("No texture mapping configured for product: ", selected_product)
+		push_warning("No texture mapping for: " + selected_product)
 		return
 
 	var prefix: String = ITEM_FILE_PREFIX[selected_product]
 	var suffix: String = COLOR_FILE_SUFFIX.get(selected_color, "white")
-	var path: String = "res://assets/items/%s%s.png" % [prefix, suffix]
-	print("Item texture path: ", path)
-	if ResourceLoader.exists(path):
-		preview_texture_rect.texture = load(path) as Texture2D
+
+	var texture_path: String = (
+		"res://assets/items/%s%s.png" % [prefix, suffix]
+	)
+
+	print("Selected product: ", selected_product)
+	print("Selected color: ", selected_color)
+	print("Loading texture: ", texture_path)
+	print("File exists: ", ResourceLoader.exists(texture_path))
+
+	if ResourceLoader.exists(texture_path):
+		preview_texture_rect.texture = load(texture_path) as Texture2D
+		print("Texture loaded successfully!")
 	else:
-		push_warning("Item texture not found: " + path)
+		push_warning("Texture not found: " + texture_path)
 
 func reset_order() -> void:
 	# Trash button: clear the product, color, and design.

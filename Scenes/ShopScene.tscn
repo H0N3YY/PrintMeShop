@@ -7,19 +7,34 @@
 [sub_resource type="GDScript" id="GDScript_x7s06"]
 script/source = "extends Node2D
 
-# PODŁĄCZ DO ISTNIEJĄCEGO ShopScene.
-# Dialogi na razie są testowymi przyciskami A/B/C; Dialogic można dodać później.
+# Attach this script to the existing ShopScene root node.
+# Dialogue choices are temporary A/B/C buttons. Dialogic integration comes later.
 
 @onready var customer_sprite: TextureRect = $LeftCustomerPanel/CustomerSprite
 @onready var product_panel: Control = $ShopWorkArea/ProductPanel
 @onready var color_panel: Control = $ShopWorkArea/ColorPanel
 @onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
 @onready var result_label: Label = $ShopWorkArea/ResultPanel/ResultLabel
+@onready var product_preview: Control = $ShopWorkArea/ResultPanel/ProductPreview
 @onready var cancel_button: Button = $ShopWorkArea/CancelButton
 @onready var confirm_button: Button = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
 
+# Item textures: res://assets/items/shirtwhite.png, shirtpink.png, etc.
+# Add file prefixes for other item types once their textures are available.
+const ITEM_FILE_PREFIX := {
+	\"Koszulka\": \"shirt\",
+	\"Skarpetki\": \"socks\"
+}
+
+const COLOR_FILE_SUFFIX := {
+	\"Biały\": \"white\", \"Czarny\": \"black\", \"Różowy\": \"pink\",
+	\"Czerwony\": \"red\", \"Niebieski\": \"blue\", \"Zielony\": \"green\",
+	\"Pomarańczowy\": \"orange\", \"Żółty\": \"yellow\"
+}
+
+var preview_texture_rect: TextureRect
 var selected_product := \"\"
 var selected_color := \"\"
 var selected_design := \"\"
@@ -34,6 +49,7 @@ var overlay_message: Label
 var overlay_buttons: VBoxContainer
 
 func _ready() -> void:
+	setup_preview_texture()
 	setup_product_buttons()
 	setup_color_buttons()
 	setup_merch_list()
@@ -46,7 +62,7 @@ func setup_product_buttons() -> void:
 	for node_name in GameData.PRODUCTS:
 		var button: Button = product_panel.get_node_or_null(node_name) as Button
 		if button == null:
-			push_warning(\"Brak przycisku produktu: \" + node_name)
+			push_warning(\"Product button not found: \" + node_name)
 			continue
 		button.pressed.connect(select_product.bind(GameData.PRODUCTS[node_name]))
 
@@ -54,7 +70,7 @@ func setup_color_buttons() -> void:
 	for node_name in GameData.COLORS:
 		var button: Button = color_panel.get_node_or_null(node_name) as Button
 		if button == null:
-			push_warning(\"Brak przycisku koloru: \" + node_name)
+			push_warning(\"Color button not found: \" + node_name)
 			continue
 		button.pressed.connect(select_color.bind(GameData.COLORS[node_name]))
 
@@ -65,11 +81,32 @@ func setup_merch_list() -> void:
 		merch_select.add_item(design)
 	merch_select.item_selected.connect(on_design_selected)
 
+func setup_preview_texture() -> void:
+	# Create a TextureRect programmatically inside the existing ProductPreview.
+	preview_texture_rect = TextureRect.new()
+	preview_texture_rect.name = \"SelectedItemTexture\"
+	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	preview_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	preview_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	product_preview.add_child(preview_texture_rect)
+	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
 func select_product(value: String) -> void:
+	print(\"Product button pressed: \", value)
+	# Selecting a different product requires clearing the current order first.
+	if selected_product != \"\":
+		print(\"Clear the selected product before choosing another one.\")
+		return
 	selected_product = value
+	selected_color = \"Biały\"
 	update_preview()
 
 func select_color(value: String) -> void:
+	if selected_product == \"\":
+		print(\"Select a product first.\")
+		return
+	# Color can be changed any number of times without changing the product.
 	selected_color = value
 	update_preview()
 
@@ -83,9 +120,39 @@ func update_preview() -> void:
 		selected_color if selected_color != \"\" else \"—\",
 		selected_design if selected_design != \"\" else \"—\"
 	]
-	# Podmianę tekstu na podgląd graficzny dodamy, gdy będą gotowe PNG produktów.
+	update_item_texture()
+
+func update_item_texture() -> void:
+	preview_texture_rect.texture = null
+
+	if selected_product.is_empty():
+		return
+
+	if not ITEM_FILE_PREFIX.has(selected_product):
+		push_warning(\"No texture mapping for: \" + selected_product)
+		return
+
+	var prefix: String = ITEM_FILE_PREFIX[selected_product]
+	var suffix: String = COLOR_FILE_SUFFIX.get(selected_color, \"white\")
+
+	var texture_path: String = (
+		\"res://assets/items/%s%s.png\" % [prefix, suffix]
+	)
+
+	print(\"Selected product: \", selected_product)
+	print(\"Selected color: \", selected_color)
+	print(\"Loading texture: \", texture_path)
+	print(\"File exists: \", ResourceLoader.exists(texture_path))
+
+	if ResourceLoader.exists(texture_path):
+		preview_texture_rect.texture = load(texture_path) as Texture2D
+		print(\"Texture loaded successfully!\")
+	else:
+		push_warning(\"Texture not found: \" + texture_path)
 
 func reset_order() -> void:
+	# Trash button: clear the product, color, and design.
+	# Do not change the customer or reset dialogue points.
 	selected_product = \"\"
 	selected_color = \"\"
 	selected_design = \"\"
@@ -114,7 +181,7 @@ func confirm_order() -> void:
 func start_customer() -> void:
 	var encounter: Dictionary = GameState.current_encounter()
 	if encounter.is_empty():
-		push_error(\"Brak kolejnego klienta\")
+		push_error(\"No current encounter is available\")
 		return
 	reset_order()
 	pending_order.clear()
@@ -128,7 +195,7 @@ func start_customer() -> void:
 	else:
 		customer_sprite.texture = null
 		if texture_path != \"\":
-			push_warning(\"Brakuje tekstury (uzupełnij w game_data.gd): \" + texture_path)
+			push_warning(\"Character texture is missing (check game_data.gd): \" + texture_path)
 	show_intro_dialogue()
 
 func show_intro_dialogue() -> void:
@@ -193,8 +260,10 @@ func show_final_ending() -> void:
 	var who := \"Samotny gracz\"
 	if ending[\"character\"] != \"\":
 		who = GameData.CHARACTERS[ending[\"character\"]][\"name\"]
+	var ending_labels := {\"good\": \"Dobre\", \"neutral\": \"Neutralne\", \"bad\": \"Złe\", \"solo\": \"Samotne\"}
+	var ending_label: String = ending_labels.get(ending[\"type\"], ending[\"type\"])
 	var message := \"FINAŁ GRY\\n%s\\nTyp zakończenia: %s\\nPunkty: %d\\nID: %s\" % [
-		who, ending[\"type\"], ending[\"points\"], ending[\"id\"]
+		who, ending_label, ending[\"points\"], ending[\"id\"]
 	]
 	show_action(message, \"Zagraj ponownie\", restart_game)
 
@@ -203,8 +272,8 @@ func restart_game() -> void:
 	overlay.hide()
 	start_customer()
 
-# Tymczasowy, działający interfejs testowy. Nie zmienia Twojego tła ani layoutu sklepu.
-# Docelowo zastąpią go dymek i przyciski A/B/C z Dialogic.
+# Temporary testing UI; keeps the existing shop art and layout intact.
+# Replace this later with Dialogic speech bubbles and choices.
 func create_temporary_dialogue_ui() -> void:
 	var layer := CanvasLayer.new()
 	layer.name = \"TemporaryDialogueLayer\"
