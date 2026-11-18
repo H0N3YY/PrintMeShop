@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cwduri1e46xme"]
+
+[ext_resource type="Texture2D" uid="uid://3aqn6n8t3c5x" path="res://assets/introComic.png" id="1_3edat"]
+[ext_resource type="Texture2D" uid="uid://bemwx0tr6lkrn" path="res://assets/black.png" id="2_rrrc0"]
+
+[node name="Intro" type="Node2D" unique_id=861903098]
+
+[node name="Comic" type="TextureRect" parent="." unique_id=88307752]
+offset_right = 880.0
+offset_bottom = 600.0
+texture = ExtResource("1_3edat")
+
+[node name="block1" type="Sprite2D" parent="." unique_id=173038292]
+position = Vector2(688, 316)
+scale = Vector2(0.95, 0.7222222)
+texture = ExtResource("2_rrrc0")
+
+[node name="block2" type="Sprite2D" parent="." unique_id=980219706]
+position = Vector2(375.99997, 784)
+scale = Vector2(0.44999996, 0.511111)
+texture = ExtResource("2_rrrc0")
+
+[node name="block3" type="Sprite2D" parent="." unique_id=283284786]
+position = Vector2(983.2001, 992)
+scale = Vector2(0.4762499, 1.088889)
+texture = ExtResource("2_rrrc0")
+
+[node name="block4" type="Sprite2D" parent="." unique_id=1327260771]
+position = Vector2(376, 1188)
+scale = Vector2(0.44999996, 0.5444445)
+texture = ExtResource("2_rrrc0")
+
+[node name="block5" type="Sprite2D" parent="." unique_id=947074382]
+position = Vector2(1927.2001, 386.64444)
+scale = Vector2(0.86375, 0.9037655)
+texture = ExtResource("2_rrrc0")
+
+[node name="block6" type="Sprite2D" parent="." unique_id=1268079169]
+position = Vector2(1925.2595, 1060.9774)
+scale = Vector2(0.866782, 0.8972849)
+texture = ExtResource("2_rrrc0")
+
+[node name="skip_btn" type="Button" parent="." unique_id=401733157]
+offset_left = 2376.0
+offset_top = 1376.0
+offset_right = 2540.0
+offset_bottom = 1431.0
+text = "Pomiń Wstęp..."
