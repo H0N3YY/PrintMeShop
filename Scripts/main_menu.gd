@@ -4,7 +4,7 @@ extends Control
 @onready var start_btn: Button = $VBoxContainer/start_btn
 @onready var exit_btn: Button = $VBoxContainer/exit_btn
 
-const SHOP_SCENE_PATH := "res://Scenes/ShopScene.tscn"
+const INTRO_SCENE_PATH := "res://Scenes/Intro.tscn"
 
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func start_game() -> void:
 	GameState.new_game()
 
 	var error: Error = get_tree().change_scene_to_file(
-		SHOP_SCENE_PATH
+		INTRO_SCENE_PATH
 	)
 
 	if error != OK:
