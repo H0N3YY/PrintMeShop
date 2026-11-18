@@ -31,13 +31,16 @@ const DESIGNS := [
 ]
 
 const CHARACTERS := {
-	"gotka": {"name": "Gotka", "romance": true, "texture": "res://assets/characters/gotka.png"},
-	"oscar": {"name": "Osci", "romance": true, "texture": "res://assets/characters/oscar.png"},
-	"skolim": {"name": "Skolim", "romance": true, "texture": ""},
-	"ideis": {"name": "SekciaRZ Ideis", "romance": true, "texture": ""},
-	"kukuryniarz": {"name": "Kukuryniarz", "romance": true, "texture": ""},
-	"npc1": {"name": "NPC 1", "romance": false, "texture": ""},
-	"npc2": {"name": "NPC 2", "romance": false, "texture": ""}
+	"gotka": {"name": "Matylda", "romance": true, "texture": "res://assets/characters/gotka1.png"},
+	"gotkaGlamur": {"name": "Matylda", "romance": true, "texture": "res://assets/characters/gotka2.png"},
+	"oscar": {"name": "Osci", "romance": true, "texture": "res://assets/characters/osci.png"},
+	"skolim": {"name": "Skolim", "romance": true, "texture": "res://assets/characters/skolim1.png"},
+	"skolimHot": {"name": "Skolim", "romance": true, "texture": "res://assets/characters/skolim2.png"},
+	"sekciarz": {"name": "Ideisek", "romance": true, "texture": "res://assets/characters/sekciarz1.png"},
+	"sekciarzFurry": {"name": "Ideisek", "romance": true, "texture": "res://assets/characters/sekciarz2.png"},
+	"kukuryniarz": {"name": "Norbi Kukuryniarz", "romance": true, "texture": "res://assets/characters/kukuryniarz.png"},
+	"npc1": {"name": "Pan Janusz", "romance": false, "texture": "res://assets/characters/npc1.png"},
+	"npc2": {"name": "Pani Grazyna", "romance": false, "texture": "res://assets/characters/npc2.png"}
 }
 
 # Daily schedule: each encounter ID appears exactly once

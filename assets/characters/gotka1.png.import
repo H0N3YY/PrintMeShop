@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqblnwc6a7ppe"
-path="res://.godot/imported/gotka.png-c72cc6ffedfcecb391bd9326580aa1c1.ctex"
+uid="uid://dqt0ccig71nau"
+path="res://.godot/imported/gotka1.png-c0b06cb035673ef0f44f2c59bcb68aa9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/gotka.png"
-dest_files=["res://.godot/imported/gotka.png-c72cc6ffedfcecb391bd9326580aa1c1.ctex"]
+source_file="res://assets/characters/gotka1.png"
+dest_files=["res://.godot/imported/gotka1.png-c0b06cb035673ef0f44f2c59bcb68aa9.ctex"]
 
 [params]
 
