@@ -23,6 +23,22 @@
 [ext_resource type="Texture2D" uid="uid://c8ss5r8bx1qvd" path="res://assets/ui/box/mugOpen.png" id="18_rc7cg"]
 [ext_resource type="Texture2D" uid="uid://bk5cexpc6mi3e" path="res://assets/ui/box/posterOpen.png" id="20_jb5bo"]
 [ext_resource type="Texture2D" uid="uid://bsfftt51bn4v" path="res://assets/ui/box/hatOpen.png" id="22_ejtx5"]
+[ext_resource type="Texture2D" uid="uid://dg3sefco71xsl" path="res://assets/ui/color/white.png" id="23_5j4yg"]
+[ext_resource type="Texture2D" uid="uid://bfcm5jrm82quq" path="res://assets/ui/color/white1.png" id="24_tjdnc"]
+[ext_resource type="Texture2D" uid="uid://otnvf72nwxgh" path="res://assets/ui/color/black.png" id="25_ea2bg"]
+[ext_resource type="Texture2D" uid="uid://c4xoefv02sjra" path="res://assets/ui/color/black1.png" id="26_crp7e"]
+[ext_resource type="Texture2D" uid="uid://cdggkfim4jef7" path="res://assets/ui/color/pink.png" id="27_r4gmm"]
+[ext_resource type="Texture2D" uid="uid://o4btt8ry2j6g" path="res://assets/ui/color/pink1.png" id="28_yktrs"]
+[ext_resource type="Texture2D" uid="uid://djtwbl4rgk4p3" path="res://assets/ui/color/red.png" id="29_01p8v"]
+[ext_resource type="Texture2D" uid="uid://bl3haqw68gnxc" path="res://assets/ui/color/red1.png" id="30_05s0g"]
+[ext_resource type="Texture2D" uid="uid://6amj0uqgy8ju" path="res://assets/ui/color/blue.png" id="31_cl74d"]
+[ext_resource type="Texture2D" uid="uid://bk2g8qmmgycen" path="res://assets/ui/color/blue1.png" id="32_hdl3m"]
+[ext_resource type="Texture2D" uid="uid://3mof8a82opij" path="res://assets/ui/color/green.png" id="33_e0bxy"]
+[ext_resource type="Texture2D" uid="uid://3cciavqnx2r7" path="res://assets/ui/color/green1.png" id="34_2nri4"]
+[ext_resource type="Texture2D" uid="uid://fwls31uwy56r" path="res://assets/ui/color/orange.png" id="35_1kq03"]
+[ext_resource type="Texture2D" uid="uid://brqbt7j3bl2ta" path="res://assets/ui/color/orange1.png" id="36_i11mu"]
+[ext_resource type="Texture2D" uid="uid://doa28xinh2rqg" path="res://assets/ui/color/yellow.png" id="37_pvtvr"]
+[ext_resource type="Texture2D" uid="uid://1uf88rlw2t8p" path="res://assets/ui/color/yellow1.png" id="38_l6pmf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
 
@@ -154,74 +170,91 @@ texture_hover = ExtResource("6_aph2w")
 
 [node name="ColorPanel" type="Control" parent="ShopWorkArea" unique_id=1671965503]
 anchors_preset = 0
-offset_left = 464.0
-offset_top = 33.0
-offset_right = 790.0
-offset_bottom = 203.0
+offset_left = 461.0
+offset_top = 19.000002
+offset_right = 787.0
+offset_bottom = 189.0
+scale = Vector2(1.0813456, 1.0813456)
 
-[node name="white" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=2115182727]
+[node name="white" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1638328186]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 12.0
 offset_right = 57.0
 offset_bottom = 68.0
-text = "B"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("23_5j4yg")
+texture_hover = ExtResource("24_tjdnc")
 
-[node name="black" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=203091206]
+[node name="black" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=222681165]
 layout_mode = 0
 offset_left = 86.0
 offset_top = 12.0
 offset_right = 137.0
 offset_bottom = 68.0
-text = "CZA"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("25_ea2bg")
+texture_hover = ExtResource("26_crp7e")
 
-[node name="pink" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=2110030416]
+[node name="pink" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1757058187]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 12.0
 offset_right = 225.0
 offset_bottom = 68.0
-text = "R"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("27_r4gmm")
+texture_hover = ExtResource("28_yktrs")
 
-[node name="red" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=1600204440]
+[node name="red" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1927039959]
 layout_mode = 0
 offset_left = 262.0
 offset_top = 12.0
 offset_right = 313.0
 offset_bottom = 68.0
-text = "CZE"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("29_01p8v")
+texture_hover = ExtResource("30_05s0g")
 
-[node name="blue" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=118468071]
+[node name="blue" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=280275245]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 92.0
 offset_right = 57.0
 offset_bottom = 148.0
-text = "N"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("31_cl74d")
+texture_hover = ExtResource("32_hdl3m")
 
-[node name="green" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=1082779722]
+[node name="green" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=669509114]
 layout_mode = 0
 offset_left = 86.0
 offset_top = 92.0
 offset_right = 137.0
 offset_bottom = 148.0
-text = "Z"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("33_e0bxy")
+texture_hover = ExtResource("34_2nri4")
 
-[node name="orange" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=1372627903]
+[node name="orange" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1825800190]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 92.0
 offset_right = 225.0
 offset_bottom = 148.0
-text = "P"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("35_1kq03")
+texture_hover = ExtResource("36_i11mu")
 
-[node name="yellow" type="Button" parent="ShopWorkArea/ColorPanel" unique_id=2012548335]
+[node name="yellow" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1482498206]
 layout_mode = 0
 offset_left = 262.0
 offset_top = 92.0
 offset_right = 313.0
 offset_bottom = 148.0
-text = "ZOL"
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("37_pvtvr")
+texture_hover = ExtResource("38_l6pmf")
 
 [node name="MerchPanel" type="Control" parent="ShopWorkArea" unique_id=706203959]
 anchors_preset = 0
