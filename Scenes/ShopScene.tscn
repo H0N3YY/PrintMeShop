@@ -86,90 +86,90 @@ offset_bottom = 290.0
 
 [node name="czapka_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=21384888]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 173.00002
-offset_right = 580.0
-offset_bottom = 451.0
+offset_left = 286.0
+offset_top = 203.00002
+offset_right = 585.0
+offset_bottom = 481.0
 scale = Vector2(0.4213901, 0.4213901)
 texture_normal = ExtResource("13_0eno8")
 texture_hover = ExtResource("22_ejtx5")
 
 [node name="plakat_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=611611095]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 173.0
-offset_right = 436.0
-offset_bottom = 451.0
+offset_left = 142.0
+offset_top = 203.0
+offset_right = 441.0
+offset_bottom = 481.0
 scale = Vector2(0.42106482, 0.42106482)
 texture_normal = ExtResource("12_aph2w")
 texture_hover = ExtResource("20_jb5bo")
 
 [node name="kubek_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1442517564]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 173.0
-offset_right = 300.0
-offset_bottom = 451.0
+offset_left = 6.0
+offset_top = 203.0
+offset_right = 305.0
+offset_bottom = 481.0
 scale = Vector2(0.42196319, 0.42196319)
 texture_normal = ExtResource("11_6mlxe")
 texture_hover = ExtResource("18_rc7cg")
 
 [node name="brelok_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1886827053]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 69.0
-offset_right = 304.0
-offset_bottom = 347.0
+offset_left = 6.0
+offset_top = 99.0
+offset_right = 309.0
+offset_bottom = 377.0
 scale = Vector2(0.4225602, 0.42458937)
 texture_normal = ExtResource("8_03ylq")
 texture_hover = ExtResource("12_sxjvm")
 
 [node name="skarpety_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=514222974]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 69.0
-offset_right = 436.0
-offset_bottom = 347.0
+offset_left = 142.0
+offset_top = 99.0
+offset_right = 441.0
+offset_bottom = 377.0
 scale = Vector2(0.41954088, 0.41954088)
 texture_normal = ExtResource("9_gs7he")
 texture_hover = ExtResource("14_bfgtw")
 
 [node name="naklejki_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=677766650]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 69.0
-offset_right = 580.0
-offset_bottom = 347.0
+offset_left = 286.0
+offset_top = 99.0
+offset_right = 585.0
+offset_bottom = 377.0
 scale = Vector2(0.41629118, 0.41629118)
 texture_normal = ExtResource("10_03ylq")
 texture_hover = ExtResource("16_xmmaq")
 
 [node name="torba_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1427512731]
 layout_mode = 0
-offset_left = 289.0
-offset_top = -27.0
-offset_right = 588.0
-offset_bottom = 251.0
+offset_left = 285.0
+offset_top = 3.0
+offset_right = 584.0
+offset_bottom = 281.0
 scale = Vector2(0.41505778, 0.41505778)
 texture_normal = ExtResource("6_1qm6p")
 texture_hover = ExtResource("10_v8civ")
 
 [node name="pin_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=583929578]
 layout_mode = 0
-offset_left = 137.0
-offset_top = -26.999996
-offset_right = 436.0
-offset_bottom = 251.0
+offset_left = 142.0
+offset_top = 3.000002
+offset_right = 441.0
+offset_bottom = 281.0
 scale = Vector2(0.41921154, 0.41921154)
 texture_normal = ExtResource("6_k8c1k")
 texture_hover = ExtResource("8_rflng")
 
 [node name="koszulka_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1192707907]
 layout_mode = 0
-offset_left = 0.9999988
-offset_top = -27.0
-offset_right = 373.0
-offset_bottom = 251.0
+offset_left = 5.999999
+offset_top = 3.0000038
+offset_right = 378.0
+offset_bottom = 281.0
 scale = Vector2(0.42117134, 0.42117134)
 texture_normal = ExtResource("5_3qq02")
 texture_hover = ExtResource("6_aph2w")
@@ -292,6 +292,7 @@ offset_bottom = 698.0
 [node name="ResultLabel" type="Label" parent="ShopWorkArea/ResultPanel" unique_id=476599046]
 custom_minimum_size = Vector2(0.1, 0.24)
 layout_mode = 2
+size_flags_vertical = 0
 text = "Chose product"
 autowrap_mode = 3
 
