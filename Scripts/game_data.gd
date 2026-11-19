@@ -7,7 +7,7 @@ const ENDING_GOOD_MIN := 6
 const ENDING_NEUTRAL_MIN := 3
 
 const PRODUCTS := {
-	"brelok_btn": "Breloczek",
+	"brelok_btn": "Brelok",
 	"skarpety_btn": "Skarpetki",
 	"naklejki_btn": "Naklejki",
 	"koszulka_btn": "Koszulka",
@@ -61,7 +61,7 @@ const ENCOUNTERS := {
 	"skolim_1": {"character": "skolim", "order": ["Koszulka", "Różowy", "Skolim"]},
 	"npc2_1": {"character": "npc2", "order": ["Torba", "Zielony", "Hello IT"]},
 	"ideis_2": {"character": "ideis", "order": ["Kubek", "Żółty", "Ideis"]},
-	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Breloczek", "Pomarańczowy", "Kukuryniarz"]},
+	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Brelok", "Pomarańczowy", "Kukuryniarz"]},
 	"npc1_2": {"character": "npc1", "order": ["Naklejki", "Niebieski", "Poro League of Legends"]},
 	"gotka_2": {"character": "gotka", "order": ["Czapka", "Różowy", "Fat Cat"]},
 	"oscar_2": {"character": "oscar", "order": ["Skarpetki", "Biały", "Kruk z Love and Deepspace"]},
