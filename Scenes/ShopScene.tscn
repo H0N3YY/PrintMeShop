@@ -3,6 +3,26 @@
 [ext_resource type="Script" uid="uid://vurexkcngfer" path="res://Scripts/shop_scene.gd" id="1_ggt0q"]
 [ext_resource type="Texture2D" uid="uid://cqq3oiohe2g87" path="res://assets/test_base2.png" id="2_ggt0q"]
 [ext_resource type="Texture2D" uid="uid://cket5gbdinhcs" path="res://assets/test_base3.png" id="3_ggt0q"]
+[ext_resource type="Texture2D" uid="uid://bqwphcf71hbho" path="res://assets/ui/note.png" id="3_je6ka"]
+[ext_resource type="Texture2D" uid="uid://6m2pvldwa4f8" path="res://assets/ui/shopwork.png" id="3_s85eg"]
+[ext_resource type="Texture2D" uid="uid://cptek2lu60nr2" path="res://assets/ui/box/shirtClose.png" id="5_3qq02"]
+[ext_resource type="Texture2D" uid="uid://bbgtwjdktlm0c" path="res://assets/ui/box/bagClose.png" id="6_1qm6p"]
+[ext_resource type="Texture2D" uid="uid://dbta7syffv7fo" path="res://assets/ui/box/shirtOpen.png" id="6_aph2w"]
+[ext_resource type="Texture2D" uid="uid://dskepqqkwl7pt" path="res://assets/ui/box/pinClose.png" id="6_k8c1k"]
+[ext_resource type="Texture2D" uid="uid://dggw4qcar7d5g" path="res://assets/ui/box/keychainClose.png" id="8_03ylq"]
+[ext_resource type="Texture2D" uid="uid://d36ftlk4tv8j6" path="res://assets/ui/box/pinOpen.png" id="8_rflng"]
+[ext_resource type="Texture2D" uid="uid://cji4l0w5gb804" path="res://assets/ui/box/sockClose.png" id="9_gs7he"]
+[ext_resource type="Texture2D" uid="uid://wfsks737a4jv" path="res://assets/ui/box/stickerClose.png" id="10_03ylq"]
+[ext_resource type="Texture2D" uid="uid://bqmcg5nmb5jgf" path="res://assets/ui/box/bagOpen.png" id="10_v8civ"]
+[ext_resource type="Texture2D" uid="uid://grhi4mmx484" path="res://assets/ui/box/mugClose.png" id="11_6mlxe"]
+[ext_resource type="Texture2D" uid="uid://cs1jsvo8dp8xy" path="res://assets/ui/box/posterClose.png" id="12_aph2w"]
+[ext_resource type="Texture2D" uid="uid://dyjwt5g4i4jqv" path="res://assets/ui/box/keychainOpen.png" id="12_sxjvm"]
+[ext_resource type="Texture2D" uid="uid://dwphs3r8621q3" path="res://assets/ui/box/hatClose.png" id="13_0eno8"]
+[ext_resource type="Texture2D" uid="uid://c33yd8dgdhr3n" path="res://assets/ui/box/sockOpen.png" id="14_bfgtw"]
+[ext_resource type="Texture2D" uid="uid://jovxnxa8iwqy" path="res://assets/ui/box/stickerOpen.png" id="16_xmmaq"]
+[ext_resource type="Texture2D" uid="uid://c8ss5r8bx1qvd" path="res://assets/ui/box/mugOpen.png" id="18_rc7cg"]
+[ext_resource type="Texture2D" uid="uid://bk5cexpc6mi3e" path="res://assets/ui/box/posterOpen.png" id="20_jb5bo"]
+[ext_resource type="Texture2D" uid="uid://bsfftt51bn4v" path="res://assets/ui/box/hatOpen.png" id="22_ejtx5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
 
@@ -25,7 +45,15 @@ offset_right = 857.0
 offset_bottom = 722.0
 texture = ExtResource("2_ggt0q")
 
-[node name="Sprite2D" type="Sprite2D" parent="ShopWorkArea" unique_id=204199794]
+[node name="NoteList" type="Sprite2D" parent="ShopWorkArea" unique_id=1910513779]
+position = Vector2(626, 446)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("3_je6ka")
+
+[node name="OverlayWorkShop" type="Sprite2D" parent="ShopWorkArea" unique_id=204199794]
+position = Vector2(205.99997, 359)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("3_s85eg")
 
 [node name="ProductPanel" type="Control" parent="ShopWorkArea" unique_id=160274167]
 anchors_preset = 0
@@ -34,77 +62,95 @@ offset_top = 19.0
 offset_right = 419.0
 offset_bottom = 290.0
 
-[node name="brelok_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=895923184]
+[node name="koszulka_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1192707907]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 111.0
-offset_right = 126.0
-offset_bottom = 167.0
-text = "Brelok"
-
-[node name="skarpety_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=867046734]
-layout_mode = 0
-offset_left = 147.0
-offset_top = 115.0
-offset_right = 257.0
-offset_bottom = 171.0
-text = "Skarpety"
-
-[node name="naklejki_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=54696482]
-layout_mode = 0
-offset_left = 283.0
-offset_top = 113.0
-offset_right = 393.0
-offset_bottom = 169.0
-text = "naklejki"
-
-[node name="koszulka_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=784427976]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 25.0
-offset_right = 122.0
-offset_bottom = 81.0
-text = "Koszulka"
-
-[node name="pin_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=57594033]
-layout_mode = 0
-offset_left = 143.0
-offset_top = 29.0
-offset_right = 253.0
-offset_bottom = 85.0
-text = "Przypinka"
-
-[node name="torba_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=1414026880]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 27.0
-offset_right = 389.0
-offset_bottom = 83.0
-text = "Torba"
-
-[node name="kubek_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=319507144]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 195.0
-offset_right = 123.0
+offset_left = 0.9999988
+offset_top = -27.0
+offset_right = 373.0
 offset_bottom = 251.0
-text = "Kubek"
+scale = Vector2(0.42117134, 0.42117134)
+texture_normal = ExtResource("5_3qq02")
+texture_hover = ExtResource("6_aph2w")
 
-[node name="plakat_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=1446777461]
+[node name="pin_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=583929578]
 layout_mode = 0
-offset_left = 149.0
-offset_top = 195.0
-offset_right = 259.0
+offset_left = 137.00002
+offset_top = -26.999996
+offset_right = 436.0
 offset_bottom = 251.0
-text = "Plakat"
+scale = Vector2(0.41921154, 0.41921154)
+texture_normal = ExtResource("6_k8c1k")
+texture_hover = ExtResource("8_rflng")
 
-[node name="czapka_btn" type="Button" parent="ShopWorkArea/ProductPanel" unique_id=922542794]
+[node name="torba_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1427512731]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 197.0
-offset_right = 390.0
-offset_bottom = 253.0
-text = "Czapka"
+offset_left = 289.0
+offset_top = -27.0
+offset_right = 588.0
+offset_bottom = 251.0
+scale = Vector2(0.41505778, 0.41505778)
+texture_normal = ExtResource("6_1qm6p")
+texture_hover = ExtResource("10_v8civ")
+
+[node name="brelok_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1886827053]
+layout_mode = 0
+offset_left = 1.0000005
+offset_top = 69.0
+offset_right = 304.0
+offset_bottom = 347.0
+scale = Vector2(0.4225602, 0.42458937)
+texture_normal = ExtResource("8_03ylq")
+texture_hover = ExtResource("12_sxjvm")
+
+[node name="skarpety_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=514222974]
+layout_mode = 0
+offset_left = 136.99998
+offset_top = 69.0
+offset_right = 436.0
+offset_bottom = 347.0
+scale = Vector2(0.41954088, 0.41954088)
+texture_normal = ExtResource("9_gs7he")
+texture_hover = ExtResource("14_bfgtw")
+
+[node name="naklejki_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=677766650]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 69.0
+offset_right = 580.0
+offset_bottom = 347.0
+scale = Vector2(0.41629118, 0.41629118)
+texture_normal = ExtResource("10_03ylq")
+texture_hover = ExtResource("16_xmmaq")
+
+[node name="kubek_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1442517564]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 173.0
+offset_right = 300.0
+offset_bottom = 451.0
+scale = Vector2(0.42196319, 0.42196319)
+texture_normal = ExtResource("11_6mlxe")
+texture_hover = ExtResource("18_rc7cg")
+
+[node name="plakat_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=611611095]
+layout_mode = 0
+offset_left = 136.99998
+offset_top = 173.0
+offset_right = 436.0
+offset_bottom = 451.0
+scale = Vector2(0.42106482, 0.42106482)
+texture_normal = ExtResource("12_aph2w")
+texture_hover = ExtResource("20_jb5bo")
+
+[node name="czapka_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=21384888]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 173.00002
+offset_right = 580.0
+offset_bottom = 451.0
+scale = Vector2(0.4213901, 0.4213901)
+texture_normal = ExtResource("13_0eno8")
+texture_hover = ExtResource("22_ejtx5")
 
 [node name="ColorPanel" type="Control" parent="ShopWorkArea" unique_id=1671965503]
 anchors_preset = 0
@@ -186,16 +232,16 @@ offset_bottom = 549.0
 
 [node name="MerchSelect" type="ItemList" parent="ShopWorkArea/MerchPanel" unique_id=1455592665]
 layout_mode = 0
-offset_left = 7.0
-offset_top = -1.0
-offset_right = 343.0
-offset_bottom = 287.0
+offset_left = 37.0
+offset_top = 11.0
+offset_right = 344.0
+offset_bottom = 299.0
 
 [node name="ResultPanel" type="PanelContainer" parent="ShopWorkArea" unique_id=1019730277]
 layout_mode = 0
 offset_left = 25.0
-offset_top = 320.0
-offset_right = 385.0
+offset_top = 341.0
+offset_right = 406.0
 offset_bottom = 698.0
 
 [node name="ResultLabel" type="Label" parent="ShopWorkArea/ResultPanel" unique_id=476599046]
