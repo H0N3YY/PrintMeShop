@@ -46,21 +46,21 @@ const CHARACTERS := {
 # Daily schedule: each encounter ID appears exactly once
 const DAYS := [
 	["oscar_1", "gotka_1", "npc1_1"],
-	["ideis_1", "skolim_1", "npc2_1"],
+	["sekciarz_1", "skolim_1", "npc2_1"],
 	["kukuryniarz_1", "oscar_2", "npc1_2"],
-	["gotka_2", "ideis_2", "npc2_2"],
+	["gotka_2", "sekciarz_2", "npc2_2"],
 	["skolim_2", "kukuryniarz_2", "npc1_3"]
 ]
 
 # Encounter orders use [product display name, color display name, design display name].
 const ENCOUNTERS := {
 	"gotka_1": {"character": "gotka", "order": ["Koszulka", "Czarny", "Fat Cat"]},
-	"ideis_1": {"character": "ideis", "order": ["Przypinka", "Żółty", "Ideis"]},
+	"sekciarz_1": {"character": "sekciarz", "order": ["Przypinka", "Żółty", "Ideis"]},
 	"npc1_1": {"character": "npc1", "order": ["Plakat", "Biały", "Hatsune Miku"]},
 	"oscar_1": {"character": "oscar", "order": ["Czapka", "Czarny", "Kukuryniarz"]},
 	"skolim_1": {"character": "skolim", "order": ["Koszulka", "Różowy", "Skolim"]},
 	"npc2_1": {"character": "npc2", "order": ["Torba", "Zielony", "Hello IT"]},
-	"ideis_2": {"character": "ideis", "order": ["Kubek", "Żółty", "Ideis"]},
+	"sekciarz_2": {"character": "sekciarzFurry", "order": ["Kubek", "Żółty", "Ideis"]},
 	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Brelok", "Pomarańczowy", "Kukuryniarz"]},
 	"npc1_2": {"character": "npc1", "order": ["Naklejki", "Niebieski", "Poro League of Legends"]},
 	"gotka_2": {"character": "gotka", "order": ["Czapka", "Różowy", "Fat Cat"]},
