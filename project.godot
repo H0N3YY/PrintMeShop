@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="PrintMeShop"
+run/main_scene="uid://4ai10n8cx500"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
-GameState="*uid://cy6wky82g84od"
+GameState="*uid://duywxqon0bgqg"
 
 [dialogic]
 
@@ -81,7 +82,11 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 folder_colors={
 "res://Scenes/": "green",
 "res://Scripts/": "pink",
-"res://assets/characters/": "blue"
+"res://assets/characters/": "blue",
+"res://assets/ending/": "red",
+"res://assets/items/": "gray",
+"res://assets/results/": "orange",
+"res://assets/ui/": "teal"
 }
 
 [input]

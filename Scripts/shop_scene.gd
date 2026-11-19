@@ -9,8 +9,8 @@ extends Node2D
 @onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
 @onready var result_label: Label = $ShopWorkArea/ResultPanel/ResultLabel
 @onready var product_preview: Control = $ShopWorkArea/ResultPanel/ProductPreview
-@onready var cancel_button: Button = $ShopWorkArea/CancelButton
-@onready var confirm_button: Button = $ShopWorkArea/ConfirmButton
+@onready var cancel_button: TextureButton = $ShopWorkArea/CancelButton
+@onready var confirm_button: TextureButton = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
 
@@ -20,7 +20,10 @@ const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
 	"Skarpetki": "socks",
 	"Kubek": "mug",
-	"Plakat": "poster"
+	"Plakat": "poster",
+	"Torba": "bag",
+	"Brelok": "keychain",
+	"Przypinka": "pin"
 	
 }
 
@@ -56,7 +59,7 @@ func _ready() -> void:
 
 func setup_product_buttons() -> void:
 	for node_name in GameData.PRODUCTS:
-		var button: Button = product_panel.get_node_or_null(node_name) as Button
+		var button: TextureButton = product_panel.get_node_or_null(node_name) as TextureButton
 		if button == null:
 			push_warning("Product button not found: " + node_name)
 			continue
@@ -64,7 +67,7 @@ func setup_product_buttons() -> void:
 
 func setup_color_buttons() -> void:
 	for node_name in GameData.COLORS:
-		var button: Button = color_panel.get_node_or_null(node_name) as Button
+		var button: TextureButton = color_panel.get_node_or_null(node_name) as TextureButton
 		if button == null:
 			push_warning("Color button not found: " + node_name)
 			continue
@@ -95,7 +98,7 @@ func select_product(value: String) -> void:
 		print("Clear the selected product before choosing another one.")
 		return
 	selected_product = value
-	selected_color = "Biały"
+	selected_color = "Szary"
 	update_preview()
 
 func select_color(value: String) -> void:

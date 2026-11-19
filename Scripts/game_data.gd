@@ -7,7 +7,7 @@ const ENDING_GOOD_MIN := 6
 const ENDING_NEUTRAL_MIN := 3
 
 const PRODUCTS := {
-	"brelok_btn": "Breloczek",
+	"brelok_btn": "Brelok",
 	"skarpety_btn": "Skarpetki",
 	"naklejki_btn": "Naklejki",
 	"koszulka_btn": "Koszulka",
@@ -21,13 +21,13 @@ const PRODUCTS := {
 const COLORS := {
 	"white": "Biały", "black": "Czarny", "pink": "Różowy",
 	"red": "Czerwony", "blue": "Niebieski", "green": "Zielony",
-	"orange": "Pomarańczowy", "yellow": "Żółty"
+	"orange": "Pomarańczowy", "yellow": "Żółty", "gray":"Szary"
 }
 
 const DESIGNS := [
-	"Kruk z Love and Deepspace", "Ideis", "Poro League of Legends",
-	"Kukuryniarz", "Fat Cat", "Hello IT", "Hatsune Miku",
-	"Monsterek", "Egzorcysta Netflix", "Piwo Janka", "Roblox", "Skolim"
+	"Fat Cat", "Hatsune Miku", "Hello IT", "Ideis", "Kukuryniarz",
+	 "League of Legends", "Love and Deepspace", "Monsterek",
+	"Netflix", "Piwo Janka", "Roblox", "Skolim"
 ]
 
 const CHARACTERS := {
@@ -46,22 +46,22 @@ const CHARACTERS := {
 # Daily schedule: each encounter ID appears exactly once
 const DAYS := [
 	["oscar_1", "gotka_1", "npc1_1"],
-	["ideis_1", "skolim_1", "npc2_1"],
+	["sekciarz_1", "skolim_1", "npc2_1"],
 	["kukuryniarz_1", "oscar_2", "npc1_2"],
-	["gotka_2", "ideis_2", "npc2_2"],
+	["gotka_2", "sekciarz_2", "npc2_2"],
 	["skolim_2", "kukuryniarz_2", "npc1_3"]
 ]
 
 # Encounter orders use [product display name, color display name, design display name].
 const ENCOUNTERS := {
 	"gotka_1": {"character": "gotka", "order": ["Koszulka", "Czarny", "Fat Cat"]},
-	"ideis_1": {"character": "ideis", "order": ["Przypinka", "Żółty", "Ideis"]},
+	"sekciarz_1": {"character": "sekciarz", "order": ["Przypinka", "Żółty", "Ideis"]},
 	"npc1_1": {"character": "npc1", "order": ["Plakat", "Biały", "Hatsune Miku"]},
 	"oscar_1": {"character": "oscar", "order": ["Czapka", "Czarny", "Kukuryniarz"]},
 	"skolim_1": {"character": "skolim", "order": ["Koszulka", "Różowy", "Skolim"]},
 	"npc2_1": {"character": "npc2", "order": ["Torba", "Zielony", "Hello IT"]},
-	"ideis_2": {"character": "ideis", "order": ["Kubek", "Żółty", "Ideis"]},
-	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Breloczek", "Pomarańczowy", "Kukuryniarz"]},
+	"sekciarz_2": {"character": "sekciarzFurry", "order": ["Kubek", "Żółty", "Ideis"]},
+	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Brelok", "Pomarańczowy", "Kukuryniarz"]},
 	"npc1_2": {"character": "npc1", "order": ["Naklejki", "Niebieski", "Poro League of Legends"]},
 	"gotka_2": {"character": "gotka", "order": ["Czapka", "Różowy", "Fat Cat"]},
 	"oscar_2": {"character": "oscar", "order": ["Skarpetki", "Biały", "Kruk z Love and Deepspace"]},
