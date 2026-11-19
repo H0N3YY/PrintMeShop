@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://vurexkcngfer" path="res://Scripts/shop_scene.gd" id="1_ggt0q"]
 [ext_resource type="Texture2D" uid="uid://cqq3oiohe2g87" path="res://assets/test_base2.png" id="2_ggt0q"]
 [ext_resource type="Texture2D" uid="uid://gk61n3dsrlka" path="res://assets/ui/overlaystats.png" id="3_01p8v"]
-[ext_resource type="Texture2D" uid="uid://cket5gbdinhcs" path="res://assets/test_base3.png" id="3_ggt0q"]
 [ext_resource type="Texture2D" uid="uid://bqwphcf71hbho" path="res://assets/ui/note.png" id="3_je6ka"]
 [ext_resource type="Texture2D" uid="uid://6m2pvldwa4f8" path="res://assets/ui/shopwork.png" id="3_s85eg"]
 [ext_resource type="Texture2D" uid="uid://cptek2lu60nr2" path="res://assets/ui/box/shirtClose.png" id="5_3qq02"]
@@ -47,6 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://dlye4bc2x4mgx" path="res://assets/ui/accept1.png" id="41_01p8v"]
 [ext_resource type="Texture2D" uid="uid://b167o15y0og14" path="res://assets/ui/accept.png" id="42_05s0g"]
 [ext_resource type="Texture2D" uid="uid://die2ua7xxmdff" path="res://assets/ui/chatbox.png" id="46_cl74d"]
+[ext_resource type="Texture2D" uid="uid://c7fhpogwuyknq" path="res://assets/ui/dialogchose.png" id="46_hdl3m"]
+[ext_resource type="Texture2D" uid="uid://dmrkv11e1agob" path="res://assets/ui/chatbox2.png" id="47_cl74d"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
 
@@ -376,32 +377,52 @@ texture_normal = ExtResource("41_01p8v")
 texture_hover = ExtResource("42_05s0g")
 
 [node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
+[node name="cash" type="Sprite2D" parent="DialogueArea" unique_id=1530255563]
+position = Vector2(227, 528)
+texture = ExtResource("5_05s0g")
+
+[node name="DialogueBackground" type="Sprite2D" parent="DialogueArea" unique_id=336812398]
+position = Vector2(640, 360)
+texture = ExtResource("46_hdl3m")
+
 [node name="SpeechBubble" type="TextureRect" parent="DialogueArea" unique_id=1523478302]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("46_cl74d")
+offset_left = 282.0
+offset_top = 181.0
+offset_right = 1189.0
+offset_bottom = 471.0
+scale = Vector2(0.09762833, 0.25710756)
+texture = ExtResource("47_cl74d")
 
 [node name="BubbleText" type="RichTextLabel" parent="DialogueArea/SpeechBubble" unique_id=105429816]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 143.0
-offset_right = 253.0
-offset_bottom = 268.0
-text = "!"
+offset_left = 358.50244
+offset_top = 66.120186
+offset_right = 545.50244
+offset_bottom = 191.12018
+scale = Vector2(2.23456, 1.1902485)
+theme_override_colors/default_color = Color(0.4061371, 0.00011373297, 0.4061342, 1)
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 100
+bbcode_enabled = true
+text = "!!!"
+scroll_active = false
 
 [node name="ChoiceArea" type="Control" parent="DialogueArea" unique_id=38326427]
 anchors_preset = 0
-offset_left = 974.0
-offset_top = 288.0
-offset_right = 1014.0
-offset_bottom = 328.0
+offset_left = 970.0
+offset_top = 291.0
+offset_right = 1010.0
+offset_bottom = 331.0
+
+[node name="SpeechBuubleClient" type="Sprite2D" parent="DialogueArea/ChoiceArea" unique_id=1648706635]
+position = Vector2(-146, -143)
+texture = ExtResource("46_cl74d")
 
 [node name="BackgroundDialogue" type="TextureRect" parent="DialogueArea/ChoiceArea" unique_id=1229384080]
 layout_mode = 0
@@ -409,22 +430,30 @@ offset_left = -975.0
 offset_top = -293.0
 offset_right = 322.0
 offset_bottom = 443.0
-texture = ExtResource("3_ggt0q")
 
 [node name="ChoiceA" type="Button" parent="DialogueArea/ChoiceArea" unique_id=323156017]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -409.0
+offset_top = 36.0
+offset_right = -401.0
+offset_bottom = 44.0
+scale = Vector2(71.26205, 12.048497)
 
 [node name="ChoiceB" type="Button" parent="DialogueArea/ChoiceArea" unique_id=47901334]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -410.0
+offset_top = 162.0
+offset_right = -402.0
+offset_bottom = 170.0
+scale = Vector2(71.26205, 12.048497)
 
 [node name="ChoiceC" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1063767626]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -408.0
+offset_top = 289.0
+offset_right = -400.0
+offset_bottom = 297.0
+scale = Vector2(71.26205, 12.048497)
 
 [node name="TopBar" type="Control" parent="." unique_id=325720057]
 layout_mode = 3

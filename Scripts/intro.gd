@@ -11,7 +11,7 @@ const SHOP_SCENE_PATH := "res://Scenes/ShopScene.tscn"
 	$block6
 ]
 
-@onready var skip_button: Button = $skip_btn
+@onready var skip_button: TextureButton = $skip_btn
 
 var current_block_index: int = 0
 

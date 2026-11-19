@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://3aqn6n8t3c5x" path="res://assets/introComic.png" id="1_3edat"]
 [ext_resource type="Script" uid="uid://bh60knoasjfx8" path="res://Scripts/intro.gd" id="1_vmpge"]
 [ext_resource type="Texture2D" uid="uid://bemwx0tr6lkrn" path="res://assets/black.png" id="2_rrrc0"]
+[ext_resource type="Texture2D" uid="uid://bbmdwptv4fmt5" path="res://assets/ui/skip_btn.png" id="4_u3s32"]
+[ext_resource type="Texture2D" uid="uid://de3h2hovwqq0y" path="res://assets/ui/skip_btn2.png" id="5_ina6a"]
 
 [node name="Intro" type="Control" unique_id=850471463]
 layout_mode = 3
@@ -57,10 +59,12 @@ rotation = 3.1415925
 scale = Vector2(0.43490294, 0.4482799)
 texture = ExtResource("2_rrrc0")
 
-[node name="skip_btn" type="Button" parent="." unique_id=401733157]
+[node name="skip_btn" type="TextureButton" parent="." unique_id=894508107]
 layout_mode = 1
-offset_left = 1112.0
+offset_left = 1096.0
 offset_top = 656.0
-offset_right = 1263.0
-offset_bottom = 711.0
-text = "Rozpocznij Prace..."
+offset_right = 1620.0
+offset_bottom = 828.0
+scale = Vector2(0.33923262, 0.33923262)
+texture_normal = ExtResource("4_u3s32")
+texture_hover = ExtResource("5_ina6a")
