@@ -257,6 +257,8 @@ texture_normal = ExtResource("37_pvtvr")
 texture_hover = ExtResource("38_l6pmf")
 
 [node name="MerchPanel" type="Control" parent="ShopWorkArea" unique_id=706203959]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 anchors_preset = 0
 offset_left = 463.0
 offset_top = 256.0

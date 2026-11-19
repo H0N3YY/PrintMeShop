@@ -56,7 +56,7 @@ func _ready() -> void:
 
 func setup_product_buttons() -> void:
 	for node_name in GameData.PRODUCTS:
-		var button: Button = product_panel.get_node_or_null(node_name) as Button
+		var button: TextureButton = product_panel.get_node_or_null(node_name) as TextureButton
 		if button == null:
 			push_warning("Product button not found: " + node_name)
 			continue
@@ -64,7 +64,7 @@ func setup_product_buttons() -> void:
 
 func setup_color_buttons() -> void:
 	for node_name in GameData.COLORS:
-		var button: Button = color_panel.get_node_or_null(node_name) as Button
+		var button: TextureButton = color_panel.get_node_or_null(node_name) as TextureButton
 		if button == null:
 			push_warning("Color button not found: " + node_name)
 			continue
