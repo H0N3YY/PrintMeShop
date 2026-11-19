@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd6j8mwhg2mn4"
+path="res://.godot/imported/Muahahahaha znormalizowane.MP3-25840051583a4d1c41002ed54593a819.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Muahahahaha znormalizowane.MP3"
+dest_files=["res://.godot/imported/Muahahahaha znormalizowane.MP3-25840051583a4d1c41002ed54593a819.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
