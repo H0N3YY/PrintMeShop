@@ -40,11 +40,25 @@
 [ext_resource type="Texture2D" uid="uid://doa28xinh2rqg" path="res://assets/ui/color/yellow.png" id="37_pvtvr"]
 [ext_resource type="Texture2D" uid="uid://1uf88rlw2t8p" path="res://assets/ui/color/yellow1.png" id="38_l6pmf"]
 [ext_resource type="Texture2D" uid="uid://di4ilyage3nww" path="res://assets/ui/canel1.png" id="39_r4gmm"]
+[ext_resource type="FontFile" uid="uid://b5c0p00x6g6u5" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Italic.ttf" id="39_yktrs"]
 [ext_resource type="Texture2D" uid="uid://c5vrab5hpr3ol" path="res://assets/ui/canel.png" id="40_yktrs"]
 [ext_resource type="Texture2D" uid="uid://dlye4bc2x4mgx" path="res://assets/ui/accept1.png" id="41_01p8v"]
 [ext_resource type="Texture2D" uid="uid://b167o15y0og14" path="res://assets/ui/accept.png" id="42_05s0g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5j4yg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yktrs"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl74d"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+border_color = Color(1, 0.8980392, 0.33333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05s0g"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdl3m"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
 
@@ -273,14 +287,24 @@ offset_right = 817.0
 offset_bottom = 549.0
 
 [node name="MerchSelect" type="ItemList" parent="ShopWorkArea/MerchPanel" unique_id=1455592665]
+modulate = Color(1, 0.8980392, 0.33333334, 1)
+self_modulate = Color(1, 0.8980392, 0.33333334, 1)
 layout_mode = 0
-offset_left = 37.0
-offset_top = 11.0
-offset_right = 344.0
-offset_bottom = 299.0
-theme_override_colors/font_outline_color = Color(0.27450982, 0.2, 0.27058825, 1)
-theme_override_colors/scroll_hint_color = Color(0.27450982, 0.2, 0.27058825, 1)
+offset_left = 48.0
+offset_top = 14.0
+offset_right = 355.0
+offset_bottom = 302.0
+scale = Vector2(0.96000004, 1)
+theme_override_colors/font_outline_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+theme_override_colors/scroll_hint_color = Color(1, 0.8980392, 0.101960786, 0.9843137)
+theme_override_fonts/font = ExtResource("39_yktrs")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5j4yg")
+theme_override_styles/hovered_selected = SubResource("StyleBoxFlat_yktrs")
+theme_override_styles/hovered_selected_focus = SubResource("StyleBoxFlat_cl74d")
+theme_override_styles/selected = SubResource("StyleBoxFlat_05s0g")
+theme_override_styles/selected_focus = SubResource("StyleBoxFlat_hdl3m")
+allow_search = false
+wraparound_items = false
 
 [node name="ResultPanel" type="PanelContainer" parent="ShopWorkArea" unique_id=1019730277]
 layout_mode = 0
