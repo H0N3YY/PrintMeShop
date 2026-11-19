@@ -20,7 +20,10 @@ const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
 	"Skarpetki": "socks",
 	"Kubek": "mug",
-	"Plakat": "poster"
+	"Plakat": "poster",
+	"Torba": "bag",
+	"Brelok": "keychain",
+	"Przypinka": "pin"
 	
 }
 
@@ -95,7 +98,7 @@ func select_product(value: String) -> void:
 		print("Clear the selected product before choosing another one.")
 		return
 	selected_product = value
-	selected_color = "Biały"
+	selected_color = "Szary"
 	update_preview()
 
 func select_color(value: String) -> void:

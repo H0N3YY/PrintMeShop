@@ -83,7 +83,9 @@ folder_colors={
 "res://Scenes/": "green",
 "res://Scripts/": "pink",
 "res://assets/characters/": "blue",
+"res://assets/ending/": "red",
 "res://assets/items/": "gray",
+"res://assets/results/": "orange",
 "res://assets/ui/": "teal"
 }
 

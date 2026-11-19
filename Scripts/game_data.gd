@@ -21,13 +21,13 @@ const PRODUCTS := {
 const COLORS := {
 	"white": "Biały", "black": "Czarny", "pink": "Różowy",
 	"red": "Czerwony", "blue": "Niebieski", "green": "Zielony",
-	"orange": "Pomarańczowy", "yellow": "Żółty"
+	"orange": "Pomarańczowy", "yellow": "Żółty", "gray":"Szary"
 }
 
 const DESIGNS := [
-	"Kruk z Love and Deepspace", "Ideis", "Poro League of Legends",
-	"Kukuryniarz", "Fat Cat", "Hello IT", "Hatsune Miku",
-	"Monsterek", "Egzorcysta Netflix", "Piwo Janka", "Roblox", "Skolim"
+	"Fat Cat", "Hatsune Miku", "Hello IT", "Ideis", "Kukuryniarz",
+	 "League of Legends", "Love and Deepspace", "Monsterek",
+	"Netflix", "Piwo Janka", "Roblox", "Skolim"
 ]
 
 const CHARACTERS := {
