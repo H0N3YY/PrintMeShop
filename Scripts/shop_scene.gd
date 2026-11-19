@@ -9,8 +9,8 @@ extends Node2D
 @onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
 @onready var result_label: Label = $ShopWorkArea/ResultPanel/ResultLabel
 @onready var product_preview: Control = $ShopWorkArea/ResultPanel/ProductPreview
-@onready var cancel_button: Button = $ShopWorkArea/CancelButton
-@onready var confirm_button: Button = $ShopWorkArea/ConfirmButton
+@onready var cancel_button: TextureButton = $ShopWorkArea/CancelButton
+@onready var confirm_button: TextureButton = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
 
