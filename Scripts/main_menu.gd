@@ -1,7 +1,7 @@
 
 extends Control
 
-@onready var start_btn: Button = $VBoxContainer/start_btn
+@onready var start_btn: TextureButton = $VBoxContainer/start_btn
 @onready var exit_btn: Button = $VBoxContainer/exit_btn
 
 const INTRO_SCENE_PATH := "res://Scenes/Intro.tscn"
