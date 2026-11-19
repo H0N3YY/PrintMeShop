@@ -25,6 +25,8 @@ offset_right = 857.0
 offset_bottom = 722.0
 texture = ExtResource("2_ggt0q")
 
+[node name="Sprite2D" type="Sprite2D" parent="ShopWorkArea" unique_id=204199794]
+
 [node name="ProductPanel" type="Control" parent="ShopWorkArea" unique_id=160274167]
 anchors_preset = 0
 offset_left = 10.0
