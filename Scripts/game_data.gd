@@ -96,10 +96,13 @@ static func canonical_design(design_name: String) -> String:
 static func encounter_visit_number(encounter_id: String) -> int:
 	return int(encounter_id.get_slice("_", 1))
 	
-static func dialogue_timeline_path(encounter_id: String, phase: String, route: String = "") -> String:
-	var base_path := "res://assets/dialogues/%s_%s" % [encounter_id, phase]
-	if phase == "pickup" and route != "" and encounter_visit_number(encounter_id) == 2:
-		return "%s_%s.dtl" % [base_path, route]
+static func dialogue_timeline_path( encounter_id: String, phase: String, route: String = "" ) -> String:
+	var base_path: String = "res://assets/dialogues/%s_%s" % [encounter_id, phase]
+	var character_id: String = str(ENCOUNTERS[encounter_id]["character"])
+	var is_romance: bool = GameData.CHARACTERS[character_id]["romance"]
+	if phase == "pickup" and is_romance:
+		if encounter_visit_number(encounter_id) == 2:
+			return "%s_%s.dtl" % [base_path, route]
 	return "%s.dtl" % base_path
 	
 static func encounter_at(day_number: int, customer_number: int) -> Dictionary:
