@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blqexc0l8df0c"]
 
 [ext_resource type="Script" uid="uid://vurexkcngfer" path="res://Scripts/shop_scene.gd" id="1_ggt0q"]
-[ext_resource type="Texture2D" uid="uid://cqq3oiohe2g87" path="res://assets/test_base2.png" id="2_ggt0q"]
+[ext_resource type="Texture2D" uid="uid://dgewyidvxgrqb" path="res://assets/shop_background.png" id="2_hdl3m"]
 [ext_resource type="Texture2D" uid="uid://gk61n3dsrlka" path="res://assets/ui/overlaystats.png" id="3_01p8v"]
 [ext_resource type="Texture2D" uid="uid://bqwphcf71hbho" path="res://assets/ui/note.png" id="3_je6ka"]
 [ext_resource type="Texture2D" uid="uid://6m2pvldwa4f8" path="res://assets/ui/shopwork.png" id="3_s85eg"]
@@ -48,6 +48,8 @@
 [ext_resource type="Texture2D" uid="uid://die2ua7xxmdff" path="res://assets/ui/chatbox.png" id="46_cl74d"]
 [ext_resource type="Texture2D" uid="uid://c7fhpogwuyknq" path="res://assets/ui/dialogchose.png" id="46_hdl3m"]
 [ext_resource type="Texture2D" uid="uid://dmrkv11e1agob" path="res://assets/ui/chatbox2.png" id="47_cl74d"]
+[ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="48_e0bxy"]
+[ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="50_2nri4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
 
@@ -70,12 +72,11 @@ bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
 script = ExtResource("1_ggt0q")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2000363400]
-visible = false
-offset_left = -6.0
-offset_top = -13.0
-offset_right = 1291.0
-offset_bottom = 723.0
-texture = ExtResource("2_ggt0q")
+offset_top = 2.000002
+offset_right = 3508.0
+offset_bottom = 2482.0
+scale = Vector2(0.2841181, 0.28951013)
+texture = ExtResource("2_hdl3m")
 
 [node name="LeftCustomerPanel" type="Control" parent="." unique_id=360509219]
 layout_mode = 3
@@ -387,6 +388,7 @@ position = Vector2(227, 528)
 texture = ExtResource("5_05s0g")
 
 [node name="DialogueBackground" type="Sprite2D" parent="DialogueArea" unique_id=336812398]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("46_hdl3m")
 
@@ -399,7 +401,7 @@ offset_bottom = 471.0
 scale = Vector2(0.09762833, 0.25710756)
 texture = ExtResource("47_cl74d")
 
-[node name="BubbleText" type="RichTextLabel" parent="DialogueArea/SpeechBubble" unique_id=105429816]
+[node name="BubbleText" type="RichTextLabel" parent="DialogueArea/SpeechBubble" unique_id=62344474 node_paths=PackedStringArray("textbox_root")]
 layout_mode = 0
 offset_left = 358.50244
 offset_top = 66.120186
@@ -412,6 +414,9 @@ theme_override_font_sizes/bold_font_size = 100
 bbcode_enabled = true
 text = "!!!"
 scroll_active = false
+script = ExtResource("48_e0bxy")
+textbox_root = NodePath(".")
+metadata/_custom_type_script = "uid://drhfq6rmdeuri"
 
 [node name="ChoiceArea" type="Control" parent="DialogueArea" unique_id=38326427]
 anchors_preset = 0
@@ -430,29 +435,35 @@ offset_left = -1.0
 offset_right = 855.0
 offset_bottom = 718.0
 
-[node name="ChoiceA" type="Button" parent="DialogueArea/ChoiceArea" unique_id=323156017]
+[node name="ChoiceA" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1871361904]
 layout_mode = 0
 offset_left = 153.0
 offset_top = 330.0
 offset_right = 161.0
 offset_bottom = 338.0
 scale = Vector2(71.26205, 12.048497)
+script = ExtResource("50_2nri4")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
-[node name="ChoiceB" type="Button" parent="DialogueArea/ChoiceArea" unique_id=47901334]
+[node name="ChoiceB" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1513152866]
 layout_mode = 0
 offset_left = 152.0
 offset_top = 456.0
 offset_right = 160.0
 offset_bottom = 464.0
 scale = Vector2(71.26205, 12.048497)
+script = ExtResource("50_2nri4")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
-[node name="ChoiceC" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1063767626]
+[node name="ChoiceC" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1787775699]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 583.0
 offset_right = 162.0
 offset_bottom = 591.0
 scale = Vector2(71.26205, 12.048497)
+script = ExtResource("50_2nri4")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
 [node name="TopBar" type="Control" parent="." unique_id=325720057]
 layout_mode = 3
