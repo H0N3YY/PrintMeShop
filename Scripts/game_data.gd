@@ -57,7 +57,7 @@ const ENCOUNTERS := {
 	"oscar_1": {"character": "oscar", "order": ["Czapka", "Czarny", "Kukuryniarz"]},
 	"skolim_1": {"character": "skolim", "order": ["Koszulka", "Różowy", "Skolim"]},
 	"npc2_1": {"character": "npc2", "order": ["Torba", "Zielony", "Hello IT"]},
-	"sekciarz_2": {"character": "sekciarzFurry", "order": ["Kubek", "Żółty", "Ideis"]},
+	"sekciarz_2": {"character": "sekciarz", "order": ["Kubek", "Żółty", "Ideis"]},
 	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Brelok", "Pomarańczowy", "Kukuryniarz"]},
 	"npc1_2": {"character": "npc1", "order": ["Naklejki", "Niebieski", "Poro League of Legends"]},
 	"gotka_2": {"character": "gotka", "order": ["Czapka", "Różowy", "Fat Cat"]},
