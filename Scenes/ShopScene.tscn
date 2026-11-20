@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://c7fhpogwuyknq" path="res://assets/ui/dialogchose.png" id="46_hdl3m"]
 [ext_resource type="Texture2D" uid="uid://dmrkv11e1agob" path="res://assets/ui/chatbox2.png" id="47_cl74d"]
 [ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="48_e0bxy"]
+[ext_resource type="Texture2D" uid="uid://yej6u0780ly6" path="res://assets/ui/marked.png" id="50_1kq03"]
 [ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="50_2nri4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
@@ -67,6 +68,45 @@ bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdl3m"]
 bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hmg5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvtvr"]
+texture = ExtResource("50_1kq03")
+modulate_color = Color(1, 0.5411765, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nri4"]
+texture = ExtResource("50_1kq03")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xr7fy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8vj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxwl0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6pmf"]
+texture = ExtResource("50_1kq03")
+modulate_color = Color(0.21673226, 0.99999946, 0.9991713, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kq03"]
+texture = ExtResource("50_1kq03")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mlar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ff6r3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6pmf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gt6h"]
+texture = ExtResource("50_1kq03")
+modulate_color = Color(1, 1, 0.20392157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i11mu"]
+texture = ExtResource("50_1kq03")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kq03"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gt6h"]
 
 [node name="ShopScene" type="Node2D" unique_id=616358664]
 script = ExtResource("1_ggt0q")
@@ -432,31 +472,46 @@ offset_bottom = 722.0
 
 [node name="ChoiceA" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1871361904]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 342.0
-offset_right = 763.0
-offset_bottom = 427.0
+offset_left = 44.0
+offset_top = 336.0
+offset_right = 822.0
+offset_bottom = 430.0
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1hmg5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pvtvr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2nri4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xr7fy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v8vj0")
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
 [node name="ChoiceB" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1513152866]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 461.0
-offset_right = 763.0
-offset_bottom = 546.0
+offset_left = 45.0
+offset_top = 458.0
+offset_right = 822.0
+offset_bottom = 551.0
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jxwl0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l6pmf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1kq03")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0mlar")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ff6r3")
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
 [node name="ChoiceC" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1787775699]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 582.0
-offset_right = 763.0
-offset_bottom = 667.0
+offset_left = 45.0
+offset_top = 578.0
+offset_right = 822.0
+offset_bottom = 671.0
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l6pmf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7gt6h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i11mu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1kq03")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7gt6h")
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
