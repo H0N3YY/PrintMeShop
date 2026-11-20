@@ -231,38 +231,44 @@ func get_current_route() -> String:
 	var additional_points: int = intro_points if is_order_correct else 0
 	return GameState.relationship_route(character_id, additional_points)
 
+
 func start_dialogic_phase(phase: String) -> void:
 	var encounter: Dictionary = GameState.current_encounter()
 	var route: String = ""
+
 	if phase == "pickup":
 		var character_id: String = str(encounter["character"])
 		var is_romance: bool = GameData.CHARACTERS[character_id]["romance"]
+
 		if is_romance:
 			route = get_current_route()
-	var timeline_path: String = GameData.dialogue_timeline_path(str(encounter["id"]), phase, route)
+
+	var timeline_path: String = GameData.dialogue_timeline_path(
+		str(encounter["id"]), phase, route
+	)
+
 	if not ResourceLoader.exists(timeline_path):
 		push_error("Dialogic timeline not found: " + timeline_path)
 		return
-		GameState.reset_dialogue_choice()
+
+	GameState.reset_dialogue_choice()
 
 	talk_button.hide()
 	shop_work_area.hide()
-
 	dialogue_area.show()
 	$DialogueArea/ChoiceArea.show()
-	$DialogueArea/SpeechBubble.show()
-
+	
 	await get_tree().process_frame
-
-	print("Available Dialogic choice buttons:")
 	for button in get_tree().get_nodes_in_group("dialogic_choice_button"):
 		print(
-			button.name,
-			" | Parent visible: ",
-			button.get_parent().is_visible_in_tree()
-		)
+		"Choice button: ", button.name,
+		" | Parent visible: ",
+		button.get_parent().is_visible_in_tree(),
+		" | Index: ", button.choice_index
+	)
 
 	Dialogic.start_timeline(timeline_path)
+
 
 func show_intro_dialogue() -> void:
 	current_phase = "intro"
