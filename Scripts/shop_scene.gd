@@ -20,8 +20,8 @@ const ITEM_FILE_PREFIX := {
 	"Torba": "bag",
 	"Brelok": "keychain",
 	"Przypinka": "pin",
-	"Naklejki": "sticker",
-	"Czapka": "Czapka"
+	"Naklejki": "stickers",
+	"Czapka": "cap"
 }
 
 const COLOR_FILE_SUFFIX := {
