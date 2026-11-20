@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var customer_sprite: TextureRect = $LeftCustomerPanel/CustomerSprite
+@onready var talk_button: TextureButton = $LeftCustomerPanel/TalkButton
 @onready var product_panel: Control = $ShopWorkArea/ProductPanel
 @onready var color_panel: Control = $ShopWorkArea/ColorPanel
 @onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
@@ -52,7 +53,15 @@ func _ready() -> void:
 	confirm_button.pressed.connect(confirm_order)
 	create_temporary_dialogue_ui()
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
+	talk_button.pressed.connect(_on_talk_button_pressed)
 	start_customer()
+	
+func _on_talk_button_pressed() -> void:
+	if current_phase != "waiting_intro":
+		return
+
+	talk_button.hide()
+	show_intro_dialogue()
 
 func setup_product_buttons() -> void:
 	for node_name in GameData.PRODUCTS:
@@ -145,7 +154,7 @@ func update_item_texture() -> void:
 		push_warning("Texture not found: " + texture_path)
 
 func reset_order() -> void:
-	# Trash button: clear the product, color, and design
+	# Trash button = clear product, color, and design
 	selected_product = ""
 	selected_color = ""
 	selected_design = ""
@@ -171,17 +180,29 @@ func confirm_order() -> void:
 	)
 	start_pickup_dialogue()
 
+
 func start_customer() -> void:
 	var encounter: Dictionary = GameState.current_encounter()
+
 	if encounter.is_empty():
-		push_error("No current encounter is available")
+		push_error("No current encounter is available.")
 		return
+
 	reset_order()
 	pending_order.clear()
+	
 	intro_points = 0
 	pickup_points = 0
+	is_order_correct = false
+
+	current_phase = "waiting_intro"
 	set_customer_appearance("intro")
-	show_intro_dialogue()
+
+	# Show customer and shop before conversation
+	shop_work_area.show()
+	dialogue_area.hide()
+	talk_button.show()
+
 
 # Show encounter art independently from  romance ID
 func set_customer_appearance(phase: String) -> void:
@@ -218,9 +239,10 @@ func start_dialogic_phase(phase: String) -> void:
 		push_error("Dialogic timeline not found: " + timeline_path)
 		return
 	GameState.reset_dialogue_choice()
-	dialogue_area.show()
+	talk_button.hide()
 	shop_work_area.hide()
-	Dialogic.start(timeline_path)
+	dialogue_area.show()
+	Dialogic.start_timeline(timeline_path)
 
 func show_intro_dialogue() -> void:
 	current_phase = "intro"

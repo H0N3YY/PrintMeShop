@@ -103,6 +103,15 @@ texture = SubResource("CompressedTexture2D_x7s06")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="TalkButton" type="TextureButton" parent="LeftCustomerPanel" unique_id=606125101]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 165.0
+offset_right = 446.0
+offset_bottom = 305.0
+scale = Vector2(0.7484127, 0.7484127)
+texture_normal = ExtResource("47_cl74d")
+
 [node name="ShopWorkArea" type="Control" parent="." unique_id=167720252]
 layout_mode = 3
 anchors_preset = 0
@@ -388,52 +397,39 @@ position = Vector2(227, 528)
 texture = ExtResource("5_05s0g")
 
 [node name="DialogueBackground" type="Sprite2D" parent="DialogueArea" unique_id=336812398]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("46_hdl3m")
 
 [node name="SpeechBubble" type="TextureRect" parent="DialogueArea" unique_id=1523478302]
 layout_mode = 0
-offset_left = 282.0
-offset_top = 181.0
-offset_right = 1189.0
-offset_bottom = 471.0
-scale = Vector2(0.09762833, 0.25710756)
-texture = ExtResource("47_cl74d")
+offset_left = 361.00003
+offset_top = 12.000002
+offset_right = 1585.2793
+offset_bottom = 524.89996
+scale = Vector2(0.749829, 0.5381167)
+texture = ExtResource("46_cl74d")
 
 [node name="BubbleText" type="RichTextLabel" parent="DialogueArea/SpeechBubble" unique_id=62344474 node_paths=PackedStringArray("textbox_root")]
 layout_mode = 0
-offset_left = 358.50244
-offset_top = 66.120186
-offset_right = 545.50244
-offset_bottom = 191.12018
-scale = Vector2(2.23456, 1.1902485)
+offset_left = 170.70554
+offset_top = 113.3583
+offset_right = 600.4182
+offset_bottom = 187.8693
+scale = Vector2(2.23456, 3.9405806)
 theme_override_colors/default_color = Color(0.4061371, 0.00011373297, 0.4061342, 1)
-theme_override_font_sizes/normal_font_size = 100
-theme_override_font_sizes/bold_font_size = 100
 bbcode_enabled = true
-text = "!!!"
 scroll_active = false
 script = ExtResource("48_e0bxy")
 textbox_root = NodePath(".")
 metadata/_custom_type_script = "uid://drhfq6rmdeuri"
 
 [node name="ChoiceArea" type="Control" parent="DialogueArea" unique_id=38326427]
+visible = false
 anchors_preset = 0
 offset_left = 425.0
 offset_top = 1.0
 offset_right = 1281.0
 offset_bottom = 722.0
-
-[node name="SpeechBuubleClient" type="Sprite2D" parent="DialogueArea/ChoiceArea" unique_id=1648706635]
-position = Vector2(400, 146)
-texture = ExtResource("46_cl74d")
-
-[node name="BackgroundDialogue" type="TextureRect" parent="DialogueArea/ChoiceArea" unique_id=1229384080]
-layout_mode = 0
-offset_left = -1.0
-offset_right = 855.0
-offset_bottom = 718.0
 
 [node name="ChoiceA" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1871361904]
 layout_mode = 0
@@ -441,7 +437,7 @@ offset_left = 153.0
 offset_top = 330.0
 offset_right = 161.0
 offset_bottom = 338.0
-scale = Vector2(71.26205, 12.048497)
+scale = Vector2(6.2784014, 2.7062216)
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
@@ -451,7 +447,7 @@ offset_left = 152.0
 offset_top = 456.0
 offset_right = 160.0
 offset_bottom = 464.0
-scale = Vector2(71.26205, 12.048497)
+scale = Vector2(6.278401, 2.7062213)
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
@@ -461,7 +457,7 @@ offset_left = 154.0
 offset_top = 583.0
 offset_right = 162.0
 offset_bottom = 591.0
-scale = Vector2(71.26205, 12.048497)
+scale = Vector2(6.2784014, 2.7062192)
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
@@ -473,10 +469,10 @@ offset_bottom = 64.0
 
 [node name="HeartsContainer" type="HBoxContainer" parent="TopBar" unique_id=237922356]
 layout_mode = 0
-offset_left = 220.0
-offset_top = -79.0
-offset_right = 296.0
-offset_bottom = -43.0
+offset_left = 172.0
+offset_top = 15.0
+offset_right = 248.0
+offset_bottom = 51.0
 
 [node name="day1" type="Label" parent="TopBar/HeartsContainer" unique_id=1685028905]
 layout_mode = 2
