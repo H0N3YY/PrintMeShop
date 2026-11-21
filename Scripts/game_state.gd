@@ -99,15 +99,44 @@ func best_character() -> String:
 			winners.append(character_id)
 	return winners[0] if winners.size() == 1 else ""
 
+
+func best_character_of_day() -> String:
+	var daily_scores: Dictionary = {}
+	for encounter_id in GameData.DAYS[day - 1]:
+		if not completed.has(encounter_id):
+			continue
+		var result: Dictionary = completed[encounter_id]
+		var character_id: String = str(result["character"])
+		if not love.has(character_id):
+			continue
+		if not daily_scores.has(character_id):
+			daily_scores[character_id] = 0
+		daily_scores[character_id] += int(result["points"])
+	var best_score: int = 0
+	var best_id: String = ""
+	var tied: bool = false
+	for character_id in daily_scores:
+		var score: int = int(daily_scores[character_id])
+		if score > best_score:
+			best_score = score
+			best_id = character_id
+			tied = false
+		elif score == best_score and score > 0:
+			tied = true
+	if tied or best_score == 0:
+		return ""
+	return best_id
+
 func day_summary() -> Dictionary:
 	return {
 		"day": day,
 		"correct": daily_correct,
 		"wrong": daily_wrong,
 		"love_gained": daily_love,
-		"best": best_character(),
+		"best": best_character_of_day(),
 		"love": love.duplicate(true)
 	}
+
 
 func finish_day() -> Dictionary:
 	last_day_summary = day_summary()
