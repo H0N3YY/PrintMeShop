@@ -172,7 +172,8 @@ scale = Vector2(0.99999994, 1)
 texture = ExtResource("3_je6ka")
 
 [node name="cash" type="Sprite2D" parent="ShopWorkArea" unique_id=1660838858]
-position = Vector2(-202, 527)
+position = Vector2(-210.75, 527)
+scale = Vector2(1.0376344, 1)
 texture = ExtResource("5_05s0g")
 
 [node name="OverlayWorkShop" type="Sprite2D" parent="ShopWorkArea" unique_id=204199794]
@@ -433,14 +434,14 @@ texture_normal = ExtResource("41_01p8v")
 texture_hover = ExtResource("42_05s0g")
 
 [node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="cash" type="Sprite2D" parent="DialogueArea" unique_id=1530255563]
-position = Vector2(227, 528)
+position = Vector2(220.25, 528)
+scale = Vector2(1.0290322, 1)
 texture = ExtResource("5_05s0g")
 
 [node name="DialogueBackground" type="Sprite2D" parent="DialogueArea" unique_id=336812398]

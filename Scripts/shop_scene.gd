@@ -39,6 +39,11 @@ const COLOR_FILE_SUFFIX := {
 	"Pomarańczowy": "orange", "Żółty": "yellow"
 }
 
+const CUSTOMER_MOVE_DURATION: float = 1.5
+
+var customer_rest_position: Vector2
+var customer_is_moving: bool = false
+
 var preview_texture_rect: TextureRect
 var selected_product := ""
 var selected_color := ""
@@ -53,7 +58,9 @@ var overlay: Control
 var overlay_message: Label
 var overlay_buttons: VBoxContainer
 
+
 func _ready() -> void:
+	customer_rest_position = customer_sprite.position
 	setup_preview_texture()
 	setup_product_buttons()
 	setup_color_buttons()
@@ -229,7 +236,9 @@ func start_customer() -> void:
 	# Show customer and shop before conversation
 	shop_work_area.show()
 	dialogue_area.hide()
-	talk_button.show()
+	talk_button.hide()
+	
+	animate_customer_enter()
 
 
 # Show encounter art independently from  romance ID
@@ -315,16 +324,27 @@ func start_pickup_dialogue() -> void:
 	set_customer_appearance("pickup")
 	start_dialogic_phase("pickup")
 
+
 func on_pickup_choice(points: int) -> void:
 	pickup_points = points
 	dialogue_area.hide()
-	var result: Dictionary = GameState.complete_encounter(pending_order, intro_points, pickup_points)
+
+	var result: Dictionary = GameState.complete_encounter(
+		pending_order,
+		intro_points,
+		pickup_points
+	)
+
 	if result.is_empty():
 		return
+
+	await animate_customer_exit()
+
 	if GameState.has_more_customers_today():
 		start_customer()
 	else:
 		show_day_results()
+
 
 func _on_dialogic_timeline_ended() -> void:
 	if current_phase != "intro" and current_phase != "pickup":
@@ -442,3 +462,55 @@ func show_action(message: String, button_text: String, callback: Callable) -> vo
 	button.pressed.connect(callback)
 	overlay_buttons.add_child(button)
 	overlay.show()
+	
+func animate_customer_enter() -> void:
+	customer_is_moving = true
+	talk_button.hide()
+
+	# Start outside the left side of the screen.
+	customer_sprite.position = Vector2(
+		-customer_sprite.size.x - 50.0,
+		customer_rest_position.y
+	)
+
+	customer_sprite.show()
+
+	var tween: Tween = create_tween()
+
+	tween.tween_property(
+		customer_sprite,
+		"position",
+		customer_rest_position,
+		CUSTOMER_MOVE_DURATION
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	await tween.finished
+
+	customer_is_moving = false
+
+	if current_phase == "waiting_intro":
+		talk_button.show()
+
+
+func animate_customer_exit() -> void:
+	customer_is_moving = true
+	talk_button.hide()
+
+	var exit_position := Vector2(
+		get_viewport_rect().size.x + 50.0,
+		customer_rest_position.y
+	)
+
+	var tween: Tween = create_tween()
+
+	tween.tween_property(
+		customer_sprite,
+		"position",
+		exit_position,
+		CUSTOMER_MOVE_DURATION
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+	await tween.finished
+
+	customer_sprite.hide()
+	customer_is_moving = false
