@@ -58,10 +58,10 @@ const MERCH_TEXTURES := {
 }
 # Right Down Left Top
 const PRODUCT_LOGO_RECTS := {
-	"Koszulka": Rect2(0.36, 0.36, 0.28, 0.25),
-	"Czapka": Rect2(0.36, 0.55, 0.28, 0.19),
-	"Kubek": Rect2(0.29, 0.32, 0.35, 0.37),
-	"Torba": Rect2(0.30, 0.42, 0.40, 0.32),
+	"Koszulka": Rect2(0.36, 0.36, 0.22, 0.25),
+	"Czapka": Rect2(0.33, 0.26, 0.28, 0.19),
+	"Kubek": Rect2(0.28, 0.32, 0.28, 0.37),
+	"Torba": Rect2(0.30, 0.50, 0.38, 0.32),
 	"Plakat": Rect2(0.27, 0.25, 0.46, 0.50),
 	"Skarpetki": Rect2(0.31, 0.44, 0.30, 0.22),
 	"Brelok": Rect2(0.43, 0.40, 0.25, 0.30),
@@ -70,10 +70,10 @@ const PRODUCT_LOGO_RECTS := {
 }
 
 const PRODUCT_LOGO_SCALE := {
-	"Koszulka": 1.50,
-	"Czapka": 1.65,
-	"Kubek": 1.40,
-	"Torba": 1.55,
+	"Koszulka":2.50,
+	"Czapka": 2.80,
+	"Kubek": 2.00,
+	"Torba": 1.90,
 	"Plakat": 1.25,
 	"Skarpetki": 1.50,
 	"Brelok": 1.40,
