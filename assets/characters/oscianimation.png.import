@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsbbqkxmgny26"
-path="res://.godot/imported/oscaranimation.png-4cf092b090c3eebea54ee65901a586cd.ctex"
+path="res://.godot/imported/oscianimation.png-115ee0367ef93efbe59df7dea8f4c516.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/oscaranimation.png"
-dest_files=["res://.godot/imported/oscaranimation.png-4cf092b090c3eebea54ee65901a586cd.ctex"]
+source_file="res://assets/characters/oscianimation.png"
+dest_files=["res://.godot/imported/oscianimation.png-115ee0367ef93efbe59df7dea8f4c516.ctex"]
 
 [params]
 

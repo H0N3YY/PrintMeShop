@@ -557,3 +557,5 @@ stream = ExtResource("56_b68je")
 stream = ExtResource("57_jxwl0")
 volume_db = -30.455
 autoplay = true
+
+[node name="IdleAnimationTimer" type="Timer" parent="." unique_id=71083003]

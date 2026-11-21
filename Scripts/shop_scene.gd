@@ -18,6 +18,11 @@ extends Node2D
 @onready var merch_sound: AudioStreamPlayer = $MerchSound
 @onready var sell_sound: AudioStreamPlayer = $SellSound
 @onready var remove_sound: AudioStreamPlayer = $RemoveSound
+@onready var idle_animation_timer: Timer = $IdleAnimationTimer
+
+var idle_base_texture: Texture2D
+var idle_alt_texture: Texture2D
+var idle_frame_active: bool = false
 
 const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
 
@@ -38,6 +43,19 @@ const COLOR_FILE_SUFFIX := {
 	"Czerwony": "red", "Niebieski": "blue", "Zielony": "green",
 	"Pomarańczowy": "orange", "Żółty": "yellow"
 }
+
+
+const CHARACTER_IDLE_FRAMES := {
+	"res://assets/characters/osci.png": "res://assets/characters/oscianimation.png",
+	"res://assets/characters/gotka1.png": "res://assets/characters/gotka1animation.png",
+	"res://assets/characters/gotka2.png": "res://assets/characters/gotka2animation.png",
+	"res://assets/characters/skolim1.png": "res://assets/characters/skolim1animation.png",
+	"res://assets/characters/skolim2.png": "res://assets/characters/skolim2animation.png",
+	"res://assets/characters/sekciarz1.png": "res://assets/characters/sekciarz1animation.png",
+	"res://assets/characters/sekciarz2.png": "res://assets/characters/sekciarz2animation.png",
+	"res://assets/characters/kukuryniarz.png": "res://assets/characters/kukuryniarzanimation.png"
+}
+
 
 const CUSTOMER_MOVE_DURATION: float = 1.5
 
@@ -71,6 +89,7 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
 	talk_button.pressed.connect(_on_talk_button_pressed)
 	update_day_counter()
+	idle_animation_timer.timeout.connect(_on_idle_animation_timer_timeout)
 	start_customer()
 	
 	
@@ -261,6 +280,7 @@ func set_customer_appearance(phase: String) -> void:
 		customer_sprite.texture = load(texture_path) as Texture2D
 	elif texture_path != "":
 		push_warning("Missing character texture: " + texture_path)
+		setup_idle_animation(texture_path)
 
 func get_current_route() -> String:
 	var encounter: Dictionary = GameState.current_encounter()
@@ -499,6 +519,8 @@ func animate_customer_enter() -> void:
 
 
 func animate_customer_exit() -> void:
+	idle_animation_timer.stop()
+	customer_sprite.texture = idle_base_texture
 	customer_is_moving = true
 	talk_button.hide()
 
@@ -520,3 +542,41 @@ func animate_customer_exit() -> void:
 
 	customer_sprite.hide()
 	customer_is_moving = false
+	
+	
+func setup_idle_animation(texture_path: String) -> void:
+	idle_animation_timer.stop()
+
+	idle_base_texture = customer_sprite.texture
+	idle_alt_texture = null
+	idle_frame_active = false
+
+	var animation_path: String = str(
+		CHARACTER_IDLE_FRAMES.get(texture_path, "")
+	)
+
+	if animation_path.is_empty():
+		return
+
+	if not ResourceLoader.exists(animation_path):
+		return
+
+	idle_alt_texture = load(animation_path) as Texture2D
+
+	if idle_base_texture != null and idle_alt_texture != null:
+		idle_animation_timer.start()
+
+
+func _on_idle_animation_timer_timeout() -> void:
+	if idle_base_texture == null or idle_alt_texture == null:
+		return
+
+	if customer_is_moving:
+		return
+
+	idle_frame_active = not idle_frame_active
+
+	if idle_frame_active:
+		customer_sprite.texture = idle_alt_texture
+	else:
+		customer_sprite.texture = idle_base_texture
