@@ -240,7 +240,6 @@ func select_product(value: String) -> void:
 	
 func select_color(value: String) -> void:
 	if selected_product == "":
-		print("Select a product first.")
 		return
 		
 	selected_color = value
@@ -251,7 +250,6 @@ func select_color(value: String) -> void:
 func on_design_selected(index: int) -> void:
 	if selected_product.is_empty() or selected_color.is_empty():
 		merch_select.deselect_all()
-		print("Select a product and color first.")
 		return
 
 	selected_design = merch_select.get_item_text(index)
@@ -285,11 +283,6 @@ func update_item_texture() -> void:
 	var texture_path: String = (
 		"res://assets/items/%s%s.png" % [prefix, suffix]
 	)
-
-	print("Selected product: ", selected_product)
-	print("Selected color: ", selected_color)
-	print("Loading texture: ", texture_path)
-	print("File exists: ", ResourceLoader.exists(texture_path))
 
 	if ResourceLoader.exists(texture_path):
 		preview_texture_rect.texture = load(texture_path) as Texture2D

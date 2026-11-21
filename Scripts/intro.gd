@@ -72,8 +72,6 @@ func reveal_next_block() -> void:
 	current_block_index += 1
 	is_fading = false
 
-	print("Revealed comic panel: ", current_block_index)
-
 func start_shop() -> void:
 	GameState.new_game()
 
