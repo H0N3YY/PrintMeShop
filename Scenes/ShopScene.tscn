@@ -528,32 +528,14 @@ anchors_preset = 0
 offset_right = 351.0
 offset_bottom = 64.0
 
-[node name="HeartsContainer" type="HBoxContainer" parent="TopBar" unique_id=237922356]
+[node name="DayLabel" type="Label" parent="TopBar" unique_id=659522522]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 15.0
-offset_right = 248.0
-offset_bottom = 51.0
-
-[node name="day1" type="Label" parent="TopBar/HeartsContainer" unique_id=1685028905]
-layout_mode = 2
-text = "♥"
-
-[node name="day2" type="Label" parent="TopBar/HeartsContainer" unique_id=471753301]
-layout_mode = 2
-text = "♡"
-
-[node name="day3" type="Label" parent="TopBar/HeartsContainer" unique_id=717411200]
-layout_mode = 2
-text = "♡"
-
-[node name="day4" type="Label" parent="TopBar/HeartsContainer" unique_id=1525771928]
-layout_mode = 2
-text = "♡"
-
-[node name="day5" type="Label" parent="TopBar/HeartsContainer" unique_id=874861667]
-layout_mode = 2
-text = "♡"
+offset_left = 166.0
+offset_top = 19.0
+offset_right = 235.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 18
+text = "DAY 1/5"
 
 [node name="ProductSound" type="AudioStreamPlayer" parent="." unique_id=1822417404]
 stream = ExtResource("52_i11mu")

@@ -11,6 +11,8 @@ extends Node2D
 @onready var confirm_button: TextureButton = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
+@onready var day_label: Label = $TopBar/DayLabel
+
 @onready var product_sound: AudioStreamPlayer = $ProductSound
 @onready var color_sound: AudioStreamPlayer = $ColorSound
 @onready var merch_sound: AudioStreamPlayer = $MerchSound
@@ -61,7 +63,15 @@ func _ready() -> void:
 	create_temporary_dialogue_ui()
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
 	talk_button.pressed.connect(_on_talk_button_pressed)
+	update_day_counter()
 	start_customer()
+	
+	
+func update_day_counter() -> void:
+	day_label.text = "DAY %d/%d" % [
+		GameState.day,
+		GameData.MAX_DAYS
+	]
 	
 func _on_cancel_pressed() -> void:
 	
