@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dsmyen1r8v1a"]
+
+[ext_resource type="Texture2D" uid="uid://lh6gbxf1gwve" path="res://assets/results/nightShop_background.png" id="1_fhok7"]
+[ext_resource type="Script" uid="uid://bhf5dkhy2hp3r" path="res://Scripts/results.gd" id="1_mma32"]
+[ext_resource type="Texture2D" uid="uid://57bvoymb5bgs" path="res://assets/results/oscar_results_1.png" id="3_7frha"]
+
+[node name="Results" type="Control" unique_id=427100243]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mma32")
+
+[node name="BackgroundResults" type="TextureRect" parent="." unique_id=285609174]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("1_fhok7")
+
+[node name="SceneImage" type="TextureRect" parent="." unique_id=1737803866]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1280.0
+offset_bottom = 721.0
+mouse_filter = 2
+
+[node name="OscarResults1" type="Sprite2D" parent="." unique_id=736407127]
+visible = false
+position = Vector2(639, 358)
+texture = ExtResource("3_7frha")
+
+[node name="QuoteLabel" type="Label" parent="." unique_id=1922361792]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 67.0
+offset_right = 1183.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 3
+max_lines_visible = 6
+
+[node name="StatsPanel" type="PanelContainer" parent="." unique_id=896260685]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 288.0
+offset_right = 1128.0
+offset_bottom = 360.0
+
+[node name="StatsText" type="Label" parent="StatsPanel" unique_id=1121070389]
+layout_mode = 2
+
+[node name="DayLabel" type="Label" parent="." unique_id=1865602481]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 149.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 20
+
+[node name="NextDay_btn" type="Button" parent="." unique_id=58606926]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 624.0
+offset_right = 1248.0
+offset_bottom = 696.0
+text = "NEXT DAY"

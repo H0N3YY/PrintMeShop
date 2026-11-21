@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsbbqkxmgny26"
-path="res://.godot/imported/oscaranimation.png-4cf092b090c3eebea54ee65901a586cd.ctex"
+uid="uid://isfeubucuwoj"
+path="res://.godot/imported/e_sekciarz_2.png-dcf9ddf2cc7904645cad4de31874c432.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/oscaranimation.png"
-dest_files=["res://.godot/imported/oscaranimation.png-4cf092b090c3eebea54ee65901a586cd.ctex"]
+source_file="res://assets/ending/e_sekciarz_2.png"
+dest_files=["res://.godot/imported/e_sekciarz_2.png-dcf9ddf2cc7904645cad4de31874c432.ctex"]
 
 [params]
 

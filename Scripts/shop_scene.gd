@@ -11,6 +11,20 @@ extends Node2D
 @onready var confirm_button: TextureButton = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
+@onready var day_label: Label = $TopBar/DayLabel
+
+@onready var product_sound: AudioStreamPlayer = $ProductSound
+@onready var color_sound: AudioStreamPlayer = $ColorSound
+@onready var merch_sound: AudioStreamPlayer = $MerchSound
+@onready var sell_sound: AudioStreamPlayer = $SellSound
+@onready var remove_sound: AudioStreamPlayer = $RemoveSound
+@onready var idle_animation_timer: Timer = $IdleAnimationTimer
+
+var idle_base_texture: Texture2D
+var idle_alt_texture: Texture2D
+var idle_frame_active: bool = false
+
+const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
 
 const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
@@ -30,6 +44,24 @@ const COLOR_FILE_SUFFIX := {
 	"Pomarańczowy": "orange", "Żółty": "yellow"
 }
 
+
+const CHARACTER_IDLE_FRAMES := {
+	"res://assets/characters/osci.png": "res://assets/characters/oscianimation.png",
+	"res://assets/characters/gotka1.png": "res://assets/characters/gotka1animation.png",
+	"res://assets/characters/gotka2.png": "res://assets/characters/gotka2animation.png",
+	"res://assets/characters/skolim1.png": "res://assets/characters/skolim1animation.png",
+	"res://assets/characters/skolim2.png": "res://assets/characters/skolim2animation.png",
+	"res://assets/characters/sekciarz1.png": "res://assets/characters/sekciarz1animation.png",
+	"res://assets/characters/sekciarz2.png": "res://assets/characters/sekciarz2animation.png",
+	"res://assets/characters/kukuryniarz.png": "res://assets/characters/kukuryniarzanimation.png"
+}
+
+
+const CUSTOMER_MOVE_DURATION: float = 1.5
+
+var customer_rest_position: Vector2
+var customer_is_moving: bool = false
+
 var preview_texture_rect: TextureRect
 var selected_product := ""
 var selected_color := ""
@@ -44,17 +76,33 @@ var overlay: Control
 var overlay_message: Label
 var overlay_buttons: VBoxContainer
 
+
 func _ready() -> void:
+	customer_rest_position = customer_sprite.position
 	setup_preview_texture()
 	setup_product_buttons()
 	setup_color_buttons()
 	setup_merch_list()
-	cancel_button.pressed.connect(reset_order)
+	cancel_button.pressed.connect(_on_cancel_pressed)
 	confirm_button.pressed.connect(confirm_order)
 	create_temporary_dialogue_ui()
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
 	talk_button.pressed.connect(_on_talk_button_pressed)
+	update_day_counter()
+	idle_animation_timer.timeout.connect(_on_idle_animation_timer_timeout)
 	start_customer()
+	
+	
+func update_day_counter() -> void:
+	day_label.text = "DAY %d/%d" % [
+		GameState.day,
+		GameData.MAX_DAYS
+	]
+	
+func _on_cancel_pressed() -> void:
+	
+	remove_sound.play()
+	reset_order()
 	
 func _on_talk_button_pressed() -> void:
 	if current_phase != "waiting_intro":
@@ -97,24 +145,29 @@ func setup_preview_texture() -> void:
 	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func select_product(value: String) -> void:
-	print("Product button pressed: ", value)
-	# Selecting a different product requires clearing the current order first.
 	if selected_product != "":
 		print("Clear the selected product before choosing another one.")
 		return
+
+	product_sound.play()
 	selected_product = value
 	selected_color = "Szary"
 	update_preview()
-
+	
+	
 func select_color(value: String) -> void:
 	if selected_product == "":
 		print("Select a product first.")
 		return
+		
 	selected_color = value
+	color_sound.play()
 	update_preview()
+
 
 func on_design_selected(index: int) -> void:
 	selected_design = merch_select.get_item_text(index)
+	merch_sound.play()
 	update_preview()
 
 func update_preview() -> void:
@@ -178,6 +231,7 @@ func confirm_order() -> void:
 		and selected_color == expected[1]
 		and selected_design == expected[2]
 	)
+	sell_sound.play()
 	start_pickup_dialogue()
 
 
@@ -201,29 +255,42 @@ func start_customer() -> void:
 	# Show customer and shop before conversation
 	shop_work_area.show()
 	dialogue_area.hide()
-	talk_button.show()
+	talk_button.hide()
+	
+	animate_customer_enter()
 
 
 # Show encounter art independently from  romance ID
+
+
 func set_customer_appearance(phase: String) -> void:
 	var encounter: Dictionary = GameState.current_encounter()
 	var character_id: String = str(encounter["character"])
 	var character: Dictionary = GameData.CHARACTERS[character_id]
 	var texture_path: String = str(character.get("texture", ""))
 	var appearances: Dictionary = GameData.CHARACTER_APPEARANCES.get(character_id, {})
+
 	if not appearances.is_empty():
 		texture_path = str(appearances.get("default", texture_path))
+
 		if GameData.encounter_visit_number(str(encounter["id"])) == 2:
 			texture_path = str(appearances.get("second_visit", texture_path))
+
 		if phase == "pickup":
 			var route: String = get_current_route()
-			# Optional overrides e.g. "pickup_good", "pickup_neutral", "pickup_bad"
 			texture_path = str(appearances.get("pickup_" + route, texture_path))
+
 	customer_sprite.texture = null
+
 	if texture_path != "" and ResourceLoader.exists(texture_path):
 		customer_sprite.texture = load(texture_path) as Texture2D
 	elif texture_path != "":
 		push_warning("Missing character texture: " + texture_path)
+
+	# Always configure idle animation after loading the appearance.
+	setup_idle_animation(texture_path)
+
+
 
 func get_current_route() -> String:
 	var encounter: Dictionary = GameState.current_encounter()
@@ -287,16 +354,33 @@ func start_pickup_dialogue() -> void:
 	set_customer_appearance("pickup")
 	start_dialogic_phase("pickup")
 
+
+
 func on_pickup_choice(points: int) -> void:
 	pickup_points = points
+
+	# Close dialogue and restore the shop UI.
 	dialogue_area.hide()
-	var result: Dictionary = GameState.complete_encounter(pending_order, intro_points, pickup_points)
+	shop_work_area.show()
+
+	var result: Dictionary = GameState.complete_encounter(
+		pending_order,
+		intro_points,
+		pickup_points
+	)
+
 	if result.is_empty():
 		return
+
+	# Animate only the customer sprite.
+	await animate_customer_exit()
+
 	if GameState.has_more_customers_today():
 		start_customer()
 	else:
 		show_day_results()
+
+
 
 func _on_dialogic_timeline_ended() -> void:
 	if current_phase != "intro" and current_phase != "pickup":
@@ -312,20 +396,14 @@ func _on_dialogic_timeline_ended() -> void:
 
 func show_day_results() -> void:
 	current_phase = "results"
-	shop_work_area.hide()
-	var summary: Dictionary = GameState.finish_day()
-	var best_name := "Samotny wieczór (remis lub zero punktów)"
-	if summary["best"] != "":
-		best_name = GameData.CHARACTERS[summary["best"]]["name"]
-	var message := "DZIEŃ %d / %d\nPoprawne: %d   Błędne: %d\nNowe serduszka: %d\nNajlepsza relacja: %s" % [
-		summary["day"], GameData.MAX_DAYS, summary["correct"],
-		summary["wrong"], summary["love_gained"], best_name
-	]
-	if GameState.day == GameData.MAX_DAYS:
-		show_action(message, "Zobacz finał", show_final_ending)
-	else:
-		show_action(message, "Następny dzień", next_day)
 
+	GameState.finish_day()
+
+	get_tree().call_deferred(
+		"change_scene_to_file",
+		RESULTS_SCENE_PATH
+	)
+	
 func next_day() -> void:
 	if GameState.go_to_next_day():
 		overlay.hide()
@@ -420,3 +498,95 @@ func show_action(message: String, button_text: String, callback: Callable) -> vo
 	button.pressed.connect(callback)
 	overlay_buttons.add_child(button)
 	overlay.show()
+	
+func animate_customer_enter() -> void:
+	customer_is_moving = true
+	talk_button.hide()
+
+	# Start outside the left side of the screen.
+	customer_sprite.position = Vector2(
+		-customer_sprite.size.x - 50.0,
+		customer_rest_position.y
+	)
+
+	customer_sprite.show()
+
+	var tween: Tween = create_tween()
+
+	tween.tween_property(
+		customer_sprite,
+		"position",
+		customer_rest_position,
+		CUSTOMER_MOVE_DURATION
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	await tween.finished
+
+	customer_is_moving = false
+
+	if current_phase == "waiting_intro":
+		talk_button.show()
+
+
+func animate_customer_exit() -> void:
+	idle_animation_timer.stop()
+	customer_sprite.texture = idle_base_texture
+	customer_is_moving = true
+	talk_button.hide()
+
+	var exit_position := Vector2(
+		get_viewport_rect().size.x + 50.0,
+		customer_rest_position.y
+	)
+
+	var tween: Tween = create_tween()
+
+	tween.tween_property(
+		customer_sprite,
+		"position",
+		exit_position,
+		CUSTOMER_MOVE_DURATION
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+	await tween.finished
+
+	customer_sprite.hide()
+	customer_is_moving = false
+	
+	
+func setup_idle_animation(texture_path: String) -> void:
+	idle_animation_timer.stop()
+
+	idle_base_texture = customer_sprite.texture
+	idle_alt_texture = null
+	idle_frame_active = false
+
+	var animation_path: String = str(
+		CHARACTER_IDLE_FRAMES.get(texture_path, "")
+	)
+
+	if animation_path.is_empty():
+		return
+
+	if not ResourceLoader.exists(animation_path):
+		return
+
+	idle_alt_texture = load(animation_path) as Texture2D
+
+	if idle_base_texture != null and idle_alt_texture != null:
+		idle_animation_timer.start()
+
+
+func _on_idle_animation_timer_timeout() -> void:
+	if idle_base_texture == null or idle_alt_texture == null:
+		return
+
+	if customer_is_moving:
+		return
+
+	idle_frame_active = not idle_frame_active
+
+	if idle_frame_active:
+		customer_sprite.texture = idle_alt_texture
+	else:
+		customer_sprite.texture = idle_base_texture

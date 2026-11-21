@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cd2sxl2fdkeks"]
+
+[node name="Ending" type="Control" unique_id=1464278732]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BackgroundEnding" type="TextureRect" parent="." unique_id=1027053313]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="SceneImage" type="TextureRect" parent="." unique_id=1464195610]
+layout_mode = 0
+offset_right = 1279.0
+offset_bottom = 719.0
+mouse_filter = 2
+stretch_mode = 6
+
+[node name="QuoteLabel" type="Label" parent="." unique_id=77188317]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 406.0
+offset_right = 1231.0
+offset_bottom = 604.0
+autowrap_mode = 3
+max_lines_visible = 5
+
+[node name="EndingTypeLabel" type="Label" parent="." unique_id=1392132884]
+layout_mode = 0
+offset_right = 154.0
+offset_bottom = 49.0
+
+[node name="Roleplay_btn" type="Button" parent="." unique_id=1717398384]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 624.0
+offset_right = 990.0
+offset_bottom = 696.0
+text = "Zagraj Ponownie"
+
+[node name="Main_btn" type="Button" parent="." unique_id=1713257789]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 624.0
+offset_right = 1230.0
+offset_bottom = 696.0
+text = "Powrót do Menu"

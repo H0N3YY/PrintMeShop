@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beydis8rtotox"
-path="res://.godot/imported/kukuryniarzanimation.png-9e9d4ceb110ce51fa84c27ea80246e6d.ctex"
+uid="uid://lh6gbxf1gwve"
+path="res://.godot/imported/nightShop_background.png-dae53bd49c3005d42fac321994e93ad4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sounds/kukuryniarzanimation.png"
-dest_files=["res://.godot/imported/kukuryniarzanimation.png-9e9d4ceb110ce51fa84c27ea80246e6d.ctex"]
+source_file="res://assets/results/nightShop_background.png"
+dest_files=["res://.godot/imported/nightShop_background.png-dae53bd49c3005d42fac321994e93ad4.ctex"]
 
 [params]
 
