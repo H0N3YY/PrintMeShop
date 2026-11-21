@@ -261,26 +261,36 @@ func start_customer() -> void:
 
 
 # Show encounter art independently from  romance ID
+
+
 func set_customer_appearance(phase: String) -> void:
 	var encounter: Dictionary = GameState.current_encounter()
 	var character_id: String = str(encounter["character"])
 	var character: Dictionary = GameData.CHARACTERS[character_id]
 	var texture_path: String = str(character.get("texture", ""))
 	var appearances: Dictionary = GameData.CHARACTER_APPEARANCES.get(character_id, {})
+
 	if not appearances.is_empty():
 		texture_path = str(appearances.get("default", texture_path))
+
 		if GameData.encounter_visit_number(str(encounter["id"])) == 2:
 			texture_path = str(appearances.get("second_visit", texture_path))
+
 		if phase == "pickup":
 			var route: String = get_current_route()
-			# Optional overrides e.g. "pickup_good", "pickup_neutral", "pickup_bad"
 			texture_path = str(appearances.get("pickup_" + route, texture_path))
+
 	customer_sprite.texture = null
+
 	if texture_path != "" and ResourceLoader.exists(texture_path):
 		customer_sprite.texture = load(texture_path) as Texture2D
 	elif texture_path != "":
 		push_warning("Missing character texture: " + texture_path)
-		setup_idle_animation(texture_path)
+
+	# Always configure idle animation after loading the appearance.
+	setup_idle_animation(texture_path)
+
+
 
 func get_current_route() -> String:
 	var encounter: Dictionary = GameState.current_encounter()
