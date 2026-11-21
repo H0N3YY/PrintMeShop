@@ -62,11 +62,11 @@ const PRODUCT_LOGO_RECTS := {
 	"Czapka": Rect2(0.33, 0.26, 0.28, 0.19),
 	"Kubek": Rect2(0.28, 0.32, 0.28, 0.37),
 	"Torba": Rect2(0.30, 0.50, 0.38, 0.32),
-	"Plakat": Rect2(0.27, 0.25, 0.46, 0.50),
-	"Skarpetki": Rect2(0.31, 0.44, 0.30, 0.22),
-	"Brelok": Rect2(0.43, 0.40, 0.25, 0.30),
-	"Przypinka": Rect2(0.38, 0.42, 0.26, 0.24),
-	"Naklejki": Rect2(0.34, 0.36, 0.32, 0.30)
+	"Plakat": Rect2(0.27, 0.25, 0.40, 0.50),
+	"Skarpetki": Rect2(0.31, 0.18, 0.30, 0.22),
+	"Brelok": Rect2(0.43, 0.40, 0.23, 0.30),
+	"Przypinka": Rect2(0.38, 0.44, 0.36, 0.24),
+	"Naklejki": Rect2(0.34, 0.56, 0.38, 0.30)
 }
 
 const PRODUCT_LOGO_SCALE := {
@@ -74,11 +74,11 @@ const PRODUCT_LOGO_SCALE := {
 	"Czapka": 2.80,
 	"Kubek": 2.00,
 	"Torba": 1.90,
-	"Plakat": 1.25,
-	"Skarpetki": 1.50,
-	"Brelok": 1.40,
-	"Przypinka": 1.70,
-	"Naklejki": 1.45
+	"Plakat": 1.45,
+	"Skarpetki": 0.90,
+	"Brelok": 1.56,
+	"Przypinka": 2.60,
+	"Naklejki": 1.20
 }
 
 const PRODUCT_PREVIEW_TRANSFORMS := {
