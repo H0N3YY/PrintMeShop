@@ -1,5 +1,6 @@
 # sekciarz_1 / pickup — placeholder text; edit in Dialogic
-Ideisek — [Wpisz reakcję na przygotowane zamówienie.]
+Dałeś radę, może jednak do czegoś się nadajesz.\
+Jeszcze pewnie tu wpadnę ponabijać się z Ciebie.
 - A. [Wpisz odpowiedź A]
 	do GameState.set_dialogue_choice(2)
 - B. [Wpisz odpowiedź B]

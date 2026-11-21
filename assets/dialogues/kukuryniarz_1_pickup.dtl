@@ -1,5 +1,5 @@
 # kukuryniarz_1 / pickup — placeholder text; edit in Dialogic
-Norbi Kukuryniarz — [Wpisz reakcję na przygotowane zamówienie.]
+Ale aura farming! Idealnie będzie pasować, od razu pochwale się innym krasnalom!
 - A. [Wpisz odpowiedź A]
 	do GameState.set_dialogue_choice(2)
 - B. [Wpisz odpowiedź B]

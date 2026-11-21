@@ -79,7 +79,7 @@ const CHARACTER_APPEARANCES :={
 		"second_visit": "res://assets/characters/skolim2.png"
 	},
 	"sekciarz": {
-		"default": "res://assets/characters/skolim1.png",
+		"default": "res://assets/characters/sekciarz1.png",
 		"second_visit": "res://assets/characters/sekciarz2.png"
 	}
 }

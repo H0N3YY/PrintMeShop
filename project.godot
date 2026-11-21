@@ -22,9 +22,7 @@ GameState="*uid://duywxqon0bgqg"
 
 [dialogic]
 
-directories/dch_directory={
-"ch_osci": "res://assets/characters/ch_osci.dch"
-}
+directories/dch_directory={}
 directories/dtl_directory={
 "customer_intro": "res://customer_intro.dtl",
 "gotka_1_intro": "res://assets/dialogues/gotka_1_intro.dtl",

@@ -1,5 +1,5 @@
 # sekciarz_1 / intro — placeholder text; edit in Dialogic
-Ideisek — [Wpisz wypowiedź klienta i zamówienie: Przypinka, Żółty, Ideis.]
+Wiedziałem że jesteś żałosną osobą, ale aż tak nisko upaść? No nic, przydaj się na coś i załatw mi żółtą przypinkę ideis. I lepiej się pośpiesz.
 - A. [Wpisz odpowiedź A]
 	do GameState.set_dialogue_choice(2)
 - B. [Wpisz odpowiedź B]

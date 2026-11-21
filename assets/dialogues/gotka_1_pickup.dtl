@@ -1,5 +1,6 @@
 # gotka_1 / pickup — placeholder text; edit in Dialogic
-Matylda — [Wpisz reakcję na przygotowane zamówienie.]
+Taki dodatek idealnie będzie pasować na nadchodzący koncert!\
+Oby tylko MPK nie jebło.
 - A. [Wpisz odpowiedź A]
 	do GameState.set_dialogue_choice(2)
 - B. [Wpisz odpowiedź B]
