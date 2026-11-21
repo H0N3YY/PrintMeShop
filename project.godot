@@ -124,6 +124,7 @@ folder_colors={
 "res://assets/dialogues/": "pink",
 "res://assets/ending/": "red",
 "res://assets/items/": "gray",
+"res://assets/merch/": "purple",
 "res://assets/results/": "orange",
 "res://assets/ui/": "teal"
 }
