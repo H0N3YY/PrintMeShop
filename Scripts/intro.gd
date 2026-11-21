@@ -4,7 +4,7 @@ extends Control
 const SHOP_SCENE_PATH := "res://Scenes/ShopScene.tscn"
 
 # Fade duration in seconds
-const FADE_DURATION: float = 2.0
+const FADE_DURATION: float = 1.5
 
 @onready var blocks: Array[Sprite2D] = [
 	$block1,
