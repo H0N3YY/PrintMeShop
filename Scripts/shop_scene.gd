@@ -42,6 +42,32 @@ const COLOR_FILE_SUFFIX := {
 	"Pomarańczowy": "orange", "Żółty": "yellow","Szary":"gray",
 }
 
+const MERCH_TEXTURES := {
+	"Fat Cat": "logocat.png",
+	"Hatsune Miku": "logohatsume.png",
+	"Hello IT": "logohelloit.png",
+	"Ideis": "logoideis.png",
+	"Kukuryniarz": "logokucyk.png",
+	"League of Legends": "logoporo.png",
+	"Love and Deepspace": "logocrow.png",
+	"Piwo Janka": "logopiwo.png",
+	"Roblox": "logoroblox.png",
+	"Skolim": "logoskolim.png",
+	"Monsterek": "logoszkiely.png",
+	"Netflix": "logodomino.png"
+}
+
+const PRODUCT_LOGO_RECTS := {
+	"Koszulka": Rect2(0.36, 0.36, 0.28, 0.25),
+	"Czapka": Rect2(0.36, 0.55, 0.28, 0.19),
+	"Kubek": Rect2(0.29, 0.32, 0.35, 0.37),
+	"Torba": Rect2(0.30, 0.42, 0.40, 0.32),
+	"Plakat": Rect2(0.27, 0.25, 0.46, 0.50),
+	"Skarpetki": Rect2(0.31, 0.44, 0.30, 0.22),
+	"Brelok": Rect2(0.43, 0.40, 0.25, 0.30),
+	"Przypinka": Rect2(0.38, 0.42, 0.26, 0.24),
+	"Naklejki": Rect2(0.34, 0.36, 0.32, 0.30)
+}
 
 const CHARACTER_IDLE_FRAMES := {
 	"res://assets/characters/osci.png": "res://assets/characters/oscianimation.png",
@@ -60,7 +86,7 @@ const CUSTOMER_MOVE_DURATION: float = 1.5
 var customer_rest_position: Vector2
 var customer_is_moving: bool = false
 
-var preview_texture_rect: TextureRect
+var logo_preview_texture_rect: TextureRect
 var selected_product := ""
 var selected_color := ""
 var selected_design := ""
@@ -127,19 +153,84 @@ func setup_merch_list() -> void:
 		merch_select.add_item(design)
 	merch_select.item_selected.connect(on_design_selected)
 
+
 func setup_preview_texture() -> void:
 	preview_texture_rect = TextureRect.new()
 	preview_texture_rect.name = "SelectedItemTexture"
-	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	preview_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	preview_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 	product_preview.add_child(preview_texture_rect)
-	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	preview_texture_rect.set_anchors_and_offsets_preset(
+		Control.PRESET_FULL_RECT
+	)
+
+	logo_preview_texture_rect = TextureRect.new()
+	logo_preview_texture_rect.name = "SelectedLogoTexture"
+	logo_preview_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	logo_preview_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	logo_preview_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	product_preview.add_child(logo_preview_texture_rect)
+	logo_preview_texture_rect.hide()
+
+	preview_texture_rect.resized.connect(update_logo_position)
+
+
+func update_logo_position() -> void:
+	if logo_preview_texture_rect == null:
+		return
+
+	if preview_texture_rect.texture == null:
+		return
+
+	if selected_product.is_empty():
+		return
+
+	var product_texture: Texture2D = preview_texture_rect.texture
+	var texture_size: Vector2 = product_texture.get_size()
+	var available_size: Vector2 = preview_texture_rect.size
+
+	if texture_size.x <= 0 or texture_size.y <= 0:
+		return
+
+	if available_size.x <= 0 or available_size.y <= 0:
+		return
+
+	# Match STRETCH_KEEP_ASPECT_CENTERED.
+	var image_scale: float = minf(
+		available_size.x / texture_size.x,
+		available_size.y / texture_size.y
+	)
+
+	var image_size: Vector2 = texture_size * image_scale
+	var image_offset: Vector2 = (
+		available_size - image_size
+	) / 2.0
+
+	var print_area: Rect2 = PRODUCT_LOGO_RECTS.get(
+		selected_product,
+		Rect2(0.35, 0.35, 0.30, 0.30)
+	)
+
+	logo_preview_texture_rect.position = (
+		image_offset
+		+ print_area.position * image_size
+	)
+
+	logo_preview_texture_rect.size = (
+		print_area.size * image_size
+	)
 
 
 func select_product(value: String) -> void:
-	selected_product = value
+	if selected_product != value:
+		selected_product = value
+
+		selected_color = ""
+		selected_design = ""
+		merch_select.deselect_all()
 
 	product_sound.play()
 	update_preview()
@@ -156,17 +247,25 @@ func select_color(value: String) -> void:
 
 
 func on_design_selected(index: int) -> void:
+	if selected_product.is_empty() or selected_color.is_empty():
+		merch_select.deselect_all()
+		print("Select a product and color first.")
+		return
+
 	selected_design = merch_select.get_item_text(index)
+
 	merch_sound.play()
 	update_preview()
 
 func update_preview() -> void:
 	result_label.text = "Produkt: %s\nKolor: %s\nWzór: %s" % [
-		selected_product if selected_product != "" else "—",
-		selected_color if selected_color != "" else "—",
-		selected_design if selected_design != "" else "—"
+		selected_product if not selected_product.is_empty() else "—",
+		selected_color if not selected_color.is_empty() else "—",
+		selected_design if not selected_design.is_empty() else "—"
 	]
+
 	update_item_texture()
+	update_merch_texture()
 
 func update_item_texture() -> void:
 	preview_texture_rect.texture = null
@@ -195,6 +294,42 @@ func update_item_texture() -> void:
 		print("Texture loaded successfully!")
 	else:
 		push_warning("Texture not found: " + texture_path)
+		
+	
+
+func update_merch_texture() -> void:
+	logo_preview_texture_rect.texture = null
+	logo_preview_texture_rect.hide()
+
+	if selected_product.is_empty():
+		return
+
+	if selected_design.is_empty():
+		return
+
+	var merch_name: String = GameData.canonical_design(
+		selected_design
+	)
+
+	if not MERCH_TEXTURES.has(merch_name):
+		push_warning("No merch texture mapping for: " + merch_name)
+		return
+
+	var texture_path: String = (
+		"res://assets/merch/" + MERCH_TEXTURES[merch_name]
+	)
+
+	if not ResourceLoader.exists(texture_path):
+		push_warning("Merch texture not found: " + texture_path)
+		return
+
+	logo_preview_texture_rect.texture = (
+		load(texture_path) as Texture2D
+	)
+
+	update_logo_position()
+	logo_preview_texture_rect.show()
+
 
 func reset_order() -> void:
 	# Reset order automatically for the next customer
@@ -217,10 +352,11 @@ func confirm_order() -> void:
 	}
 	var expected: Array = GameState.current_encounter()["order"]
 	is_order_correct = (
-		selected_product == expected[0]
-		and selected_color == expected[1]
-		and selected_design == expected[2]
-	)
+	selected_product == expected[0]
+	and selected_color == expected[1]
+	and GameData.canonical_design(selected_design)
+		== GameData.canonical_design(str(expected[2]))
+)
 	sell_sound.play()
 	start_pickup_dialogue()
 
@@ -580,3 +716,5 @@ func _on_idle_animation_timer_timeout() -> void:
 		customer_sprite.texture = idle_alt_texture
 	else:
 		customer_sprite.texture = idle_base_texture
+		
+		

@@ -410,6 +410,16 @@ autowrap_mode = 3
 [node name="ProductPreview" type="Control" parent="ShopWorkArea/ResultPanel" unique_id=2094835854]
 layout_mode = 2
 
+[node name="SelectedItemTexture" type="TextureRect" parent="ShopWorkArea/ResultPanel/ProductPreview" unique_id=1681897375]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectedLogoTexture" type="TextureRect" parent="ShopWorkArea/ResultPanel/ProductPreview" unique_id=1399778670]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="ConfirmButton" type="TextureButton" parent="ShopWorkArea" unique_id=899511319]
 layout_mode = 0
 offset_left = 607.00006
@@ -421,7 +431,6 @@ texture_normal = ExtResource("41_01p8v")
 texture_hover = ExtResource("42_05s0g")
 
 [node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
