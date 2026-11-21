@@ -55,6 +55,7 @@
 [ext_resource type="AudioStream" uid="uid://b5si6wtg5s88m" path="res://assets/sounds/colorchange.MP3" id="53_l6pmf"]
 [ext_resource type="AudioStream" uid="uid://5phr335j4l4f" path="res://assets/sounds/sticker.MP3" id="53_pvtvr"]
 [ext_resource type="AudioStream" uid="uid://0c06t7ymf8yn" path="res://assets/sounds/cash.MP3" id="55_7gt6h"]
+[ext_resource type="AudioStream" uid="uid://cab4ex0lvpcn7" path="res://assets/sounds/remove.mp3" id="56_b68je"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
 
@@ -567,4 +568,8 @@ volume_db = -20.0
 
 [node name="SellSound" type="AudioStreamPlayer" parent="." unique_id=1883138194]
 stream = ExtResource("55_7gt6h")
+volume_db = -20.0
+
+[node name="RemoveSound" type="AudioStreamPlayer" parent="." unique_id=910237359]
+stream = ExtResource("56_b68je")
 volume_db = -20.0

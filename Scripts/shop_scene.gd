@@ -15,6 +15,7 @@ extends Node2D
 @onready var color_sound: AudioStreamPlayer = $ColorSound
 @onready var merch_sound: AudioStreamPlayer = $MerchSound
 @onready var sell_sound: AudioStreamPlayer = $SellSound
+@onready var remove_sound: AudioStreamPlayer = $SellSound
 
 const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
 
@@ -55,6 +56,7 @@ func _ready() -> void:
 	setup_product_buttons()
 	setup_color_buttons()
 	setup_merch_list()
+	remove_sound.play()
 	cancel_button.pressed.connect(reset_order)
 	confirm_button.pressed.connect(confirm_order)
 	create_temporary_dialogue_ui()
