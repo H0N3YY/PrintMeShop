@@ -5,6 +5,7 @@
 [node name="Ending" type="Control" unique_id=1464278732]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_sbbak")
 
 [node name="BackgroundEnding" type="TextureRect" parent="." unique_id=1027053313]
 layout_mode = 0
