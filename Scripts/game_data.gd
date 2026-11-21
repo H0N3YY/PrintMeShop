@@ -53,18 +53,19 @@ const DAYS := [
 const ENCOUNTERS := {
 	"gotka_1": {"character": "gotka", "order": ["Koszulka", "Czarny", "Fat Cat"]},
 	"sekciarz_1": {"character": "sekciarz", "order": ["Przypinka", "Żółty", "Ideis"]},
-	"npc1_1": {"character": "npc1", "order": ["Plakat", "Biały", "Hatsune Miku"]},
-	"oscar_1": {"character": "oscar", "order": ["Czapka", "Czarny", "Kukuryniarz"]},
-	"skolim_1": {"character": "skolim", "order": ["Koszulka", "Różowy", "Skolim"]},
-	"npc2_1": {"character": "npc2", "order": ["Torba", "Zielony", "Hello IT"]},
-	"sekciarz_2": {"character": "sekciarz", "order": ["Kubek", "Żółty", "Ideis"]},
-	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Brelok", "Pomarańczowy", "Kukuryniarz"]},
-	"npc1_2": {"character": "npc1", "order": ["Naklejki", "Niebieski", "Poro League of Legends"]},
-	"gotka_2": {"character": "gotka", "order": ["Czapka", "Różowy", "Fat Cat"]},
-	"oscar_2": {"character": "oscar", "order": ["Skarpetki", "Biały", "Kruk z Love and Deepspace"]},
-	"npc2_2": {"character": "npc2", "order": ["Plakat", "Czerwony", "Monsterek"]},
-	"skolim_2": {"character": "skolim", "order": ["Torba", "Czarny", "Skolim"]},
-	"kukuryniarz_2": {"character": "kukuryniarz", "order": ["Kubek", "Pomarańczowy", "Kukuryniarz"]},
+	"oscar_1": {"character": "oscar", "order": ["Skarpetki", "Biały", "Piwo Janka"]},
+	"skolim_1": {"character": "skolim", "order": ["Czapka", "Różowy", "Monsterek"]},
+	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Skarpetki", "Zielony", "Kukuryniarz"]},
+	"npc1_1": {"character": "npc1", "order": ["Plakat", "Niebieski", "Hatsune Miku"]},
+	"npc2_1": {"character": "npc2", "order": ["Torba", "Czerwony", "Skolim"]},
+
+	"gotka_2": {"character": "gotka", "order": ["Torba", "Biały", "Egzorcysta"]},
+	"sekciarz_2": {"character": "sekciarz", "order": ["Brelok", "Pomarańczowy", "Piwo Janka"]},
+	"oscar_2": {"character": "oscar", "order": ["Koszulka", "Niebieski", "Hello IT"]},
+	"skolim_2": {"character": "skolim", "order": ["Plakat", "Różowy", "Skolim"]},
+	"kukuryniarz_2": {"character": "kukuryniarz", "order": ["Naklejki", "Żółty", "Twarz Roblox"]},
+	"npc1_2": {"character": "npc1", "order": ["Koszulka", "Czarny", "Poro"]},
+	"npc2_2": {"character": "npc2", "order": ["Kubek", "Zielony", "Kruk z Love and Deepspace"]},
 	"npc1_3": {"character": "npc1", "order": ["Przypinka", "Zielony", "Hello IT"]}
 }
 
