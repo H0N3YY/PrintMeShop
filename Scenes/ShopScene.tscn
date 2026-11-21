@@ -40,9 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://brqbt7j3bl2ta" path="res://assets/ui/color/orange1.png" id="36_i11mu"]
 [ext_resource type="Texture2D" uid="uid://doa28xinh2rqg" path="res://assets/ui/color/yellow.png" id="37_pvtvr"]
 [ext_resource type="Texture2D" uid="uid://1uf88rlw2t8p" path="res://assets/ui/color/yellow1.png" id="38_l6pmf"]
-[ext_resource type="Texture2D" uid="uid://di4ilyage3nww" path="res://assets/ui/canel1.png" id="39_r4gmm"]
 [ext_resource type="FontFile" uid="uid://b5c0p00x6g6u5" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Italic.ttf" id="39_yktrs"]
-[ext_resource type="Texture2D" uid="uid://c5vrab5hpr3ol" path="res://assets/ui/canel.png" id="40_yktrs"]
 [ext_resource type="Texture2D" uid="uid://dlye4bc2x4mgx" path="res://assets/ui/accept1.png" id="41_01p8v"]
 [ext_resource type="Texture2D" uid="uid://b167o15y0og14" path="res://assets/ui/accept.png" id="42_05s0g"]
 [ext_resource type="Texture2D" uid="uid://die2ua7xxmdff" path="res://assets/ui/chatbox.png" id="46_cl74d"]
@@ -413,27 +411,18 @@ autowrap_mode = 3
 [node name="ProductPreview" type="Control" parent="ShopWorkArea/ResultPanel" unique_id=2094835854]
 layout_mode = 2
 
-[node name="CancelButton" type="TextureButton" parent="ShopWorkArea" unique_id=1946856182]
-layout_mode = 0
-offset_left = 449.0
-offset_top = 616.0
-offset_right = 540.0
-offset_bottom = 698.0
-scale = Vector2(0.35395122, 0.35395122)
-texture_normal = ExtResource("39_r4gmm")
-texture_hover = ExtResource("40_yktrs")
-
 [node name="ConfirmButton" type="TextureButton" parent="ShopWorkArea" unique_id=899511319]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 610.0
-offset_right = 802.0
-offset_bottom = 689.0
+offset_left = 607.00006
+offset_top = 620.0
+offset_right = 1136.0
+offset_bottom = 826.0
 scale = Vector2(0.38594022, 0.38594022)
 texture_normal = ExtResource("41_01p8v")
 texture_hover = ExtResource("42_05s0g")
 
 [node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
