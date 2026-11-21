@@ -1,10 +1,9 @@
-# skolim_1 / pickup — placeholder text; edit in Dialogic
-Skolim zaczyna śpiewać\:\
-"Nie dzwoń do mnie, bo ja dzisiaj nie mam czasu, lecę w miasto, wiesz, że lubię dużo hałasu"
-- A. [Wpisz odpowiedź A]
+# skolim_1 / pickup 
+Wiesz, normalnie śpiewam Nie dzwoń do mnie, ale dla ciebie zrobię wyjątek. Możesz nawet zadzwonić dwa razy... świetne.
+- A. Haha, niezła próba. Ale najpierw sprawdźmy, czy czapka pasuje, Romeo
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Uważaj, bo jeszcze się zgodzę! I będziesz tylko w głowie miał "wejdę wyjdę"
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Dzięki, ale wolę wrócić autobusem niż zostać gwiazdą twojego następnego teledysku.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

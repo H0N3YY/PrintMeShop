@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cd2sxl2fdkeks"]
 
+[ext_resource type="Script" uid="uid://c6owwq5xtq678" path="res://Scripts/ending.gd" id="1_sbbak"]
+
 [node name="Ending" type="Control" unique_id=1464278732]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_sbbak")
 
 [node name="BackgroundEnding" type="TextureRect" parent="." unique_id=1027053313]
 layout_mode = 0
@@ -15,7 +18,8 @@ layout_mode = 0
 offset_right = 1279.0
 offset_bottom = 719.0
 mouse_filter = 2
-stretch_mode = 6
+expand_mode = 1
+stretch_mode = 5
 
 [node name="QuoteLabel" type="Label" parent="." unique_id=77188317]
 layout_mode = 0

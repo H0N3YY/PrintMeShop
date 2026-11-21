@@ -7,7 +7,6 @@ extends Node2D
 @onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
 @onready var result_label: Label = $ShopWorkArea/ResultPanel/ResultLabel
 @onready var product_preview: Control = $ShopWorkArea/ResultPanel/ProductPreview
-@onready var cancel_button: TextureButton = $ShopWorkArea/CancelButton
 @onready var confirm_button: TextureButton = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
@@ -17,14 +16,15 @@ extends Node2D
 @onready var color_sound: AudioStreamPlayer = $ColorSound
 @onready var merch_sound: AudioStreamPlayer = $MerchSound
 @onready var sell_sound: AudioStreamPlayer = $SellSound
-@onready var remove_sound: AudioStreamPlayer = $RemoveSound
 @onready var idle_animation_timer: Timer = $IdleAnimationTimer
 
+var work_area_blocker: ColorRect
 var idle_base_texture: Texture2D
 var idle_alt_texture: Texture2D
 var idle_frame_active: bool = false
 
 const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
+const ENDING_SCENE_PATH := "res://Scenes/Ending.tscn"
 
 const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
@@ -41,9 +41,59 @@ const ITEM_FILE_PREFIX := {
 const COLOR_FILE_SUFFIX := {
 	"Biały": "white", "Czarny": "black", "Różowy": "pink",
 	"Czerwony": "red", "Niebieski": "blue", "Zielony": "green",
-	"Pomarańczowy": "orange", "Żółty": "yellow"
+	"Pomarańczowy": "orange", "Żółty": "yellow","Szary":"gray",
 }
 
+const MERCH_TEXTURES := {
+	"Fat Cat": "logocat.png",
+	"Hatsune Miku": "logohatsume.png",
+	"Hello IT": "logohelloit.png",
+	"Ideis": "logoideis.png",
+	"Kukuryniarz": "logoszkiely.png",
+	"League of Legends": "logoporo.png",
+	"Love and Deepspace": "logocrow.png",
+	"Piwo Janka": "logopiwo.png",
+	"Roblox": "logoroblox.png",
+	"Skolim": "logoskolim.png",
+	"Monsterek": "logokucyk.png",
+	"Netflix": "logodomino.png"
+}
+# Right Down Left Top
+const PRODUCT_LOGO_RECTS := {
+	"Koszulka": Rect2(0.36, 0.36, 0.22, 0.25),
+	"Czapka": Rect2(0.33, 0.26, 0.28, 0.19),
+	"Kubek": Rect2(0.28, 0.32, 0.28, 0.37),
+	"Torba": Rect2(0.30, 0.50, 0.38, 0.32),
+	"Plakat": Rect2(0.27, 0.25, 0.40, 0.50),
+	"Skarpetki": Rect2(0.31, 0.18, 0.30, 0.22),
+	"Brelok": Rect2(0.43, 0.40, 0.23, 0.30),
+	"Przypinka": Rect2(0.38, 0.44, 0.36, 0.24),
+	"Naklejki": Rect2(0.34, 0.56, 0.38, 0.30)
+}
+
+const PRODUCT_LOGO_SCALE := {
+	"Koszulka":2.50,
+	"Czapka": 2.80,
+	"Kubek": 2.00,
+	"Torba": 1.90,
+	"Plakat": 1.45,
+	"Skarpetki": 0.90,
+	"Brelok": 1.56,
+	"Przypinka": 2.60,
+	"Naklejki": 1.20
+}
+
+const PRODUCT_PREVIEW_TRANSFORMS := {
+	"Koszulka": {"scale": 1.80, "offset": Vector2(12, 0) },
+	"Przypinka": {"scale": 1.80, "offset": Vector2(4, 0)},
+	"Torba": {"scale": 1.85, "offset": Vector2(8, 0)},
+	"Brelok": {"scale": 1.82, "offset": Vector2(0, 0)},
+	"Skarpetki": {"scale": 1.80, "offset": Vector2(8, 0)},
+	"Naklejki": {"scale": 1.70, "offset": Vector2(9, 0)},
+	"Kubek": {"scale": 1.70, "offset": Vector2(13, 0)},
+	"Plakat": {"scale": 1.80, "offset": Vector2(6, 2)},
+	"Czapka": {"scale": 1.86, "offset": Vector2(18, 2)}
+}
 
 const CHARACTER_IDLE_FRAMES := {
 	"res://assets/characters/osci.png": "res://assets/characters/oscianimation.png",
@@ -56,13 +106,14 @@ const CHARACTER_IDLE_FRAMES := {
 	"res://assets/characters/kukuryniarz.png": "res://assets/characters/kukuryniarzanimation.png"
 }
 
-
 const CUSTOMER_MOVE_DURATION: float = 1.5
 
 var customer_rest_position: Vector2
 var customer_is_moving: bool = false
 
 var preview_texture_rect: TextureRect
+var logo_preview_texture_rect: TextureRect
+
 var selected_product := ""
 var selected_color := ""
 var selected_design := ""
@@ -76,14 +127,13 @@ var overlay: Control
 var overlay_message: Label
 var overlay_buttons: VBoxContainer
 
-
 func _ready() -> void:
 	customer_rest_position = customer_sprite.position
 	setup_preview_texture()
 	setup_product_buttons()
 	setup_color_buttons()
 	setup_merch_list()
-	cancel_button.pressed.connect(_on_cancel_pressed)
+	setup_work_area_blocker()
 	confirm_button.pressed.connect(confirm_order)
 	create_temporary_dialogue_ui()
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
@@ -99,11 +149,7 @@ func update_day_counter() -> void:
 		GameData.MAX_DAYS
 	]
 	
-func _on_cancel_pressed() -> void:
-	
-	remove_sound.play()
-	reset_order()
-	
+
 func _on_talk_button_pressed() -> void:
 	if current_phase != "waiting_intro":
 		return
@@ -137,77 +183,239 @@ func setup_merch_list() -> void:
 func setup_preview_texture() -> void:
 	preview_texture_rect = TextureRect.new()
 	preview_texture_rect.name = "SelectedItemTexture"
-	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	preview_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	preview_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 	product_preview.add_child(preview_texture_rect)
-	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	preview_texture_rect.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	preview_texture_rect.position = Vector2.ZERO
+	preview_texture_rect.size = product_preview.size
+
+	logo_preview_texture_rect = TextureRect.new()
+	logo_preview_texture_rect.name = "SelectedLogoTexture"
+	logo_preview_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	logo_preview_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	logo_preview_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	product_preview.add_child(logo_preview_texture_rect)
+	logo_preview_texture_rect.hide()
+
+	product_preview.resized.connect(update_product_preview_transform)
+
+
+func setup_work_area_blocker() -> void:
+	work_area_blocker = ColorRect.new()
+	work_area_blocker.name = "WorkAreaBlocker"
+	work_area_blocker.color = Color(0.275, 0.196, 0.302)
+	work_area_blocker.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# Keep the overlay above all shop controls.
+	shop_work_area.add_child(work_area_blocker)
+	work_area_blocker.set_anchors_and_offsets_preset(
+		Control.PRESET_FULL_RECT
+	)
+
+	var message := Label.new()
+	message.name = "BlockerMessage"
+	message.text = "NAJPIERW OBSŁUŻ KLIENTA"
+	message.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	message.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	message.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	message.add_theme_font_size_override("font_size", 30)
+	message.add_theme_color_override(
+		"font_color",
+		Color(1.0, 0.90, 0.97)
+	)
+	message.add_theme_constant_override("shadow_offset_x", 2)
+	message.add_theme_constant_override("shadow_offset_y", 3)
+
+	work_area_blocker.add_child(message)
+	message.set_anchors_and_offsets_preset(
+		Control.PRESET_FULL_RECT
+	)
+
+	work_area_blocker.hide()
+	
+func set_work_area_locked(locked: bool) -> void:
+	if work_area_blocker == null:
+		return
+
+	work_area_blocker.visible = locked
+
+func update_product_preview_transform() -> void:
+	if preview_texture_rect == null:
+		return
+
+	if selected_product.is_empty():
+		preview_texture_rect.position = Vector2.ZERO
+		preview_texture_rect.size = product_preview.size
+		return
+
+	var settings: Dictionary = PRODUCT_PREVIEW_TRANSFORMS.get(
+		selected_product,
+		{
+			"scale": 1.0,
+			"offset": Vector2.ZERO
+		}
+	)
+
+	var scale_value: float = float(settings.get("scale", 1.0))
+	var offset_value: Vector2 = settings.get(
+		"offset",
+		Vector2.ZERO
+	)
+
+	var container_size: Vector2 = product_preview.size
+	var scaled_size: Vector2 = container_size * scale_value
+
+	preview_texture_rect.size = scaled_size
+	preview_texture_rect.position = (
+		(container_size - scaled_size) / 2.0
+		+ offset_value
+	)
+
+	update_logo_position()
+
+func update_logo_position() -> void:
+	if logo_preview_texture_rect == null:
+		return
+	if preview_texture_rect.texture == null:
+		return
+	if selected_product.is_empty():
+		return
+	var product_texture: Texture2D = preview_texture_rect.texture
+	var texture_size: Vector2 = product_texture.get_size()
+	var available_size: Vector2 = preview_texture_rect.size
+	if texture_size.x <= 0 or texture_size.y <= 0:
+		return
+	if available_size.x <= 0 or available_size.y <= 0:
+		return
+	var image_scale: float = minf(
+		available_size.x / texture_size.x,
+		available_size.y / texture_size.y
+	)
+	var image_size: Vector2 = texture_size * image_scale
+	var image_offset: Vector2 = (
+		available_size - image_size
+	) / 2.0
+	var print_area: Rect2 = PRODUCT_LOGO_RECTS.get(
+		selected_product,
+		Rect2(0.35, 0.35, 0.30, 0.30)
+	)
+	var logo_scale: float = float(
+		PRODUCT_LOGO_SCALE.get(selected_product, 1.0)
+	)
+	var logo_center: Vector2 = (
+		print_area.position + print_area.size / 2.0
+	)
+
+	print_area.size *= logo_scale
+	print_area.position = (
+		logo_center - print_area.size / 2.0
+	)
+
+	logo_preview_texture_rect.position = (
+		preview_texture_rect.position
+		+ image_offset
+		+ print_area.position * image_size
+	)
+
+	logo_preview_texture_rect.size = (
+		print_area.size * image_size
+	)
 
 func select_product(value: String) -> void:
-	if selected_product != "":
-		print("Clear the selected product before choosing another one.")
+	if current_phase != "work":
 		return
-
+	
+	if selected_product != value:
+		selected_product = value
+		selected_color = ""
+		selected_design = ""
+		merch_select.deselect_all()
 	product_sound.play()
-	selected_product = value
-	selected_color = "Szary"
 	update_preview()
 	
-	
 func select_color(value: String) -> void:
-	if selected_product == "":
-		print("Select a product first.")
+	if current_phase != "work":
 		return
-		
+	if selected_product == "":
+		return
 	selected_color = value
 	color_sound.play()
 	update_preview()
 
 
 func on_design_selected(index: int) -> void:
+	if current_phase != "work":
+		return
+	if selected_product.is_empty() or selected_color.is_empty():
+		merch_select.deselect_all()
+		return
 	selected_design = merch_select.get_item_text(index)
 	merch_sound.play()
 	update_preview()
 
 func update_preview() -> void:
-	result_label.text = "Produkt: %s\nKolor: %s\nWzór: %s" % [
-		selected_product if selected_product != "" else "—",
-		selected_color if selected_color != "" else "—",
-		selected_design if selected_design != "" else "—"
-	]
 	update_item_texture()
+	update_merch_texture()
 
 func update_item_texture() -> void:
 	preview_texture_rect.texture = null
-
 	if selected_product.is_empty():
 		return
-
 	if not ITEM_FILE_PREFIX.has(selected_product):
 		push_warning("No texture mapping for: " + selected_product)
 		return
-
+		
 	var prefix: String = ITEM_FILE_PREFIX[selected_product]
-	var suffix: String = COLOR_FILE_SUFFIX.get(selected_color, "white")
-
+	var suffix: String = COLOR_FILE_SUFFIX.get(selected_color, "gray")
 	var texture_path: String = (
 		"res://assets/items/%s%s.png" % [prefix, suffix]
 	)
-
-	print("Selected product: ", selected_product)
-	print("Selected color: ", selected_color)
-	print("Loading texture: ", texture_path)
-	print("File exists: ", ResourceLoader.exists(texture_path))
 
 	if ResourceLoader.exists(texture_path):
 		preview_texture_rect.texture = load(texture_path) as Texture2D
 		print("Texture loaded successfully!")
 	else:
 		push_warning("Texture not found: " + texture_path)
+	update_product_preview_transform()
+	
+
+func update_merch_texture() -> void:
+	logo_preview_texture_rect.texture = null
+	logo_preview_texture_rect.hide()
+	if selected_product.is_empty():
+		return
+	if selected_design.is_empty():
+		return
+
+	var merch_name: String = GameData.canonical_design(
+		selected_design
+	)
+
+	if not MERCH_TEXTURES.has(merch_name):
+		push_warning("No merch texture mapping for: " + merch_name)
+		return
+
+	var texture_path: String = (
+		"res://assets/merch/" + MERCH_TEXTURES[merch_name]
+	)
+
+	if not ResourceLoader.exists(texture_path):
+		push_warning("Merch texture not found: " + texture_path)
+		return
+
+	logo_preview_texture_rect.texture = (
+		load(texture_path) as Texture2D
+	)
+
+	update_logo_position()
+	logo_preview_texture_rect.show()
 
 func reset_order() -> void:
-	# Trash button = clear product, color, and design
 	selected_product = ""
 	selected_color = ""
 	selected_design = ""
@@ -229,9 +437,11 @@ func confirm_order() -> void:
 	is_order_correct = (
 		selected_product == expected[0]
 		and selected_color == expected[1]
-		and selected_design == expected[2]
+		and GameData.canonical_design(selected_design)
+			== GameData.canonical_design(str(expected[2]))
 	)
 	sell_sound.play()
+	set_work_area_locked(true)
 	start_pickup_dialogue()
 
 
@@ -251,6 +461,7 @@ func start_customer() -> void:
 
 	current_phase = "waiting_intro"
 	set_customer_appearance("intro")
+	set_work_area_locked(true)
 
 	# Show customer and shop before conversation
 	shop_work_area.show()
@@ -258,10 +469,6 @@ func start_customer() -> void:
 	talk_button.hide()
 	
 	animate_customer_enter()
-
-
-# Show encounter art independently from  romance ID
-
 
 func set_customer_appearance(phase: String) -> void:
 	var encounter: Dictionary = GameState.current_encounter()
@@ -289,8 +496,6 @@ func set_customer_appearance(phase: String) -> void:
 
 	# Always configure idle animation after loading the appearance.
 	setup_idle_animation(texture_path)
-
-
 
 func get_current_route() -> String:
 	var encounter: Dictionary = GameState.current_encounter()
@@ -345,8 +550,11 @@ func show_intro_dialogue() -> void:
 func on_intro_choice(points: int) -> void:
 	intro_points = points
 	current_phase = "work"
+
 	dialogue_area.hide()
+	set_work_area_locked(false)
 	shop_work_area.show()
+
 	update_preview()
 
 func start_pickup_dialogue() -> void:
@@ -354,13 +562,10 @@ func start_pickup_dialogue() -> void:
 	set_customer_appearance("pickup")
 	start_dialogic_phase("pickup")
 
-
-
 func on_pickup_choice(points: int) -> void:
 	pickup_points = points
-
-	# Close dialogue and restore the shop UI.
 	dialogue_area.hide()
+	set_work_area_locked(true)
 	shop_work_area.show()
 
 	var result: Dictionary = GameState.complete_encounter(
@@ -372,15 +577,12 @@ func on_pickup_choice(points: int) -> void:
 	if result.is_empty():
 		return
 
-	# Animate only the customer sprite.
 	await animate_customer_exit()
 
 	if GameState.has_more_customers_today():
 		start_customer()
 	else:
 		show_day_results()
-
-
 
 func _on_dialogic_timeline_ended() -> void:
 	if current_phase != "intro" and current_phase != "pickup":
@@ -394,15 +596,24 @@ func _on_dialogic_timeline_ended() -> void:
 	else:
 		on_pickup_choice(selected_points)
 
+
 func show_day_results() -> void:
-	current_phase = "results"
-
 	GameState.finish_day()
-
+	if GameState.day >= GameData.MAX_DAYS:
+		current_phase = "ending"
+		var ending: Dictionary = GameState.finish_game()
+		print("Final ending: ", ending["id"])
+		get_tree().call_deferred(
+			"change_scene_to_file",
+			ENDING_SCENE_PATH
+		)
+		return
+	current_phase = "results"
 	get_tree().call_deferred(
 		"change_scene_to_file",
 		RESULTS_SCENE_PATH
 	)
+
 	
 func next_day() -> void:
 	if GameState.go_to_next_day():
@@ -590,3 +801,4 @@ func _on_idle_animation_timer_timeout() -> void:
 		customer_sprite.texture = idle_alt_texture
 	else:
 		customer_sprite.texture = idle_base_texture
+		

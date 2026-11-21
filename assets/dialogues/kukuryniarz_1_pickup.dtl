@@ -1,9 +1,9 @@
-# kukuryniarz_1 / pickup — placeholder text; edit in Dialogic
+# kukuryniarz_1 / pickup
 Ale aura farming! Idealnie będzie pasować, od razu pochwale się innym krasnalom!
-- A. [Wpisz odpowiedź A]
+- A. Do widzenia, dziękujemy za zakup.
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Dzięki za zakup młody wbijaj na nową dostawę w piątek!
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Dobra NAAARA 67 67 67 67 67
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

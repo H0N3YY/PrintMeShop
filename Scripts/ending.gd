@@ -1,26 +1,32 @@
 
 extends Control
 
+@onready var scene_image: TextureRect = $SceneImage
+@onready var quote_label: Label = $QuoteLabel
+@onready var ending_type_label: Label = $EndingTypeLabel
+@onready var replay_button: Button = $Roleplay_btn
+@onready var main_menu_button: Button = $Main_btn
+
 const INTRO_SCENE_PATH := "res://Scenes/Intro.tscn"
 const MAIN_MENU_SCENE_PATH := "res://Scenes/MainMenu.tscn"
 
 const ENDING_SCENES := {
 	"oscar": {
-		"bad": {
-			"image": "res://assets/ending/e_oscar1.png",
+		"good": {
+			"image": "res://assets/ending/e_oscar_1.png",
 			"quote": "Oskar staje się bogaty i teraz to on pomiata graczem"
 		},
 		"neutral": {
-			"image": "res://assets/ending/e_oscar2.png",
+			"image": "res://assets/ending/e_oscar_2.png",
 			"quote": "Gracz również zostaje bezdomny i będzie brał udział w ulicznych bójkach o kałcyjne butelki z Oskarem"
 		},
-		"good": {
-			"image": "res://assets/ending/e_oscar3.png",
+		"bad": {
+			"image": "res://assets/ending/e_oscar_3.png",
 			"quote": "Oskar i Gracz biorą ślub na wrocławskim śmietniku na tyłach sklepu razem ze szczurami"
 		}
 	},
 	"skolim": {
-		"bad": {
+		"good": {
 			"image": "res://assets/ending/e_skolim_1.png",
 			"quote": "Gracz zapłakany ogląda na yt jak skolim śpiewa na dożynkach dla dzieci i jest zazdrosny."
 		},
@@ -28,13 +34,13 @@ const ENDING_SCENES := {
 			"image": "res://assets/ending/e_skolim_2.png",
 			"quote": "skolim oferuję pracę graczowi na jego stacji zamiast w sklepie"
 		},
-		"good": {
+		"bad": {
 			"image": "res://assets/ending/e_skolim_3.png",
 			"quote": "skolim przychodzi do gracza półnagi w odwiedziny i w drzwiach wychyla sie oferując hot doga z kiełbasą serową i czerwonym sosem"
 		}
 	},
 	"sekciarz": {
-		"bad": {
+		"good": {
 			"image": "res://assets/ending/e_sekciarz_1.png",
 			"quote": "Okazuje się że Ideisek skrycie rządzi żelazną ręką nad uczelnią gracza i zwiększa jego czesne dwukrotnie"
 		},
@@ -42,20 +48,38 @@ const ENDING_SCENES := {
 			"image": "res://assets/ending/e_sekciarz_2.png",
 			"quote": "Sekciarz stwierdza że gracz jest spoko  i zalicza mu praktyki"
 		},
-		"good": {
+		"bad": {
 			"image": "res://assets/ending/e_sekciarz_3.png",
 			"quote": "Gracz decyduje się dołączyć do Ideiska by wspólnie naciągać ludzi na fotowoltaike"
 		}
 	},
 	"gotka": {
-		"bad": {"image": "", "quote": "gracz kończy jako pupilek gotki na smyczy jak piesek"},
-		"neutral": {"image": "", "quote": "Gotka i gracz wspólnie zaczynają polować na żywe krasnale na kukirinach"},
-		"good": {"image": "", "quote": "gracz również zostaje glamur gotem i są razem szczęśliwi na pikniku pod jakąś katedrą"}
+		"good": {
+			"image": "res://assets/ending/e_gotka_1.png", 
+			"quote": "gracz również zostaje glamur gotem i są razem szczęśliwi na pikniku pod jakąś katedrą"
+			},
+		"neutral": {
+			"image": "res://assets/ending/e_gotka_2.png",
+			"quote": "Gotka i gracz wspólnie zaczynają polować na żywe krasnale na kukirinach"
+			},
+		"bad": {
+			"image": "res://assets/ending/e_gotka_3", 
+			"quote": "gracz kończy jako pupilek gotki na smyczy jak piesek"
+		}
 	},
 	"kukuryniarz": {
-		"bad": {"image": "", "quote": "Norbercik oddaje graczowi swojego kukurina i zostają najlepszymi przyjaciółmi "},
-		"neutral": {"image": "", "quote": "Kukuryniarz robi sobie z głównej postaci tor przeszkód i popisuje się przeskakując go"},
-		"good": {"image": "", "quote": "Kukuryniarz ze swoim gangiem krasnali goni postać gracza na hulajnogach i obrzuca go szczurami"}
+		"good": {
+			"image": "res://assets/ending/e_kukuryniarz_1.png", 
+			"quote": "Norbercik oddaje graczowi swojego kukurina i zostają najlepszymi przyjaciółmi "
+			},
+		"neutral": {
+			"image": "res://assets/ending/e_kukuryniarz_2.png", 
+			"quote": "Kukuryniarz robi sobie z głównej postaci tor przeszkód i popisuje się przeskakując go"
+			},
+		"bad": {
+			"image": "res://assets/ending/e_kukuryniarz_3.png", 
+			"quote": "Kukuryniarz ze swoim gangiem krasnali goni postać gracza na hulajnogach i obrzuca go szczurami"
+			}
 	}
 }
 
@@ -71,11 +95,6 @@ const ENDING_TYPE_LABELS := {
 	"solo": "BAD ENDING"
 }
 
-@onready var scene_image: TextureRect = $SceneImage
-@onready var quote_label: Label = $QuoteLabel
-@onready var ending_type_label: Label = $EndingTypeLabel
-@onready var replay_button: Button = $ReplayButton
-@onready var main_menu_button: Button = $MainMenuButton
 
 
 func _ready() -> void:

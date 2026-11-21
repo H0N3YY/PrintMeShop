@@ -1,0 +1,9 @@
+# kukuryniarz_2 / pickup 
+67
+- A. Ja ci ku*rwa dam 67, szczylu zafajdany
+	do GameState.set_dialogue_choice(2)
+- B. ...
+	do GameState.set_dialogue_choice(1)
+- C. 67
+	do GameState.set_dialogue_choice(0)
+[end_timeline]

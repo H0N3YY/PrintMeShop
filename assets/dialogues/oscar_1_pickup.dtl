@@ -1,6 +1,6 @@
-# oscar_1 / pickup — placeholder text; edit in Dialogic
-Pięknie ci dziękuję!\
-Najmocniej przepraszam za mój smród, następnym razem umyję się dla Ciebie.
+# oscar leave 1
+Bardzo Ci dziękuję. Jesteś niesamowicie profesjonalną osobą. Z pewnością jeszcze tu do Ciebie zajrzę.\
+Polecam to miejsce, jako bezdomny Oscar.
 - A. Dziękuję i życzę miłego dnia.
 	do GameState.set_dialogue_choice(2)
 - B. A mogę dołączyć?

@@ -1,9 +1,10 @@
-# npc2_1 / intro — placeholder text; edit in Dialogic
-Pani Grażyna — [Wpisz wypowiedź klienta i zamówienie: Torba, Zielony, Hello IT.]
-- A. [Wpisz odpowiedź A]
+# npc2_1 / intro 
+Nuci\: "Temperatura! Jest pijana no i buja się po klubach..."\
+Och, dzień dobry. Potrzebuję torby, najlepiej w czerwonym kolorze.
+- A. "Gdy z nią tańczę, ręce schodzą na jej uda"
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Znowu fanka skolima...
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Dobrze, zabieram się do pracy
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

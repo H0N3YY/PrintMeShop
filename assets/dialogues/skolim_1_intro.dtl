@@ -1,9 +1,9 @@
-# skolim_1 / intro — placeholder text; edit in Dialogic
+# skolim_1 / intro 
 Siema, potrzebuję czapki idealnej do mojego outfitu, najlepiej coś z pazurem. Żeby wszystkie señority oszalały!
-- A. [Wpisz odpowiedź A]
+- A. Okej, różowa czapka z pazurem? Brzmi ciekawie. Zobaczę, co da się zrobić.
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. COOO, SKOLIM?! Król Latino we własnej osobie?! Dobra, zrobię ci taką czapkę, że wszystkie oszaleją!
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Skolim? Serio? Jeszcze tylko ciebie mi tu brakowało. Nie mam czasu na twoje zachcianki.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]
