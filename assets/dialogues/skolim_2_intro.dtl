@@ -1,9 +1,9 @@
-# skolim_2 / intro — placeholder text; edit in Dialogic
-Skolim — [Wpisz wypowiedź klienta i zamówienie: Torba, Czarny, Skolim.]
-- A. [Wpisz odpowiedź A]
+# skolim_2 / intro 
+Mam mały problem... Jak patrzę w lustro, to aż zapominam, kim jestem. Zrobisz mi różowy plakat z moją podobizną? Żebym nigdy nie zapomniał, kto tu jest Królem Latino!
+- A. Dobra, zobaczmy, co da się zrobić.
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Taki przystojniak i problemy z pamięcią? Spokojnie zrobię ci plakat godny pałacu!
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Spokojnie, twoje ciało na pewno ci przypomni.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

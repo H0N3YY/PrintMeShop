@@ -1,9 +1,9 @@
-# sekciarz_2 / pickup [wariant: bad] — placeholder text; edit in Dialogic
-Ideisek — [Wpisz reakcję na przygotowane zamówienie [wariant: bad].]
-- A. [Wpisz odpowiedź A]
+# sekciarz_2 / pickup 
+Wiesz, zwykle nie przyznaję się do tego, ale zajmuję się zarządzaniem najpiękniejszą uczelnią ideis. I mam Ciebie ostatnio na oku. Czuję że możesz mnie zrozumieć.
+- A. Ciężko to przyznać, ale bardzo podoba mi się twoje futro.
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Ty też chodzisz mi po głowie.
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Wybacz ale nie jesteś w moim typie.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

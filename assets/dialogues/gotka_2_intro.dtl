@@ -1,5 +1,5 @@
-# gotka_2 / intro — placeholder text; edit in Dialogic
-Matylda — [Wpisz wypowiedź klienta i zamówienie: Czapka, Różowy, Fat Cat.]
+# gotka_2 / intro 
+Cześć słońce, szukam białej torby z wizerunkiem mojej ulubionej postaci tego grubasa Walaszka, Domino. Abssolutne cudo, pewnie się kociaku nie spodziewałeś po mnie, że znam takie cuda.
 - A. [Wpisz odpowiedź A]
 	do GameState.set_dialogue_choice(2)
 - B. [Wpisz odpowiedź B]

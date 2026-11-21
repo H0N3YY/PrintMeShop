@@ -1,9 +1,9 @@
-# gotka_1 / intro — placeholder text; edit in Dialogic
-Dzień dobry, szukam koszulki która idealnie będzie pasować do mojego stylu. Najlepiej takiej, której nie wystraszy się mój ukochany kot.
-- A. [Wpisz odpowiedź A]
+# gotka_1 / intro 
+Dzień dobry, szukam koszulki która idealnie będzie pasować do mojego mrocznego stylu. Najlepiej takiej, której nie wystraszy się mój ukochany kot.
+- A.
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Rozumiem, że czarna koszulka. Tak?
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Ok, nie pytałem.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

@@ -1,10 +1,10 @@
-# gotka_1 / pickup — placeholder text; edit in Dialogic
-Taki dodatek idealnie będzie pasować na nadchodzący koncert!\
-Oby tylko MPK nie jebło.
-- A. [Wpisz odpowiedź A]
+# gotka_1 / pickup
+Taki dodatek idealnie będzie pasować na koncert!\
+Oby tylko MPK nie jebło. Swoją drogą, jestem Matylda.
+- A. Piękne imię dla pięknej dziewczyny, masz ochotę na Malboraska?
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Nikt nie pytał.
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

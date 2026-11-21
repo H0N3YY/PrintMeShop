@@ -1,9 +1,10 @@
-# sekciarz_2 / intro — placeholder text; edit in Dialogic
-Ideisek — [Wpisz wypowiedź klienta i zamówienie: Kubek, Żółty, Ideis.]
-- A. [Wpisz odpowiedź A]
+# sekciarz_2 / intro
+Byłem ostatnio zbyt opryskliwy, dlatego uznałem że pokażę ci prawdziwego siebie. Marzą mi się pomarańczowe breloczki z Love And Deepspace?\
+Jeśli dasz radę to może zmienię co do Ciebie zdanie.
+- A.
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B.
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

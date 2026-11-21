@@ -1,8 +1,8 @@
-# gotka_2 / pickup [wariant: bad] — placeholder text; edit in Dialogic
-Matylda — [Wpisz reakcję na przygotowane zamówienie [wariant: bad].]
-- A. [Wpisz odpowiedź A]
+# gotka_2 / pickup 
+Wyszło lepiej niż się spodziewałam, chciałbyś może iść kiedyś ze mna na jakies urbexy? Wyglądasz jakbyś był równie tajemniczy jak te piękne cmentarne budynki.
+- A.
 	do GameState.set_dialogue_choice(2)
-- B. [Wpisz odpowiedź B]
+- B. Wybacz KOLEŻANKO, ale nie w głowie mi romanse jak na służbie jestem.
 	do GameState.set_dialogue_choice(1)
 - C. [Wpisz odpowiedź C]
 	do GameState.set_dialogue_choice(0)
