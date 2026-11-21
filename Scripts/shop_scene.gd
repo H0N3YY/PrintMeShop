@@ -57,16 +57,28 @@ const MERCH_TEXTURES := {
 	"Netflix": "logodomino.png"
 }
 
+const PRODUCT_LOGO_RECTS := {
+	"Koszulka": Rect2(0.36, 0.36, 0.28, 0.25),
+	"Czapka": Rect2(0.36, 0.55, 0.28, 0.19),
+	"Kubek": Rect2(0.29, 0.32, 0.35, 0.37),
+	"Torba": Rect2(0.30, 0.42, 0.40, 0.32),
+	"Plakat": Rect2(0.27, 0.25, 0.46, 0.50),
+	"Skarpetki": Rect2(0.31, 0.44, 0.30, 0.22),
+	"Brelok": Rect2(0.43, 0.40, 0.25, 0.30),
+	"Przypinka": Rect2(0.38, 0.42, 0.26, 0.24),
+	"Naklejki": Rect2(0.34, 0.36, 0.32, 0.30)
+}
+
 const PRODUCT_PREVIEW_TRANSFORMS := {
-	"Koszulka": {"scale": 1.00, "offset": Vector2(0, 0) },
-	"Czapka": {"scale": 1.20, "offset": Vector2(0, 8)},
-	"Kubek": {"scale": 1.05, "offset": Vector2(0, 0)},
-	"Torba": {"scale": 1.10, "offset": Vector2(0, 0)},
-	"Plakat": {"scale": 1.08, "offset": Vector2(0, 0)},
-	"Skarpetki": {"scale": 1.15, "offset": Vector2(0, 5)},
-	"Brelok": {"scale": 1.12, "offset": Vector2(0, 0)},
-	"Przypinka": {"scale": 1.15, "offset": Vector2(0, 0)},
-	"Naklejki": {"scale": 1.10, "offset": Vector2(0, 0)}
+	"Koszulka": {"scale": 1.80, "offset": Vector2(12, 0) },
+	"Przypinka": {"scale": 1.80, "offset": Vector2(4, 0)},
+	"Torba": {"scale": 1.85, "offset": Vector2(8, 0)},
+	"Brelok": {"scale": 1.82, "offset": Vector2(0, 0)},
+	"Skarpetki": {"scale": 1.80, "offset": Vector2(8, 0)},
+	"Naklejki": {"scale": 1.70, "offset": Vector2(9, 0)},
+	"Kubek": {"scale": 1.70, "offset": Vector2(13, 0)},
+	"Plakat": {"scale": 1.80, "offset": Vector2(6, 2)},
+	"Czapka": {"scale": 1.86, "offset": Vector2(18, 2)}
 }
 
 const CHARACTER_IDLE_FRAMES := {
