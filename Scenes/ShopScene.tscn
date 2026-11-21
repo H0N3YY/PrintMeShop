@@ -539,25 +539,21 @@ text = "DAY 1/5"
 
 [node name="ProductSound" type="AudioStreamPlayer" parent="." unique_id=1822417404]
 stream = ExtResource("52_i11mu")
-volume_db = -20.0
 
 [node name="ColorSound" type="AudioStreamPlayer" parent="." unique_id=258920424]
 stream = ExtResource("53_l6pmf")
-volume_db = -20.0
 
 [node name="MerchSound" type="AudioStreamPlayer" parent="." unique_id=440970550]
 stream = ExtResource("53_pvtvr")
-volume_db = -32.656
+volume_db = -6.053
 
 [node name="SellSound" type="AudioStreamPlayer" parent="." unique_id=1883138194]
 stream = ExtResource("55_7gt6h")
-volume_db = -20.0
 
 [node name="RemoveSound" type="AudioStreamPlayer" parent="." unique_id=910237359]
 stream = ExtResource("56_b68je")
-volume_db = -20.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1221141102]
 stream = ExtResource("57_jxwl0")
-volume_db = -50.19
+volume_db = -30.455
 autoplay = true
