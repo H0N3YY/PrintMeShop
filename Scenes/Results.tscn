@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dsmyen1r8v1a"]
+
+[node name="Results" type="Node2D" unique_id=328483867]
+
+[node name="BackgroundResults" type="TextureRect" parent="." unique_id=285609174]
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="SceneImage" type="TextureRect" parent="." unique_id=1737803866]
+offset_right = 1280.0
+offset_bottom = 721.0
+
+[node name="QuoteLabel" type="Label" parent="." unique_id=1922361792]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StatsPanel" type="PanelContainer" parent="." unique_id=896260685]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StatsText" type="Label" parent="StatsPanel" unique_id=1121070389]
+layout_mode = 2
+
+[node name="DayLabel" type="Label" parent="." unique_id=1865602481]
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 31.0
+
+[node name="NextDay_btn" type="Button" parent="." unique_id=58606926]
+offset_right = 8.0
+offset_bottom = 8.0
