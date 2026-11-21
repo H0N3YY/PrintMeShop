@@ -56,7 +56,7 @@ const MERCH_TEXTURES := {
 	"Monsterek": "logoszkiely.png",
 	"Netflix": "logodomino.png"
 }
-
+# Right Down Left Top
 const PRODUCT_LOGO_RECTS := {
 	"Koszulka": Rect2(0.36, 0.36, 0.28, 0.25),
 	"Czapka": Rect2(0.36, 0.55, 0.28, 0.19),
