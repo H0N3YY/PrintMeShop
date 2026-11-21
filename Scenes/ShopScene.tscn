@@ -442,21 +442,19 @@ texture = ExtResource("46_hdl3m")
 
 [node name="SpeechBubble" type="TextureRect" parent="DialogueArea" unique_id=1523478302]
 layout_mode = 0
-offset_left = 361.00003
-offset_top = 12.000002
-offset_right = 1585.2793
-offset_bottom = 524.89996
-scale = Vector2(0.749829, 0.5381167)
+offset_left = 369.0
+offset_top = 3.0
+offset_right = 1276.0
+offset_bottom = 293.0
 texture = ExtResource("46_cl74d")
 
 [node name="BubbleText" type="RichTextLabel" parent="DialogueArea/SpeechBubble" unique_id=62344474 node_paths=PackedStringArray("textbox_root")]
 layout_mode = 0
-offset_left = 170.70554
-offset_top = 113.3583
-offset_right = 600.4182
-offset_bottom = 187.8693
-scale = Vector2(2.23456, 3.9405806)
-theme_override_colors/default_color = Color(0.4061371, 0.00011373297, 0.4061342, 1)
+offset_left = 120.0
+offset_top = 58.0
+offset_right = 812.0
+offset_bottom = 230.0
+theme_override_colors/default_color = Color(0.00034471275, 0.00030480136, 0.00035865666, 1)
 bbcode_enabled = true
 scroll_active = false
 script = ExtResource("48_e0bxy")
@@ -464,6 +462,7 @@ textbox_root = NodePath(".")
 metadata/_custom_type_script = "uid://drhfq6rmdeuri"
 
 [node name="ChoiceArea" type="Control" parent="DialogueArea" unique_id=38326427]
+visible = false
 anchors_preset = 0
 offset_left = 425.0
 offset_top = 1.0
