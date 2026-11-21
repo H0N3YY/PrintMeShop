@@ -14,6 +14,7 @@ var daily_correct: int = 0
 var daily_wrong: int = 0
 var daily_love: int = 0
 var dialogue_choice_points: int = -1
+var last_day_summary: Dictionary = {}
 
 func _ready() -> void:
 	new_game()
@@ -30,7 +31,8 @@ func new_game() -> void:
 	for character_id in GameData.CHARACTERS:
 		if GameData.CHARACTERS[character_id]["romance"]:
 			love[character_id] = 0
-			
+	last_day_summary.clear()
+	
 func reset_dialogue_choice() -> void:
 	dialogue_choice_points = -1
 	
@@ -108,9 +110,9 @@ func day_summary() -> Dictionary:
 	}
 
 func finish_day() -> Dictionary:
-	var summary := day_summary()
-	day_finished.emit(summary)
-	return summary
+	last_day_summary = day_summary()
+	day_finished.emit(last_day_summary)
+	return last_day_summary
 
 func go_to_next_day() -> bool:
 	if day >= GameData.MAX_DAYS:

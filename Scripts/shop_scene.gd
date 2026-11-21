@@ -12,6 +12,8 @@ extends Node2D
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
 
+const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
+
 const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
 	"Skarpetki": "socks",
@@ -312,20 +314,14 @@ func _on_dialogic_timeline_ended() -> void:
 
 func show_day_results() -> void:
 	current_phase = "results"
-	shop_work_area.hide()
-	var summary: Dictionary = GameState.finish_day()
-	var best_name := "Samotny wieczór (remis lub zero punktów)"
-	if summary["best"] != "":
-		best_name = GameData.CHARACTERS[summary["best"]]["name"]
-	var message := "DZIEŃ %d / %d\nPoprawne: %d   Błędne: %d\nNowe serduszka: %d\nNajlepsza relacja: %s" % [
-		summary["day"], GameData.MAX_DAYS, summary["correct"],
-		summary["wrong"], summary["love_gained"], best_name
-	]
-	if GameState.day == GameData.MAX_DAYS:
-		show_action(message, "Zobacz finał", show_final_ending)
-	else:
-		show_action(message, "Następny dzień", next_day)
 
+	GameState.finish_day()
+
+	get_tree().call_deferred(
+		"change_scene_to_file",
+		RESULTS_SCENE_PATH
+	)
+	
 func next_day() -> void:
 	if GameState.go_to_next_day():
 		overlay.hide()

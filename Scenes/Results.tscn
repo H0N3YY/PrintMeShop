@@ -1,35 +1,47 @@
 [gd_scene format=3 uid="uid://dsmyen1r8v1a"]
 
 [ext_resource type="Texture2D" uid="uid://lh6gbxf1gwve" path="res://assets/results/nightShop_background.png" id="1_fhok7"]
+[ext_resource type="Script" uid="uid://bhf5dkhy2hp3r" path="res://Scripts/results.gd" id="1_mma32"]
 
 [node name="Results" type="Node2D" unique_id=328483867]
+script = ExtResource("1_mma32")
 
 [node name="BackgroundResults" type="TextureRect" parent="." unique_id=285609174]
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 2
 texture = ExtResource("1_fhok7")
 
 [node name="SceneImage" type="TextureRect" parent="." unique_id=1737803866]
 offset_top = 1.0
 offset_right = 1280.0
 offset_bottom = 721.0
+mouse_filter = 2
 
 [node name="QuoteLabel" type="Label" parent="." unique_id=1922361792]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 752.0
+offset_top = 96.0
+offset_right = 1189.0
+offset_bottom = 228.0
 
 [node name="StatsPanel" type="PanelContainer" parent="." unique_id=896260685]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1000.0
+offset_top = 288.0
+offset_right = 1128.0
+offset_bottom = 360.0
 
 [node name="StatsText" type="Label" parent="StatsPanel" unique_id=1121070389]
 layout_mode = 2
 
 [node name="DayLabel" type="Label" parent="." unique_id=1865602481]
-offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 31.0
+offset_left = 1032.0
+offset_top = 424.0
+offset_right = 1120.0
+offset_bottom = 456.0
 
 [node name="NextDay_btn" type="Button" parent="." unique_id=58606926]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 1080.0
+offset_top = 624.0
+offset_right = 1248.0
+offset_bottom = 696.0
+text = "NEXT DAY"
