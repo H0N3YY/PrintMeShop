@@ -57,16 +57,16 @@ const MERCH_TEXTURES := {
 	"Netflix": "logodomino.png"
 }
 
-const PRODUCT_LOGO_RECTS := {
-	"Koszulka": Rect2(0.36, 0.36, 0.28, 0.25),
-	"Czapka": Rect2(0.36, 0.55, 0.28, 0.19),
-	"Kubek": Rect2(0.29, 0.32, 0.35, 0.37),
-	"Torba": Rect2(0.30, 0.42, 0.40, 0.32),
-	"Plakat": Rect2(0.27, 0.25, 0.46, 0.50),
-	"Skarpetki": Rect2(0.31, 0.44, 0.30, 0.22),
-	"Brelok": Rect2(0.43, 0.40, 0.25, 0.30),
-	"Przypinka": Rect2(0.38, 0.42, 0.26, 0.24),
-	"Naklejki": Rect2(0.34, 0.36, 0.32, 0.30)
+const PRODUCT_PREVIEW_TRANSFORMS := {
+	"Koszulka": {"scale": 1.00, "offset": Vector2(0, 0) },
+	"Czapka": {"scale": 1.20, "offset": Vector2(0, 8)},
+	"Kubek": {"scale": 1.05, "offset": Vector2(0, 0)},
+	"Torba": {"scale": 1.10, "offset": Vector2(0, 0)},
+	"Plakat": {"scale": 1.08, "offset": Vector2(0, 0)},
+	"Skarpetki": {"scale": 1.15, "offset": Vector2(0, 5)},
+	"Brelok": {"scale": 1.12, "offset": Vector2(0, 0)},
+	"Przypinka": {"scale": 1.15, "offset": Vector2(0, 0)},
+	"Naklejki": {"scale": 1.10, "offset": Vector2(0, 0)}
 }
 
 const CHARACTER_IDLE_FRAMES := {
@@ -164,20 +164,57 @@ func setup_preview_texture() -> void:
 	preview_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	product_preview.add_child(preview_texture_rect)
-	preview_texture_rect.set_anchors_and_offsets_preset(
-		Control.PRESET_FULL_RECT
-	)
+	preview_texture_rect.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	preview_texture_rect.position = Vector2.ZERO
+	preview_texture_rect.size = product_preview.size
 
 	logo_preview_texture_rect = TextureRect.new()
 	logo_preview_texture_rect.name = "SelectedLogoTexture"
 	logo_preview_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	logo_preview_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	logo_preview_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
+	
 	product_preview.add_child(logo_preview_texture_rect)
 	logo_preview_texture_rect.hide()
 
-	preview_texture_rect.resized.connect(update_logo_position)
+	product_preview.resized.connect(update_product_preview_transform)
+
+
+func update_product_preview_transform() -> void:
+	if preview_texture_rect == null:
+		return
+
+	if selected_product.is_empty():
+		preview_texture_rect.position = Vector2.ZERO
+		preview_texture_rect.size = product_preview.size
+		return
+
+	var settings: Dictionary = PRODUCT_PREVIEW_TRANSFORMS.get(
+		selected_product,
+		{
+			"scale": 1.0,
+			"offset": Vector2.ZERO
+		}
+	)
+
+	var scale_value: float = float(settings.get("scale", 1.0))
+	var offset_value: Vector2 = settings.get(
+		"offset",
+		Vector2.ZERO
+	)
+
+	var container_size: Vector2 = product_preview.size
+	var scaled_size: Vector2 = container_size * scale_value
+
+	preview_texture_rect.size = scaled_size
+	preview_texture_rect.position = (
+		(container_size - scaled_size) / 2.0
+		+ offset_value
+	)
+
+	update_logo_position()
+
+
 
 
 func update_logo_position() -> void:
@@ -200,7 +237,7 @@ func update_logo_position() -> void:
 	if available_size.x <= 0 or available_size.y <= 0:
 		return
 
-	# Match STRETCH_KEEP_ASPECT_CENTERED.
+	# Calculate the actual displayed image size.
 	var image_scale: float = minf(
 		available_size.x / texture_size.x,
 		available_size.y / texture_size.y
@@ -211,19 +248,23 @@ func update_logo_position() -> void:
 		available_size - image_size
 	) / 2.0
 
+	# Get the individual print area for this product.
 	var print_area: Rect2 = PRODUCT_LOGO_RECTS.get(
 		selected_product,
 		Rect2(0.35, 0.35, 0.30, 0.30)
 	)
 
+	# Account for both the image position and product offset.
 	logo_preview_texture_rect.position = (
-		image_offset
+		preview_texture_rect.position
+		+ image_offset
 		+ print_area.position * image_size
 	)
 
 	logo_preview_texture_rect.size = (
 		print_area.size * image_size
 	)
+
 
 
 func select_product(value: String) -> void:
@@ -289,7 +330,7 @@ func update_item_texture() -> void:
 		print("Texture loaded successfully!")
 	else:
 		push_warning("Texture not found: " + texture_path)
-		
+	update_product_preview_transform()
 	
 
 func update_merch_texture() -> void:
