@@ -7,7 +7,6 @@ extends Node2D
 @onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
 @onready var result_label: Label = $ShopWorkArea/ResultPanel/ResultLabel
 @onready var product_preview: Control = $ShopWorkArea/ResultPanel/ProductPreview
-@onready var cancel_button: TextureButton = $ShopWorkArea/CancelButton
 @onready var confirm_button: TextureButton = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
@@ -17,7 +16,6 @@ extends Node2D
 @onready var color_sound: AudioStreamPlayer = $ColorSound
 @onready var merch_sound: AudioStreamPlayer = $MerchSound
 @onready var sell_sound: AudioStreamPlayer = $SellSound
-@onready var remove_sound: AudioStreamPlayer = $RemoveSound
 @onready var idle_animation_timer: Timer = $IdleAnimationTimer
 
 var idle_base_texture: Texture2D
@@ -83,7 +81,6 @@ func _ready() -> void:
 	setup_product_buttons()
 	setup_color_buttons()
 	setup_merch_list()
-	cancel_button.pressed.connect(_on_cancel_pressed)
 	confirm_button.pressed.connect(confirm_order)
 	create_temporary_dialogue_ui()
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
@@ -99,10 +96,6 @@ func update_day_counter() -> void:
 		GameData.MAX_DAYS
 	]
 	
-func _on_cancel_pressed() -> void:
-	
-	remove_sound.play()
-	reset_order()
 	
 func _on_talk_button_pressed() -> void:
 	if current_phase != "waiting_intro":
@@ -144,14 +137,11 @@ func setup_preview_texture() -> void:
 	product_preview.add_child(preview_texture_rect)
 	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
+
 func select_product(value: String) -> void:
-	if selected_product != "":
-		print("Clear the selected product before choosing another one.")
-		return
+	selected_product = value
 
 	product_sound.play()
-	selected_product = value
-	selected_color = "Szary"
 	update_preview()
 	
 	
@@ -207,7 +197,7 @@ func update_item_texture() -> void:
 		push_warning("Texture not found: " + texture_path)
 
 func reset_order() -> void:
-	# Trash button = clear product, color, and design
+	# Reset order automatically for the next customer
 	selected_product = ""
 	selected_color = ""
 	selected_design = ""
