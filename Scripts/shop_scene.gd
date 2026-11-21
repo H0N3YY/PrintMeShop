@@ -24,6 +24,7 @@ var idle_alt_texture: Texture2D
 var idle_frame_active: bool = false
 
 const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
+const ENDING_SCENE_PATH := "res://Scenes/Ending.tscn"
 
 const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
@@ -595,15 +596,24 @@ func _on_dialogic_timeline_ended() -> void:
 	else:
 		on_pickup_choice(selected_points)
 
+
 func show_day_results() -> void:
-	current_phase = "results"
-
 	GameState.finish_day()
-
+	if GameState.day >= GameData.MAX_DAYS:
+		current_phase = "ending"
+		var ending: Dictionary = GameState.finish_game()
+		print("Final ending: ", ending["id"])
+		get_tree().call_deferred(
+			"change_scene_to_file",
+			ENDING_SCENE_PATH
+		)
+		return
+	current_phase = "results"
 	get_tree().call_deferred(
 		"change_scene_to_file",
 		RESULTS_SCENE_PATH
 	)
+
 	
 func next_day() -> void:
 	if GameState.go_to_next_day():
