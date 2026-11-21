@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qrht64nrws4i"
-path="res://.godot/imported/e_oscar3.png-3b70853000ea91747ca23e56af4f8658.ctex"
+uid="uid://cbekg0qubn5te"
+path="res://.godot/imported/e_oscar_1.png-99175f35e9c2501fd2856f4663163b95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ending/e_oscar3.png"
-dest_files=["res://.godot/imported/e_oscar3.png-3b70853000ea91747ca23e56af4f8658.ctex"]
+source_file="res://assets/ending/e_oscar_1.png"
+dest_files=["res://.godot/imported/e_oscar_1.png-99175f35e9c2501fd2856f4663163b95.ctex"]
 
 [params]
 

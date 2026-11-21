@@ -430,6 +430,7 @@ texture_normal = ExtResource("41_01p8v")
 texture_hover = ExtResource("42_05s0g")
 
 [node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
