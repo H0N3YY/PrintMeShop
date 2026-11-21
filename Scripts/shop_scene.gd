@@ -18,6 +18,7 @@ extends Node2D
 @onready var sell_sound: AudioStreamPlayer = $SellSound
 @onready var idle_animation_timer: Timer = $IdleAnimationTimer
 
+var work_area_blocker: ColorRect
 var idle_base_texture: Texture2D
 var idle_alt_texture: Texture2D
 var idle_frame_active: bool = false
@@ -131,6 +132,7 @@ func _ready() -> void:
 	setup_product_buttons()
 	setup_color_buttons()
 	setup_merch_list()
+	setup_work_area_blocker()
 	confirm_button.pressed.connect(confirm_order)
 	create_temporary_dialogue_ui()
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
@@ -200,6 +202,50 @@ func setup_preview_texture() -> void:
 
 	product_preview.resized.connect(update_product_preview_transform)
 
+
+func setup_work_area_blocker() -> void:
+	work_area_blocker = ColorRect.new()
+	work_area_blocker.name = "WorkAreaBlocker"
+	work_area_blocker.color = Color(0.27, 0.13, 0.34, 0.82)
+	work_area_blocker.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# Keep the overlay above all shop controls.
+	shop_work_area.add_child(work_area_blocker)
+	work_area_blocker.set_anchors_and_offsets_preset(
+		Control.PRESET_FULL_RECT
+	)
+
+	var message := Label.new()
+	message.name = "BlockerMessage"
+	message.text = "NAJPIERW OBSŁUŻ KLIENTA"
+	message.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	message.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	message.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	message.add_theme_font_size_override("font_size", 30)
+	message.add_theme_color_override(
+		"font_color",
+		Color(1.0, 0.90, 0.97)
+	)
+	message.add_theme_color_override(
+		"font_shadow_color",
+		Color(0.10, 0.04, 0.15, 0.8)
+	)
+	message.add_theme_constant_override("shadow_offset_x", 2)
+	message.add_theme_constant_override("shadow_offset_y", 3)
+
+	work_area_blocker.add_child(message)
+	message.set_anchors_and_offsets_preset(
+		Control.PRESET_FULL_RECT
+	)
+
+	work_area_blocker.hide()
+	
+func set_work_area_locked(locked: bool) -> void:
+	if work_area_blocker == null:
+		return
+
+	work_area_blocker.visible = locked
 
 func update_product_preview_transform() -> void:
 	if preview_texture_rect == null:
@@ -284,53 +330,51 @@ func update_logo_position() -> void:
 	)
 
 func select_product(value: String) -> void:
+	if current_phase != "work":
+		return
+	
 	if selected_product != value:
 		selected_product = value
-
 		selected_color = ""
 		selected_design = ""
 		merch_select.deselect_all()
-
 	product_sound.play()
 	update_preview()
 	
 func select_color(value: String) -> void:
+	if current_phase != "work":
+		return
 	if selected_product == "":
 		return
-		
 	selected_color = value
 	color_sound.play()
 	update_preview()
 
 
 func on_design_selected(index: int) -> void:
+	if current_phase != "work":
+		return
 	if selected_product.is_empty() or selected_color.is_empty():
 		merch_select.deselect_all()
 		return
-
 	selected_design = merch_select.get_item_text(index)
-
 	merch_sound.play()
 	update_preview()
 
 func update_preview() -> void:
-
 	update_item_texture()
 	update_merch_texture()
 
 func update_item_texture() -> void:
 	preview_texture_rect.texture = null
-
 	if selected_product.is_empty():
 		return
-
 	if not ITEM_FILE_PREFIX.has(selected_product):
 		push_warning("No texture mapping for: " + selected_product)
 		return
-
+		
 	var prefix: String = ITEM_FILE_PREFIX[selected_product]
 	var suffix: String = COLOR_FILE_SUFFIX.get(selected_color, "gray")
-
 	var texture_path: String = (
 		"res://assets/items/%s%s.png" % [prefix, suffix]
 	)
@@ -346,10 +390,8 @@ func update_item_texture() -> void:
 func update_merch_texture() -> void:
 	logo_preview_texture_rect.texture = null
 	logo_preview_texture_rect.hide()
-
 	if selected_product.is_empty():
 		return
-
 	if selected_design.is_empty():
 		return
 
@@ -402,6 +444,7 @@ func confirm_order() -> void:
 			== GameData.canonical_design(str(expected[2]))
 	)
 	sell_sound.play()
+	set_work_area_locked(true)
 	start_pickup_dialogue()
 
 
@@ -421,6 +464,7 @@ func start_customer() -> void:
 
 	current_phase = "waiting_intro"
 	set_customer_appearance("intro")
+	set_work_area_locked(true)
 
 	# Show customer and shop before conversation
 	shop_work_area.show()
@@ -509,8 +553,11 @@ func show_intro_dialogue() -> void:
 func on_intro_choice(points: int) -> void:
 	intro_points = points
 	current_phase = "work"
+
 	dialogue_area.hide()
+	set_work_area_locked(false)
 	shop_work_area.show()
+
 	update_preview()
 
 func start_pickup_dialogue() -> void:
@@ -521,6 +568,7 @@ func start_pickup_dialogue() -> void:
 func on_pickup_choice(points: int) -> void:
 	pickup_points = points
 	dialogue_area.hide()
+	set_work_area_locked(true)
 	shop_work_area.show()
 
 	var result: Dictionary = GameState.complete_encounter(
