@@ -24,6 +24,7 @@ offset_bottom = 721.0
 mouse_filter = 2
 
 [node name="OscarResults1" type="Sprite2D" parent="." unique_id=736407127]
+visible = false
 position = Vector2(639, 358)
 texture = ExtResource("3_7frha")
 
