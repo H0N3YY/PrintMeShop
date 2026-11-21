@@ -39,7 +39,7 @@ const ITEM_FILE_PREFIX := {
 const COLOR_FILE_SUFFIX := {
 	"Biały": "white", "Czarny": "black", "Różowy": "pink",
 	"Czerwony": "red", "Niebieski": "blue", "Zielony": "green",
-	"Pomarańczowy": "orange", "Żółty": "yellow"
+	"Pomarańczowy": "orange", "Żółty": "yellow","Szary":"gray",
 }
 
 
@@ -179,7 +179,7 @@ func update_item_texture() -> void:
 		return
 
 	var prefix: String = ITEM_FILE_PREFIX[selected_product]
-	var suffix: String = COLOR_FILE_SUFFIX.get(selected_color, "white")
+	var suffix: String = COLOR_FILE_SUFFIX.get(selected_color, "gray")
 
 	var texture_path: String = (
 		"res://assets/items/%s%s.png" % [prefix, suffix]
