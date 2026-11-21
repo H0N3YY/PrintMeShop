@@ -86,8 +86,6 @@ func get_result_scene(character_id: String) -> Dictionary:
 
 	return character_results.get(visit_number, SOLO_RESULT)
 
-
-
 func show_day_results() -> void:
 	var summary: Dictionary = GameState.last_day_summary
 
@@ -151,7 +149,6 @@ func _on_next_day_pressed() -> void:
 
 	if GameState.go_to_next_day():
 		get_tree().change_scene_to_file(SHOP_SCENE_PATH)
-
 
 func open_ending() -> void:
 	var ending: Dictionary = GameState.finish_game()

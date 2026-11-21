@@ -404,7 +404,6 @@ offset_bottom = 698.0
 custom_minimum_size = Vector2(0.1, 0.24)
 layout_mode = 2
 size_flags_vertical = 0
-text = "Chose product"
 autowrap_mode = 3
 
 [node name="ProductPreview" type="Control" parent="ShopWorkArea/ResultPanel" unique_id=2094835854]

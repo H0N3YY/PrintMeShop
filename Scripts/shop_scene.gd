@@ -104,7 +104,6 @@ const CHARACTER_IDLE_FRAMES := {
 	"res://assets/characters/kukuryniarz.png": "res://assets/characters/kukuryniarzanimation.png"
 }
 
-
 const CUSTOMER_MOVE_DURATION: float = 1.5
 
 var customer_rest_position: Vector2
@@ -125,7 +124,6 @@ var is_order_correct := false
 var overlay: Control
 var overlay_message: Label
 var overlay_buttons: VBoxContainer
-
 
 func _ready() -> void:
 	customer_rest_position = customer_sprite.position
@@ -148,7 +146,7 @@ func update_day_counter() -> void:
 		GameData.MAX_DAYS
 	]
 	
-	
+
 func _on_talk_button_pressed() -> void:
 	if current_phase != "waiting_intro":
 		return
@@ -178,7 +176,6 @@ func setup_merch_list() -> void:
 	for design in GameData.DESIGNS:
 		merch_select.add_item(design)
 	merch_select.item_selected.connect(on_design_selected)
-
 
 func setup_preview_texture() -> void:
 	preview_texture_rect = TextureRect.new()
@@ -286,8 +283,6 @@ func update_logo_position() -> void:
 		print_area.size * image_size
 	)
 
-
-
 func select_product(value: String) -> void:
 	if selected_product != value:
 		selected_product = value
@@ -298,7 +293,6 @@ func select_product(value: String) -> void:
 
 	product_sound.play()
 	update_preview()
-	
 	
 func select_color(value: String) -> void:
 	if selected_product == "":
@@ -320,11 +314,6 @@ func on_design_selected(index: int) -> void:
 	update_preview()
 
 func update_preview() -> void:
-	result_label.text = "Produkt: %s\nKolor: %s\nWzór: %s" % [
-		selected_product if not selected_product.is_empty() else "—",
-		selected_color if not selected_color.is_empty() else "—",
-		selected_design if not selected_design.is_empty() else "—"
-	]
 
 	update_item_texture()
 	update_merch_texture()
@@ -386,7 +375,6 @@ func update_merch_texture() -> void:
 
 	update_logo_position()
 	logo_preview_texture_rect.show()
-
 
 func reset_order() -> void:
 	selected_product = ""
@@ -467,8 +455,6 @@ func set_customer_appearance(phase: String) -> void:
 
 	# Always configure idle animation after loading the appearance.
 	setup_idle_animation(texture_path)
-
-
 
 func get_current_route() -> String:
 	var encounter: Dictionary = GameState.current_encounter()

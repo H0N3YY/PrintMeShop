@@ -1,9 +1,9 @@
-# oscar_2 / intro — placeholder text; edit in Dialogic
-Osci — [Wpisz wypowiedź klienta i zamówienie\: Skarpetki, Biały, Kruk z Love and Deepspace.]
-- A. [Wpisz odpowiedź A]
+# oscar intro 2
+Niegdyś należałem do Hello IT. Może załatwisz mi niebieską koszulkę przypominającą ten cudowny czas?
+- A. Muszę przyznać że masz piękną grzywkę, ładnie ci z nią tak na lewo.
 	do GameState.set_dialogue_choice(2)
-- B. Muszę przyznać że masz piękną grzywkę, ładnie ci z nią tak na lewo.
+- B. Ceną jest randka.
 	do GameState.set_dialogue_choice(1)
-- C. [Wpisz odpowiedź C]
+- C. Może jeszcze frytki do tego?
 	do GameState.set_dialogue_choice(0)
 [end_timeline]
