@@ -24,7 +24,7 @@ const RESULT_SCENES := {
 
 	"skolim": {
 		1: { "image": "res://assets/characters/skolim1.png", "quote": "No hej gwiazdo! Myślałem że się nie doczekam. Mam bardzo napięty grafik i jestem spóźniony na koncert już trzy godziny. Dożynki same się nie rozkręcą, a Królowi Latino nie każe się czekać. Ale w sumie możesz być małym wyjątkiem od tej reguły." },
-		2: { "image": "res://assets/characters/skolim2.png.png", "quote": "Witaj myszko. Co powiesz na przejażdżkę nocą po mieście moim skolimmobilem? Potem mogę odwieźć cię do domu.. lub możemy skoczyć gdzieś indziej. Albo może pokażesz mi zaplecze tego waszego sklepiku? Chętnie trochę pozwiedzam." }
+		2: { "image": "res://assets/characters/skolim2.png", "quote": "Witaj myszko. Co powiesz na przejażdżkę nocą po mieście moim skolimmobilem? Potem mogę odwieźć cię do domu.. lub możemy skoczyć gdzieś indziej. Albo może pokażesz mi zaplecze tego waszego sklepiku? Chętnie trochę pozwiedzam." }
 	},
 
 	"sekciarz": {
@@ -127,13 +127,23 @@ func show_day_results() -> void:
 		int(summary["love_gained"])
 	]
 
-	var image_path: String = str(result_scene["image"])
+	var image_path: String = str(result_scene.get("image", ""))
 
 	scene_image.texture = null
 
-	if image_path != "" and ResourceLoader.exists(image_path):
-		scene_image.texture = load(image_path) as Texture2D
-	elif image_path != "":
+	if image_path.is_empty():
+		scene_image.hide()
+	elif ResourceLoader.exists(image_path):
+		var image_texture: Texture2D = load(image_path) as Texture2D
+
+		if image_texture != null:
+			scene_image.texture = image_texture
+			scene_image.show()
+		else:
+			scene_image.hide()
+			push_warning("Failed to load result image: " + image_path)
+	else:
+		scene_image.hide()
 		push_warning("Result image not found: " + image_path)
 
 	if day_number >= GameData.MAX_DAYS:

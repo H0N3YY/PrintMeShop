@@ -13,15 +13,15 @@ const MAIN_MENU_SCENE_PATH := "res://Scenes/MainMenu.tscn"
 const ENDING_SCENES := {
 	"oscar": {
 		"good": {
-			"image": "res://assets/ending/e_oscar1.png",
+			"image": "res://assets/ending/e_oscar_1.png",
 			"quote": "Oskar staje się bogaty i teraz to on pomiata graczem"
 		},
 		"neutral": {
-			"image": "res://assets/ending/e_oscar2.png",
+			"image": "res://assets/ending/e_oscar_2.png",
 			"quote": "Gracz również zostaje bezdomny i będzie brał udział w ulicznych bójkach o kałcyjne butelki z Oskarem"
 		},
 		"bad": {
-			"image": "res://assets/ending/e_oscar3.png",
+			"image": "res://assets/ending/e_oscar_3.png",
 			"quote": "Oskar i Gracz biorą ślub na wrocławskim śmietniku na tyłach sklepu razem ze szczurami"
 		}
 	},
