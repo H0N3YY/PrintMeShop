@@ -51,6 +51,10 @@
 [ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="48_e0bxy"]
 [ext_resource type="Texture2D" uid="uid://yej6u0780ly6" path="res://assets/ui/marked.png" id="50_1kq03"]
 [ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="50_2nri4"]
+[ext_resource type="AudioStream" uid="uid://d2ja740r6vj5j" path="res://assets/sounds/openBox.MP3" id="52_i11mu"]
+[ext_resource type="AudioStream" uid="uid://b5si6wtg5s88m" path="res://assets/sounds/colorchange.MP3" id="53_l6pmf"]
+[ext_resource type="AudioStream" uid="uid://5phr335j4l4f" path="res://assets/sounds/sticker.MP3" id="53_pvtvr"]
+[ext_resource type="AudioStream" uid="uid://0c06t7ymf8yn" path="res://assets/sounds/cash.MP3" id="55_7gt6h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
 
@@ -427,6 +431,7 @@ texture_normal = ExtResource("41_01p8v")
 texture_hover = ExtResource("42_05s0g")
 
 [node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
@@ -547,3 +552,19 @@ text = "♡"
 [node name="day5" type="Label" parent="TopBar/HeartsContainer" unique_id=874861667]
 layout_mode = 2
 text = "♡"
+
+[node name="ProductSound" type="AudioStreamPlayer" parent="." unique_id=1822417404]
+stream = ExtResource("52_i11mu")
+volume_db = -20.0
+
+[node name="ColorSound" type="AudioStreamPlayer" parent="." unique_id=258920424]
+stream = ExtResource("53_l6pmf")
+volume_db = -20.0
+
+[node name="MerchSound" type="AudioStreamPlayer" parent="." unique_id=440970550]
+stream = ExtResource("53_pvtvr")
+volume_db = -20.0
+
+[node name="SellSound" type="AudioStreamPlayer" parent="." unique_id=1883138194]
+stream = ExtResource("55_7gt6h")
+volume_db = -20.0

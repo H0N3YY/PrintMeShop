@@ -11,6 +11,10 @@ extends Node2D
 @onready var confirm_button: TextureButton = $ShopWorkArea/ConfirmButton
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
+@onready var product_sound: AudioStreamPlayer = $ProductSound
+@onready var color_sound: AudioStreamPlayer = $ColorSound
+@onready var merch_sound: AudioStreamPlayer = $MerchSound
+@onready var sell_sound: AudioStreamPlayer = $SellSound
 
 const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
 
@@ -99,24 +103,29 @@ func setup_preview_texture() -> void:
 	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func select_product(value: String) -> void:
-	print("Product button pressed: ", value)
-	# Selecting a different product requires clearing the current order first.
 	if selected_product != "":
 		print("Clear the selected product before choosing another one.")
 		return
+
+	product_sound.play()
 	selected_product = value
 	selected_color = "Szary"
 	update_preview()
-
+	
+	
 func select_color(value: String) -> void:
 	if selected_product == "":
 		print("Select a product first.")
 		return
+		
 	selected_color = value
+	color_sound.play()
 	update_preview()
+
 
 func on_design_selected(index: int) -> void:
 	selected_design = merch_select.get_item_text(index)
+	merch_sound.play()
 	update_preview()
 
 func update_preview() -> void:
@@ -180,6 +189,7 @@ func confirm_order() -> void:
 		and selected_color == expected[1]
 		and selected_design == expected[2]
 	)
+	sell_sound.play()
 	start_pickup_dialogue()
 
 
