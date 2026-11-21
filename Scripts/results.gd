@@ -8,7 +8,7 @@ const ENDING_SCENE_PATH := "res://Scenes/Ending.tscn"
 @onready var quote_label: Label = $QuoteLabel
 @onready var stats_text: Label = $StatsPanel/StatsText
 @onready var day_label: Label = $DayLabel
-@onready var next_day_button: Button = $NextDayButton
+@onready var next_day_button: Button = $NextDay_btn
 
 # TODO Add correct image paths when your assets are ready
 const RESULT_SCENES := {
