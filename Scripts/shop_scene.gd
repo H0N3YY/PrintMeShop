@@ -47,13 +47,13 @@ const MERCH_TEXTURES := {
 	"Hatsune Miku": "logohatsume.png",
 	"Hello IT": "logohelloit.png",
 	"Ideis": "logoideis.png",
-	"Kukuryniarz": "logokucyk.png",
+	"Kukuryniarz": "logoszkiely.png",
 	"League of Legends": "logoporo.png",
 	"Love and Deepspace": "logocrow.png",
 	"Piwo Janka": "logopiwo.png",
 	"Roblox": "logoroblox.png",
 	"Skolim": "logoskolim.png",
-	"Monsterek": "logoszkiely.png",
+	"Monsterek": "logokucyk.png",
 	"Netflix": "logodomino.png"
 }
 # Right Down Left Top
@@ -67,6 +67,18 @@ const PRODUCT_LOGO_RECTS := {
 	"Brelok": Rect2(0.43, 0.40, 0.25, 0.30),
 	"Przypinka": Rect2(0.38, 0.42, 0.26, 0.24),
 	"Naklejki": Rect2(0.34, 0.36, 0.32, 0.30)
+}
+
+const PRODUCT_LOGO_SCALE := {
+	"Koszulka": 1.50,
+	"Czapka": 1.65,
+	"Kubek": 1.40,
+	"Torba": 1.55,
+	"Plakat": 1.25,
+	"Skarpetki": 1.50,
+	"Brelok": 1.40,
+	"Przypinka": 1.70,
+	"Naklejki": 1.45
 }
 
 const PRODUCT_PREVIEW_TRANSFORMS := {
@@ -226,47 +238,44 @@ func update_product_preview_transform() -> void:
 
 	update_logo_position()
 
-
-
-
 func update_logo_position() -> void:
 	if logo_preview_texture_rect == null:
 		return
-
 	if preview_texture_rect.texture == null:
 		return
-
 	if selected_product.is_empty():
 		return
-
 	var product_texture: Texture2D = preview_texture_rect.texture
 	var texture_size: Vector2 = product_texture.get_size()
 	var available_size: Vector2 = preview_texture_rect.size
-
 	if texture_size.x <= 0 or texture_size.y <= 0:
 		return
-
 	if available_size.x <= 0 or available_size.y <= 0:
 		return
-
-	# Calculate the actual displayed image size.
 	var image_scale: float = minf(
 		available_size.x / texture_size.x,
 		available_size.y / texture_size.y
 	)
-
 	var image_size: Vector2 = texture_size * image_scale
 	var image_offset: Vector2 = (
 		available_size - image_size
 	) / 2.0
-
-	# Get the individual print area for this product.
 	var print_area: Rect2 = PRODUCT_LOGO_RECTS.get(
 		selected_product,
 		Rect2(0.35, 0.35, 0.30, 0.30)
 	)
+	var logo_scale: float = float(
+		PRODUCT_LOGO_SCALE.get(selected_product, 1.0)
+	)
+	var logo_center: Vector2 = (
+		print_area.position + print_area.size / 2.0
+	)
 
-	# Account for both the image position and product offset.
+	print_area.size *= logo_scale
+	print_area.position = (
+		logo_center - print_area.size / 2.0
+	)
+
 	logo_preview_texture_rect.position = (
 		preview_texture_rect.position
 		+ image_offset
@@ -380,7 +389,6 @@ func update_merch_texture() -> void:
 
 
 func reset_order() -> void:
-	# Reset order automatically for the next customer
 	selected_product = ""
 	selected_color = ""
 	selected_design = ""
@@ -432,10 +440,6 @@ func start_customer() -> void:
 	talk_button.hide()
 	
 	animate_customer_enter()
-
-
-# Show encounter art independently from  romance ID
-
 
 func set_customer_appearance(phase: String) -> void:
 	var encounter: Dictionary = GameState.current_encounter()
@@ -528,12 +532,8 @@ func start_pickup_dialogue() -> void:
 	set_customer_appearance("pickup")
 	start_dialogic_phase("pickup")
 
-
-
 func on_pickup_choice(points: int) -> void:
 	pickup_points = points
-
-	# Close dialogue and restore the shop UI.
 	dialogue_area.hide()
 	shop_work_area.show()
 
@@ -546,15 +546,12 @@ func on_pickup_choice(points: int) -> void:
 	if result.is_empty():
 		return
 
-	# Animate only the customer sprite.
 	await animate_customer_exit()
 
 	if GameState.has_more_customers_today():
 		start_customer()
 	else:
 		show_day_results()
-
-
 
 func _on_dialogic_timeline_ended() -> void:
 	if current_phase != "intro" and current_phase != "pickup":
