@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://lh6gbxf1gwve" path="res://assets/results/nightShop_background.png" id="1_fhok7"]
 [ext_resource type="Script" uid="uid://bhf5dkhy2hp3r" path="res://Scripts/results.gd" id="1_mma32"]
-[ext_resource type="Texture2D" uid="uid://57bvoymb5bgs" path="res://assets/results/oscar_results_1.png" id="3_7frha"]
+[ext_resource type="Texture2D" uid="uid://die2ua7xxmdff" path="res://assets/ui/chatbox.png" id="3_7frha"]
 
 [node name="Results" type="Control" unique_id=427100243]
 layout_mode = 3
@@ -23,17 +23,17 @@ offset_right = 1280.0
 offset_bottom = 721.0
 mouse_filter = 2
 
-[node name="OscarResults1" type="Sprite2D" parent="." unique_id=736407127]
-visible = false
-position = Vector2(639, 358)
+[node name="Chatbox" type="Sprite2D" parent="." unique_id=477411229]
+position = Vector2(907.76984, 178.25002)
+scale = Vector2(0.80862075, 0.9637933)
 texture = ExtResource("3_7frha")
 
 [node name="QuoteLabel" type="Label" parent="." unique_id=1922361792]
 layout_mode = 0
-offset_left = 537.0
-offset_top = 67.0
-offset_right = 1183.0
-offset_bottom = 222.0
+offset_left = 619.0
+offset_top = 87.0
+offset_right = 1211.0
+offset_bottom = 268.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 autowrap_mode = 3
@@ -41,10 +41,10 @@ max_lines_visible = 6
 
 [node name="StatsPanel" type="PanelContainer" parent="." unique_id=896260685]
 layout_mode = 0
-offset_left = 1000.0
-offset_top = 288.0
-offset_right = 1128.0
-offset_bottom = 360.0
+offset_left = 1065.0
+offset_top = 462.0
+offset_right = 1269.0
+offset_bottom = 613.0
 
 [node name="StatsText" type="Label" parent="StatsPanel" unique_id=1121070389]
 layout_mode = 2
