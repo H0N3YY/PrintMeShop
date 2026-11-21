@@ -21,7 +21,7 @@ const PRODUCTS := {
 const COLORS := {
 	"white": "Biały", "black": "Czarny", "pink": "Różowy",
 	"red": "Czerwony", "blue": "Niebieski", "green": "Zielony",
-	"orange": "Pomarańczowy", "yellow": "Żółty", "gray":"Szary"
+	"orange": "Pomarańczowy", "yellow": "Żółty"
 }
 
 const DESIGNS := [
@@ -32,12 +32,9 @@ const DESIGNS := [
 
 const CHARACTERS := {
 	"gotka": {"name": "Matylda", "romance": true, "texture": "res://assets/characters/gotka1.png"},
-	"gotkaGlamur": {"name": "Matylda", "romance": true, "texture": "res://assets/characters/gotka2.png"},
 	"oscar": {"name": "Osci", "romance": true, "texture": "res://assets/characters/osci.png"},
 	"skolim": {"name": "Skolim", "romance": true, "texture": "res://assets/characters/skolim1.png"},
-	"skolimHot": {"name": "Skolim", "romance": true, "texture": "res://assets/characters/skolim2.png"},
 	"sekciarz": {"name": "Ideisek", "romance": true, "texture": "res://assets/characters/sekciarz1.png"},
-	"sekciarzFurry": {"name": "Ideisek", "romance": true, "texture": "res://assets/characters/sekciarz2.png"},
 	"kukuryniarz": {"name": "Norbi Kukuryniarz", "romance": true, "texture": "res://assets/characters/kukuryniarz.png"},
 	"npc1": {"name": "Pan Janusz", "romance": false, "texture": "res://assets/characters/npc1.png"},
 	"npc2": {"name": "Pani Grazyna", "romance": false, "texture": "res://assets/characters/npc2.png"}
@@ -46,10 +43,10 @@ const CHARACTERS := {
 # Daily schedule: each encounter ID appears exactly once
 const DAYS := [
 	["oscar_1", "gotka_1", "npc1_1"],
-	["sekciarz_1", "skolim_1", "npc2_1"],
-	["kukuryniarz_1", "oscar_2", "npc1_2"],
+	["sekciarz_1", "npc2_1", "skolim_1"],
+	["npc1_2", "kukuryniarz_1", "oscar_2"],
 	["gotka_2", "sekciarz_2", "npc2_2"],
-	["skolim_2", "kukuryniarz_2", "npc1_3"]
+	["skolim_2", "npc1_3","kukuryniarz_2"]
 ]
 
 # Encounter orders use [product display name, color display name, design display name].
@@ -60,7 +57,7 @@ const ENCOUNTERS := {
 	"oscar_1": {"character": "oscar", "order": ["Czapka", "Czarny", "Kukuryniarz"]},
 	"skolim_1": {"character": "skolim", "order": ["Koszulka", "Różowy", "Skolim"]},
 	"npc2_1": {"character": "npc2", "order": ["Torba", "Zielony", "Hello IT"]},
-	"sekciarz_2": {"character": "sekciarzFurry", "order": ["Kubek", "Żółty", "Ideis"]},
+	"sekciarz_2": {"character": "sekciarz", "order": ["Kubek", "Żółty", "Ideis"]},
 	"kukuryniarz_1": {"character": "kukuryniarz", "order": ["Brelok", "Pomarańczowy", "Kukuryniarz"]},
 	"npc1_2": {"character": "npc1", "order": ["Naklejki", "Niebieski", "Poro League of Legends"]},
 	"gotka_2": {"character": "gotka", "order": ["Czapka", "Różowy", "Fat Cat"]},
@@ -71,6 +68,43 @@ const ENCOUNTERS := {
 	"npc1_3": {"character": "npc1", "order": ["Przypinka", "Zielony", "Hello IT"]}
 }
 
+# Route specific entries are examples: edit which route displays each variant
+const CHARACTER_APPEARANCES :={
+	"gotka": {
+		"default": "res://assets/characters/gotka1.png",
+		"second_visit": "res://assets/characters/gotka2.png"
+	},
+	"skolim": {
+		"default": "res://assets/characters/skolim1.png",
+		"second_visit": "res://assets/characters/skolim2.png"
+	},
+	"sekciarz": {
+		"default": "res://assets/characters/sekciarz1.png",
+		"second_visit": "res://assets/characters/sekciarz2.png"
+	}
+}
+
+# Map order only design desc. to an available merch list label
+const DESIGN_ALIASES :={
+	"Poro League of Legends": "League of Legends",
+	"Kruk z Love and Deepspace": "Love and Deepspace"
+}
+
+static func canonical_design(design_name: String) -> String:
+	return DESIGN_ALIASES.get(design_name, design_name)
+	
+static func encounter_visit_number(encounter_id: String) -> int:
+	return int(encounter_id.get_slice("_", 1))
+	
+static func dialogue_timeline_path( encounter_id: String, phase: String, route: String = "" ) -> String:
+	var base_path: String = "res://assets/dialogues/%s_%s" % [encounter_id, phase]
+	var character_id: String = str(ENCOUNTERS[encounter_id]["character"])
+	var is_romance: bool = GameData.CHARACTERS[character_id]["romance"]
+	if phase == "pickup" and is_romance:
+		if encounter_visit_number(encounter_id) == 2:
+			return "%s_%s.dtl" % [base_path, route]
+	return "%s.dtl" % base_path
+	
 static func encounter_at(day_number: int, customer_number: int) -> Dictionary:
 	if day_number < 1 or day_number > DAYS.size():
 		return {}
@@ -95,3 +129,4 @@ static func choice_options(phase: String) -> Array:
 		{"text": "B. Do zobaczenia.", "points": 1},
 		{"text": "C. Następny!", "points": 0}
 	]
+	

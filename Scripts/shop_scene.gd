@@ -1,9 +1,7 @@
 extends Node2D
 
-# Attach this script to the existing ShopScene root node.
-# Dialogue choices are temporary A/B/C buttons. Dialogic integration comes later.
-
 @onready var customer_sprite: TextureRect = $LeftCustomerPanel/CustomerSprite
+@onready var talk_button: TextureButton = $LeftCustomerPanel/TalkButton
 @onready var product_panel: Control = $ShopWorkArea/ProductPanel
 @onready var color_panel: Control = $ShopWorkArea/ColorPanel
 @onready var merch_select: ItemList = $ShopWorkArea/MerchPanel/MerchSelect
@@ -14,8 +12,6 @@ extends Node2D
 @onready var shop_work_area: Control = $ShopWorkArea
 @onready var dialogue_area: Control = $DialogueArea
 
-# Item textures: res://assets/items/shirtwhite.png, shirtpink.png, etc.
-# Add file prefixes for other item types once their textures are available.
 const ITEM_FILE_PREFIX := {
 	"Koszulka": "shirt",
 	"Skarpetki": "socks",
@@ -23,8 +19,9 @@ const ITEM_FILE_PREFIX := {
 	"Plakat": "poster",
 	"Torba": "bag",
 	"Brelok": "keychain",
-	"Przypinka": "pin"
-	
+	"Przypinka": "pin",
+	"Naklejki": "stickers",
+	"Czapka": "cap"
 }
 
 const COLOR_FILE_SUFFIX := {
@@ -55,7 +52,16 @@ func _ready() -> void:
 	cancel_button.pressed.connect(reset_order)
 	confirm_button.pressed.connect(confirm_order)
 	create_temporary_dialogue_ui()
+	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
+	talk_button.pressed.connect(_on_talk_button_pressed)
 	start_customer()
+	
+func _on_talk_button_pressed() -> void:
+	if current_phase != "waiting_intro":
+		return
+
+	talk_button.hide()
+	show_intro_dialogue()
 
 func setup_product_buttons() -> void:
 	for node_name in GameData.PRODUCTS:
@@ -81,7 +87,6 @@ func setup_merch_list() -> void:
 	merch_select.item_selected.connect(on_design_selected)
 
 func setup_preview_texture() -> void:
-	# Create a TextureRect programmatically inside the existing ProductPreview.
 	preview_texture_rect = TextureRect.new()
 	preview_texture_rect.name = "SelectedItemTexture"
 	preview_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -105,7 +110,6 @@ func select_color(value: String) -> void:
 	if selected_product == "":
 		print("Select a product first.")
 		return
-	# Color can be changed any number of times without changing the product.
 	selected_color = value
 	update_preview()
 
@@ -150,8 +154,7 @@ func update_item_texture() -> void:
 		push_warning("Texture not found: " + texture_path)
 
 func reset_order() -> void:
-	# Trash button: clear the product, color, and design.
-	# Do not change the customer or reset dialogue points.
+	# Trash button = clear product, color, and design
 	selected_product = ""
 	selected_color = ""
 	selected_design = ""
@@ -177,53 +180,116 @@ func confirm_order() -> void:
 	)
 	start_pickup_dialogue()
 
+
 func start_customer() -> void:
 	var encounter: Dictionary = GameState.current_encounter()
+
 	if encounter.is_empty():
-		push_error("No current encounter is available")
+		push_error("No current encounter is available.")
 		return
+
 	reset_order()
 	pending_order.clear()
+	
 	intro_points = 0
 	pickup_points = 0
-	var character_id: String = encounter["character"]
-	var customer: Dictionary = GameData.CHARACTERS[character_id]
-	var texture_path: String = customer["texture"]
+	is_order_correct = false
+
+	current_phase = "waiting_intro"
+	set_customer_appearance("intro")
+
+	# Show customer and shop before conversation
+	shop_work_area.show()
+	dialogue_area.hide()
+	talk_button.show()
+
+
+# Show encounter art independently from  romance ID
+func set_customer_appearance(phase: String) -> void:
+	var encounter: Dictionary = GameState.current_encounter()
+	var character_id: String = str(encounter["character"])
+	var character: Dictionary = GameData.CHARACTERS[character_id]
+	var texture_path: String = str(character.get("texture", ""))
+	var appearances: Dictionary = GameData.CHARACTER_APPEARANCES.get(character_id, {})
+	if not appearances.is_empty():
+		texture_path = str(appearances.get("default", texture_path))
+		if GameData.encounter_visit_number(str(encounter["id"])) == 2:
+			texture_path = str(appearances.get("second_visit", texture_path))
+		if phase == "pickup":
+			var route: String = get_current_route()
+			# Optional overrides e.g. "pickup_good", "pickup_neutral", "pickup_bad"
+			texture_path = str(appearances.get("pickup_" + route, texture_path))
+	customer_sprite.texture = null
 	if texture_path != "" and ResourceLoader.exists(texture_path):
 		customer_sprite.texture = load(texture_path) as Texture2D
-	else:
-		customer_sprite.texture = null
-		if texture_path != "":
-			push_warning("Character texture is missing (check game_data.gd): " + texture_path)
-	show_intro_dialogue()
+	elif texture_path != "":
+		push_warning("Missing character texture: " + texture_path)
+
+func get_current_route() -> String:
+	var encounter: Dictionary = GameState.current_encounter()
+	var character_id: String = str(encounter["character"])
+	var additional_points: int = intro_points if is_order_correct else 0
+	return GameState.relationship_route(character_id, additional_points)
+
+
+func start_dialogic_phase(phase: String) -> void:
+	var encounter: Dictionary = GameState.current_encounter()
+	var route: String = ""
+
+	if phase == "pickup":
+		var character_id: String = str(encounter["character"])
+		var is_romance: bool = GameData.CHARACTERS[character_id]["romance"]
+
+		if is_romance:
+			route = get_current_route()
+
+	var timeline_path: String = GameData.dialogue_timeline_path(
+		str(encounter["id"]), phase, route
+	)
+
+	if not ResourceLoader.exists(timeline_path):
+		push_error("Dialogic timeline not found: " + timeline_path)
+		return
+
+	GameState.reset_dialogue_choice()
+
+	talk_button.hide()
+	shop_work_area.hide()
+	dialogue_area.show()
+	$DialogueArea/ChoiceArea.show()
+	
+	await get_tree().process_frame
+	for button in get_tree().get_nodes_in_group("dialogic_choice_button"):
+		print(
+		"Choice button: ", button.name,
+		" | Parent visible: ",
+		button.get_parent().is_visible_in_tree(),
+		" | Index: ", button.choice_index
+	)
+
+	Dialogic.start_timeline(timeline_path)
+
 
 func show_intro_dialogue() -> void:
 	current_phase = "intro"
-	shop_work_area.hide()
-	var encounter: Dictionary = GameState.current_encounter()
-	var character_name: String = GameData.CHARACTERS[encounter["character"]]["name"]
-	var order: Array = encounter["order"]
-	show_choices(
-		"%s zamawia: %s, kolor %s, wzór %s. Zapamiętaj!" % [character_name, order[0], order[1], order[2]],
-		GameData.choice_options("intro")
-	)
+	set_customer_appearance("intro")
+	start_dialogic_phase("intro")
 
 func on_intro_choice(points: int) -> void:
 	intro_points = points
 	current_phase = "work"
-	overlay.hide()
+	dialogue_area.hide()
 	shop_work_area.show()
 	update_preview()
 
 func start_pickup_dialogue() -> void:
 	current_phase = "pickup"
-	shop_work_area.hide()
-	var reaction := "Zamówienie poprawne!" if is_order_correct else "To nie jest moje zamówienie!"
-	show_choices(reaction + " — wybierz odpowiedź na pożegnanie:", GameData.choice_options("pickup"))
+	set_customer_appearance("pickup")
+	start_dialogic_phase("pickup")
 
 func on_pickup_choice(points: int) -> void:
 	pickup_points = points
-	overlay.hide()
+	dialogue_area.hide()
 	var result: Dictionary = GameState.complete_encounter(pending_order, intro_points, pickup_points)
 	if result.is_empty():
 		return
@@ -231,6 +297,18 @@ func on_pickup_choice(points: int) -> void:
 		start_customer()
 	else:
 		show_day_results()
+
+func _on_dialogic_timeline_ended() -> void:
+	if current_phase != "intro" and current_phase != "pickup":
+		return
+	var selected_points: int = GameState.dialogue_choice_points
+	if selected_points < 0:
+		push_warning("Timeline ended without a selected A/B/C answer. Awarding zero points.")
+		selected_points = 0
+	if current_phase == "intro":
+		on_intro_choice(selected_points)
+	else:
+		on_pickup_choice(selected_points)
 
 func show_day_results() -> void:
 	current_phase = "results"
@@ -271,8 +349,7 @@ func restart_game() -> void:
 	overlay.hide()
 	start_customer()
 
-# Temporary testing UI; keeps the existing shop art and layout intact.
-# Replace this later with Dialogic speech bubbles and choices.
+# TODO Replace this later with Dialogic speech bubbles and choices
 func create_temporary_dialogue_ui() -> void:
 	var layer := CanvasLayer.new()
 	layer.name = "TemporaryDialogueLayer"

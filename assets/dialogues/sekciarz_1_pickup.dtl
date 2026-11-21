@@ -1,0 +1,10 @@
+# sekciarz_1 / pickup — placeholder text; edit in Dialogic
+Dałeś radę, może jednak do czegoś się nadajesz.\
+Jeszcze pewnie tu wpadnę ponabijać się z Ciebie.
+- A. [Wpisz odpowiedź A]
+	do GameState.set_dialogue_choice(2)
+- B. [Wpisz odpowiedź B]
+	do GameState.set_dialogue_choice(1)
+- C. [Wpisz odpowiedź C]
+	do GameState.set_dialogue_choice(0)
+[end_timeline]

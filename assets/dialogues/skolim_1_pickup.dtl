@@ -1,0 +1,10 @@
+# skolim_1 / pickup — placeholder text; edit in Dialogic
+Skolim zaczyna śpiewać\:\
+"Nie dzwoń do mnie, bo ja dzisiaj nie mam czasu, lecę w miasto, wiesz, że lubię dużo hałasu"
+- A. [Wpisz odpowiedź A]
+	do GameState.set_dialogue_choice(2)
+- B. [Wpisz odpowiedź B]
+	do GameState.set_dialogue_choice(1)
+- C. [Wpisz odpowiedź C]
+	do GameState.set_dialogue_choice(0)
+[end_timeline]

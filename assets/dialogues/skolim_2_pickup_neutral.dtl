@@ -1,0 +1,9 @@
+# skolim_2 / pickup [wariant: neutral] — placeholder text; edit in Dialogic
+Skolim — [Wpisz reakcję na przygotowane zamówienie [wariant: neutral].]
+- A. [Wpisz odpowiedź A]
+	do GameState.set_dialogue_choice(2)
+- B. [Wpisz odpowiedź B]
+	do GameState.set_dialogue_choice(1)
+- C. [Wpisz odpowiedź C]
+	do GameState.set_dialogue_choice(0)
+[end_timeline]

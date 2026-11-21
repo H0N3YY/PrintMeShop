@@ -13,6 +13,7 @@ var completed: Dictionary = {}
 var daily_correct: int = 0
 var daily_wrong: int = 0
 var daily_love: int = 0
+var dialogue_choice_points: int = -1
 
 func _ready() -> void:
 	new_game()
@@ -25,9 +26,26 @@ func new_game() -> void:
 	daily_correct = 0
 	daily_wrong = 0
 	daily_love = 0
+	dialogue_choice_points = -1
 	for character_id in GameData.CHARACTERS:
 		if GameData.CHARACTERS[character_id]["romance"]:
 			love[character_id] = 0
+			
+func reset_dialogue_choice() -> void:
+	dialogue_choice_points = -1
+	
+func set_dialogue_choice(points: int) -> void:
+	dialogue_choice_points = clampi(points, 0, 2)
+	
+func relationship_route(character_id: String, additional_points: int = 0) -> String:
+	if not love.has(character_id):
+		return "neutral"
+	var projected_score: int = int(love[character_id]) + additional_points
+	if projected_score >= GameData.ENDING_GOOD_MIN:
+		return "good"
+	if projected_score >= GameData.ENDING_NEUTRAL_MIN:
+		return "neutral"
+	return "bad"
 
 func current_encounter() -> Dictionary:
 	return GameData.encounter_at(day, customer_position)
@@ -45,7 +63,7 @@ func complete_encounter(order: Dictionary, intro_points: int, pickup_points: int
 	var correct: bool = (
 		order.get("product", "") == expected[0]
 		and order.get("color", "") == expected[1]
-		and order.get("design", "") == expected[2]
+		and GameData.canonical_design(str(order.get("design", ""))) == GameData.canonical_design(str(expected[2]))
 	)
 	var character_id: String = encounter["character"]
 	var is_romance: bool = GameData.CHARACTERS[character_id]["romance"]

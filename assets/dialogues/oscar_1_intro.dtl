@@ -1,0 +1,9 @@
+# oscar_1 / intro — placeholder text; edit in Dialogic
+Ech, zimno dzisiaj. Szukam ciepłych skarpet. Znalazłyby się jakieś? Najlepiej w odcieniu białej piany piwka. Ależ bym napił się piwka.
+- A. Już sprawdzam co mogę dla Ciebie przygotować.
+	do GameState.set_dialogue_choice(2)
+- B. Zabieram się do pracy przystojniaku.
+	do GameState.set_dialogue_choice(1)
+- C. Dobrze, ale nie siedź tu długo bo smrodem odstraszasz mi klientów.
+	do GameState.set_dialogue_choice(0)
+[end_timeline]

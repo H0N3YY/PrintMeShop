@@ -22,11 +22,49 @@ GameState="*uid://duywxqon0bgqg"
 
 [dialogic]
 
-directories/dch_directory={
-"ch_osci": "res://assets/characters/ch_osci.dch"
-}
+directories/dch_directory={}
 directories/dtl_directory={
-"customer_intro": "res://customer_intro.dtl"
+"customer_intro": "res://customer_intro.dtl",
+"gotka_1_intro": "res://assets/dialogues/gotka_1_intro.dtl",
+"gotka_1_pickup": "res://assets/dialogues/gotka_1_pickup.dtl",
+"gotka_2_intro": "res://assets/dialogues/gotka_2_intro.dtl",
+"gotka_2_pickup_bad": "res://assets/dialogues/gotka_2_pickup_bad.dtl",
+"gotka_2_pickup_good": "res://assets/dialogues/gotka_2_pickup_good.dtl",
+"gotka_2_pickup_neutral": "res://assets/dialogues/gotka_2_pickup_neutral.dtl",
+"kukuryniarz_1_intro": "res://assets/dialogues/kukuryniarz_1_intro.dtl",
+"kukuryniarz_1_pickup": "res://assets/dialogues/kukuryniarz_1_pickup.dtl",
+"kukuryniarz_2_intro": "res://assets/dialogues/kukuryniarz_2_intro.dtl",
+"kukuryniarz_2_pickup_bad": "res://assets/dialogues/kukuryniarz_2_pickup_bad.dtl",
+"kukuryniarz_2_pickup_good": "res://assets/dialogues/kukuryniarz_2_pickup_good.dtl",
+"kukuryniarz_2_pickup_neutral": "res://assets/dialogues/kukuryniarz_2_pickup_neutral.dtl",
+"npc1_1_intro": "res://assets/dialogues/npc1_1_intro.dtl",
+"npc1_1_pickup": "res://assets/dialogues/npc1_1_pickup.dtl",
+"npc1_2_intro": "res://assets/dialogues/npc1_2_intro.dtl",
+"npc1_2_pickup": "res://assets/dialogues/npc1_2_pickup.dtl",
+"npc1_3_intro": "res://assets/dialogues/npc1_3_intro.dtl",
+"npc1_3_pickup": "res://assets/dialogues/npc1_3_pickup.dtl",
+"npc2_1_intro": "res://assets/dialogues/npc2_1_intro.dtl",
+"npc2_1_pickup": "res://assets/dialogues/npc2_1_pickup.dtl",
+"npc2_2_intro": "res://assets/dialogues/npc2_2_intro.dtl",
+"npc2_2_pickup": "res://assets/dialogues/npc2_2_pickup.dtl",
+"oscar_1_intro": "res://assets/dialogues/oscar_1_intro.dtl",
+"oscar_1_pickup": "res://assets/dialogues/oscar_1_pickup.dtl",
+"oscar_2_intro": "res://assets/dialogues/oscar_2_intro.dtl",
+"oscar_2_pickup_bad": "res://assets/dialogues/oscar_2_pickup_bad.dtl",
+"oscar_2_pickup_good": "res://assets/dialogues/oscar_2_pickup_good.dtl",
+"oscar_2_pickup_neutral": "res://assets/dialogues/oscar_2_pickup_neutral.dtl",
+"sekciarz_1_intro": "res://assets/dialogues/sekciarz_1_intro.dtl",
+"sekciarz_1_pickup": "res://assets/dialogues/sekciarz_1_pickup.dtl",
+"sekciarz_2_intro": "res://assets/dialogues/sekciarz_2_intro.dtl",
+"sekciarz_2_pickup_bad": "res://assets/dialogues/sekciarz_2_pickup_bad.dtl",
+"sekciarz_2_pickup_good": "res://assets/dialogues/sekciarz_2_pickup_good.dtl",
+"sekciarz_2_pickup_neutral": "res://assets/dialogues/sekciarz_2_pickup_neutral.dtl",
+"skolim_1_intro": "res://assets/dialogues/skolim_1_intro.dtl",
+"skolim_1_pickup": "res://assets/dialogues/skolim_1_pickup.dtl",
+"skolim_2_intro": "res://assets/dialogues/skolim_2_intro.dtl",
+"skolim_2_pickup_bad": "res://assets/dialogues/skolim_2_pickup_bad.dtl",
+"skolim_2_pickup_good": "res://assets/dialogues/skolim_2_pickup_good.dtl",
+"skolim_2_pickup_neutral": "res://assets/dialogues/skolim_2_pickup_neutral.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
@@ -83,6 +121,7 @@ folder_colors={
 "res://Scenes/": "green",
 "res://Scripts/": "pink",
 "res://assets/characters/": "blue",
+"res://assets/dialogues/": "pink",
 "res://assets/ending/": "red",
 "res://assets/items/": "gray",
 "res://assets/results/": "orange",

@@ -1,0 +1,495 @@
+[gd_scene format=3 uid="uid://blqexc0l8df0c"]
+
+[ext_resource type="Script" uid="uid://vurexkcngfer" path="res://Scripts/shop_scene.gd" id="1_ggt0q"]
+[ext_resource type="Texture2D" uid="uid://dgewyidvxgrqb" path="res://assets/shop_background.png" id="2_hdl3m"]
+[ext_resource type="Texture2D" uid="uid://gk61n3dsrlka" path="res://assets/ui/overlaystats.png" id="3_01p8v"]
+[ext_resource type="Texture2D" uid="uid://bqwphcf71hbho" path="res://assets/ui/note.png" id="3_je6ka"]
+[ext_resource type="Texture2D" uid="uid://6m2pvldwa4f8" path="res://assets/ui/shopwork.png" id="3_s85eg"]
+[ext_resource type="Texture2D" uid="uid://cptek2lu60nr2" path="res://assets/ui/box/shirtClose.png" id="5_3qq02"]
+[ext_resource type="Texture2D" uid="uid://cwah0xxi15ic3" path="res://assets/ui/cash.png" id="5_05s0g"]
+[ext_resource type="Texture2D" uid="uid://bbgtwjdktlm0c" path="res://assets/ui/box/bagClose.png" id="6_1qm6p"]
+[ext_resource type="Texture2D" uid="uid://dbta7syffv7fo" path="res://assets/ui/box/shirtOpen.png" id="6_aph2w"]
+[ext_resource type="Texture2D" uid="uid://dskepqqkwl7pt" path="res://assets/ui/box/pinClose.png" id="6_k8c1k"]
+[ext_resource type="Texture2D" uid="uid://dggw4qcar7d5g" path="res://assets/ui/box/keychainClose.png" id="8_03ylq"]
+[ext_resource type="Texture2D" uid="uid://d36ftlk4tv8j6" path="res://assets/ui/box/pinOpen.png" id="8_rflng"]
+[ext_resource type="Texture2D" uid="uid://cji4l0w5gb804" path="res://assets/ui/box/sockClose.png" id="9_gs7he"]
+[ext_resource type="Texture2D" uid="uid://wfsks737a4jv" path="res://assets/ui/box/stickerClose.png" id="10_03ylq"]
+[ext_resource type="Texture2D" uid="uid://bqmcg5nmb5jgf" path="res://assets/ui/box/bagOpen.png" id="10_v8civ"]
+[ext_resource type="Texture2D" uid="uid://grhi4mmx484" path="res://assets/ui/box/mugClose.png" id="11_6mlxe"]
+[ext_resource type="Texture2D" uid="uid://cs1jsvo8dp8xy" path="res://assets/ui/box/posterClose.png" id="12_aph2w"]
+[ext_resource type="Texture2D" uid="uid://dyjwt5g4i4jqv" path="res://assets/ui/box/keychainOpen.png" id="12_sxjvm"]
+[ext_resource type="Texture2D" uid="uid://dwphs3r8621q3" path="res://assets/ui/box/hatClose.png" id="13_0eno8"]
+[ext_resource type="Texture2D" uid="uid://c33yd8dgdhr3n" path="res://assets/ui/box/sockOpen.png" id="14_bfgtw"]
+[ext_resource type="Texture2D" uid="uid://jovxnxa8iwqy" path="res://assets/ui/box/stickerOpen.png" id="16_xmmaq"]
+[ext_resource type="Texture2D" uid="uid://c8ss5r8bx1qvd" path="res://assets/ui/box/mugOpen.png" id="18_rc7cg"]
+[ext_resource type="Texture2D" uid="uid://bk5cexpc6mi3e" path="res://assets/ui/box/posterOpen.png" id="20_jb5bo"]
+[ext_resource type="Texture2D" uid="uid://bsfftt51bn4v" path="res://assets/ui/box/hatOpen.png" id="22_ejtx5"]
+[ext_resource type="Texture2D" uid="uid://dg3sefco71xsl" path="res://assets/ui/color/white.png" id="23_5j4yg"]
+[ext_resource type="Texture2D" uid="uid://bfcm5jrm82quq" path="res://assets/ui/color/white1.png" id="24_tjdnc"]
+[ext_resource type="Texture2D" uid="uid://otnvf72nwxgh" path="res://assets/ui/color/black.png" id="25_ea2bg"]
+[ext_resource type="Texture2D" uid="uid://c4xoefv02sjra" path="res://assets/ui/color/black1.png" id="26_crp7e"]
+[ext_resource type="Texture2D" uid="uid://cdggkfim4jef7" path="res://assets/ui/color/pink.png" id="27_r4gmm"]
+[ext_resource type="Texture2D" uid="uid://o4btt8ry2j6g" path="res://assets/ui/color/pink1.png" id="28_yktrs"]
+[ext_resource type="Texture2D" uid="uid://djtwbl4rgk4p3" path="res://assets/ui/color/red.png" id="29_01p8v"]
+[ext_resource type="Texture2D" uid="uid://bl3haqw68gnxc" path="res://assets/ui/color/red1.png" id="30_05s0g"]
+[ext_resource type="Texture2D" uid="uid://6amj0uqgy8ju" path="res://assets/ui/color/blue.png" id="31_cl74d"]
+[ext_resource type="Texture2D" uid="uid://bk2g8qmmgycen" path="res://assets/ui/color/blue1.png" id="32_hdl3m"]
+[ext_resource type="Texture2D" uid="uid://3mof8a82opij" path="res://assets/ui/color/green.png" id="33_e0bxy"]
+[ext_resource type="Texture2D" uid="uid://3cciavqnx2r7" path="res://assets/ui/color/green1.png" id="34_2nri4"]
+[ext_resource type="Texture2D" uid="uid://fwls31uwy56r" path="res://assets/ui/color/orange.png" id="35_1kq03"]
+[ext_resource type="Texture2D" uid="uid://brqbt7j3bl2ta" path="res://assets/ui/color/orange1.png" id="36_i11mu"]
+[ext_resource type="Texture2D" uid="uid://doa28xinh2rqg" path="res://assets/ui/color/yellow.png" id="37_pvtvr"]
+[ext_resource type="Texture2D" uid="uid://1uf88rlw2t8p" path="res://assets/ui/color/yellow1.png" id="38_l6pmf"]
+[ext_resource type="Texture2D" uid="uid://di4ilyage3nww" path="res://assets/ui/canel1.png" id="39_r4gmm"]
+[ext_resource type="FontFile" uid="uid://b5c0p00x6g6u5" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Italic.ttf" id="39_yktrs"]
+[ext_resource type="Texture2D" uid="uid://c5vrab5hpr3ol" path="res://assets/ui/canel.png" id="40_yktrs"]
+[ext_resource type="Texture2D" uid="uid://dlye4bc2x4mgx" path="res://assets/ui/accept1.png" id="41_01p8v"]
+[ext_resource type="Texture2D" uid="uid://b167o15y0og14" path="res://assets/ui/accept.png" id="42_05s0g"]
+[ext_resource type="Texture2D" uid="uid://die2ua7xxmdff" path="res://assets/ui/chatbox.png" id="46_cl74d"]
+[ext_resource type="Texture2D" uid="uid://c7fhpogwuyknq" path="res://assets/ui/dialogchose.png" id="46_hdl3m"]
+[ext_resource type="Texture2D" uid="uid://dmrkv11e1agob" path="res://assets/ui/chatbox2.png" id="47_cl74d"]
+[ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="48_e0bxy"]
+[ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="50_2nri4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7s06"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5j4yg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yktrs"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl74d"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+border_color = Color(1, 0.8980392, 0.33333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05s0g"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdl3m"]
+bg_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+
+[node name="ShopScene" type="Node2D" unique_id=616358664]
+script = ExtResource("1_ggt0q")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2000363400]
+offset_top = 2.000002
+offset_right = 3508.0
+offset_bottom = 2482.0
+scale = Vector2(0.2841181, 0.28951013)
+texture = ExtResource("2_hdl3m")
+
+[node name="LeftCustomerPanel" type="Control" parent="." unique_id=360509219]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="overlayStats" type="Sprite2D" parent="LeftCustomerPanel" unique_id=1554292405]
+position = Vector2(237, 40)
+texture = ExtResource("3_01p8v")
+
+[node name="CustomerBackground" type="TextureRect" parent="LeftCustomerPanel" unique_id=502102728]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CustomerSprite" type="TextureRect" parent="LeftCustomerPanel" unique_id=131528372]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 87.0
+offset_right = 426.0
+offset_bottom = 574.0
+texture = SubResource("CompressedTexture2D_x7s06")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TalkButton" type="TextureButton" parent="LeftCustomerPanel" unique_id=606125101]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 165.0
+offset_right = 446.0
+offset_bottom = 305.0
+scale = Vector2(0.7484127, 0.7484127)
+texture_normal = ExtResource("47_cl74d")
+
+[node name="ShopWorkArea" type="Control" parent="." unique_id=167720252]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 434.0
+offset_top = 1.0
+offset_right = 1280.0
+offset_bottom = 718.0
+
+[node name="NoteList" type="Sprite2D" parent="ShopWorkArea" unique_id=1910513779]
+position = Vector2(626, 446)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("3_je6ka")
+
+[node name="cash" type="Sprite2D" parent="ShopWorkArea" unique_id=1660838858]
+position = Vector2(-202, 527)
+texture = ExtResource("5_05s0g")
+
+[node name="OverlayWorkShop" type="Sprite2D" parent="ShopWorkArea" unique_id=204199794]
+position = Vector2(205.99997, 359)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("3_s85eg")
+
+[node name="ProductPanel" type="Control" parent="ShopWorkArea" unique_id=160274167]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 19.0
+offset_right = 419.0
+offset_bottom = 290.0
+
+[node name="czapka_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=21384888]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 203.00002
+offset_right = 585.0
+offset_bottom = 481.0
+scale = Vector2(0.4213901, 0.4213901)
+texture_normal = ExtResource("13_0eno8")
+texture_hover = ExtResource("22_ejtx5")
+
+[node name="plakat_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=611611095]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 203.0
+offset_right = 441.0
+offset_bottom = 481.0
+scale = Vector2(0.42106482, 0.42106482)
+texture_normal = ExtResource("12_aph2w")
+texture_hover = ExtResource("20_jb5bo")
+
+[node name="kubek_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1442517564]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 203.0
+offset_right = 305.0
+offset_bottom = 481.0
+scale = Vector2(0.42196319, 0.42196319)
+texture_normal = ExtResource("11_6mlxe")
+texture_hover = ExtResource("18_rc7cg")
+
+[node name="brelok_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1886827053]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 99.0
+offset_right = 309.0
+offset_bottom = 377.0
+scale = Vector2(0.4225602, 0.42458937)
+texture_normal = ExtResource("8_03ylq")
+texture_hover = ExtResource("12_sxjvm")
+
+[node name="skarpety_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=514222974]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 99.0
+offset_right = 441.0
+offset_bottom = 377.0
+scale = Vector2(0.41954088, 0.41954088)
+texture_normal = ExtResource("9_gs7he")
+texture_hover = ExtResource("14_bfgtw")
+
+[node name="naklejki_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=677766650]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 99.0
+offset_right = 585.0
+offset_bottom = 377.0
+scale = Vector2(0.41629118, 0.41629118)
+texture_normal = ExtResource("10_03ylq")
+texture_hover = ExtResource("16_xmmaq")
+
+[node name="torba_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1427512731]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 3.0
+offset_right = 584.0
+offset_bottom = 281.0
+scale = Vector2(0.41505778, 0.41505778)
+texture_normal = ExtResource("6_1qm6p")
+texture_hover = ExtResource("10_v8civ")
+
+[node name="pin_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=583929578]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 3.000002
+offset_right = 441.0
+offset_bottom = 281.0
+scale = Vector2(0.41921154, 0.41921154)
+texture_normal = ExtResource("6_k8c1k")
+texture_hover = ExtResource("8_rflng")
+
+[node name="koszulka_btn" type="TextureButton" parent="ShopWorkArea/ProductPanel" unique_id=1192707907]
+layout_mode = 0
+offset_left = 5.999999
+offset_top = 3.0000038
+offset_right = 378.0
+offset_bottom = 281.0
+scale = Vector2(0.42117134, 0.42117134)
+texture_normal = ExtResource("5_3qq02")
+texture_hover = ExtResource("6_aph2w")
+
+[node name="ColorPanel" type="Control" parent="ShopWorkArea" unique_id=1671965503]
+anchors_preset = 0
+offset_left = 461.0
+offset_top = 19.000002
+offset_right = 787.0
+offset_bottom = 189.0
+scale = Vector2(1.0813456, 1.0813456)
+
+[node name="white" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1638328186]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 12.0
+offset_right = 57.0
+offset_bottom = 68.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("23_5j4yg")
+texture_hover = ExtResource("24_tjdnc")
+
+[node name="black" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=222681165]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 12.0
+offset_right = 137.0
+offset_bottom = 68.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("25_ea2bg")
+texture_hover = ExtResource("26_crp7e")
+
+[node name="pink" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1757058187]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 12.0
+offset_right = 225.0
+offset_bottom = 68.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("27_r4gmm")
+texture_hover = ExtResource("28_yktrs")
+
+[node name="red" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1927039959]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 12.0
+offset_right = 313.0
+offset_bottom = 68.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("29_01p8v")
+texture_hover = ExtResource("30_05s0g")
+
+[node name="blue" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=280275245]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 92.0
+offset_right = 57.0
+offset_bottom = 148.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("31_cl74d")
+texture_hover = ExtResource("32_hdl3m")
+
+[node name="green" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=669509114]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 92.0
+offset_right = 137.0
+offset_bottom = 148.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("33_e0bxy")
+texture_hover = ExtResource("34_2nri4")
+
+[node name="orange" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1825800190]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 92.0
+offset_right = 225.0
+offset_bottom = 148.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("35_1kq03")
+texture_hover = ExtResource("36_i11mu")
+
+[node name="yellow" type="TextureButton" parent="ShopWorkArea/ColorPanel" unique_id=1482498206]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 92.0
+offset_right = 313.0
+offset_bottom = 148.0
+scale = Vector2(0.19310969, 0.19310969)
+texture_normal = ExtResource("37_pvtvr")
+texture_hover = ExtResource("38_l6pmf")
+
+[node name="MerchPanel" type="Control" parent="ShopWorkArea" unique_id=706203959]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+texture_repeat = 2
+anchors_preset = 0
+offset_left = 463.0
+offset_top = 256.0
+offset_right = 817.0
+offset_bottom = 549.0
+
+[node name="MerchSelect" type="ItemList" parent="ShopWorkArea/MerchPanel" unique_id=1455592665]
+modulate = Color(1, 0.8980392, 0.33333334, 1)
+self_modulate = Color(1, 0.8980392, 0.33333334, 1)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 14.0
+offset_right = 355.0
+offset_bottom = 302.0
+scale = Vector2(0.96000004, 1)
+theme_override_colors/font_outline_color = Color(1, 0.8980392, 0.33333334, 0.30588236)
+theme_override_colors/scroll_hint_color = Color(1, 0.8980392, 0.101960786, 0.9843137)
+theme_override_fonts/font = ExtResource("39_yktrs")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5j4yg")
+theme_override_styles/hovered_selected = SubResource("StyleBoxFlat_yktrs")
+theme_override_styles/hovered_selected_focus = SubResource("StyleBoxFlat_cl74d")
+theme_override_styles/selected = SubResource("StyleBoxFlat_05s0g")
+theme_override_styles/selected_focus = SubResource("StyleBoxFlat_hdl3m")
+allow_search = false
+wraparound_items = false
+
+[node name="ResultPanel" type="PanelContainer" parent="ShopWorkArea" unique_id=1019730277]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 341.0
+offset_right = 406.0
+offset_bottom = 698.0
+
+[node name="ResultLabel" type="Label" parent="ShopWorkArea/ResultPanel" unique_id=476599046]
+custom_minimum_size = Vector2(0.1, 0.24)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Chose product"
+autowrap_mode = 3
+
+[node name="ProductPreview" type="Control" parent="ShopWorkArea/ResultPanel" unique_id=2094835854]
+layout_mode = 2
+
+[node name="CancelButton" type="TextureButton" parent="ShopWorkArea" unique_id=1946856182]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 616.0
+offset_right = 540.0
+offset_bottom = 698.0
+scale = Vector2(0.35395122, 0.35395122)
+texture_normal = ExtResource("39_r4gmm")
+texture_hover = ExtResource("40_yktrs")
+
+[node name="ConfirmButton" type="TextureButton" parent="ShopWorkArea" unique_id=899511319]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 610.0
+offset_right = 802.0
+offset_bottom = 689.0
+scale = Vector2(0.38594022, 0.38594022)
+texture_normal = ExtResource("41_01p8v")
+texture_hover = ExtResource("42_05s0g")
+
+[node name="DialogueArea" type="Control" parent="." unique_id=1554485672]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="cash" type="Sprite2D" parent="DialogueArea" unique_id=1530255563]
+position = Vector2(227, 528)
+texture = ExtResource("5_05s0g")
+
+[node name="DialogueBackground" type="Sprite2D" parent="DialogueArea" unique_id=336812398]
+position = Vector2(640, 360)
+texture = ExtResource("46_hdl3m")
+
+[node name="SpeechBubble" type="TextureRect" parent="DialogueArea" unique_id=1523478302]
+layout_mode = 0
+offset_left = 361.00003
+offset_top = 12.000002
+offset_right = 1585.2793
+offset_bottom = 524.89996
+scale = Vector2(0.749829, 0.5381167)
+texture = ExtResource("46_cl74d")
+
+[node name="BubbleText" type="RichTextLabel" parent="DialogueArea/SpeechBubble" unique_id=62344474 node_paths=PackedStringArray("textbox_root")]
+layout_mode = 0
+offset_left = 170.70554
+offset_top = 113.3583
+offset_right = 600.4182
+offset_bottom = 187.8693
+scale = Vector2(2.23456, 3.9405806)
+theme_override_colors/default_color = Color(0.4061371, 0.00011373297, 0.4061342, 1)
+bbcode_enabled = true
+scroll_active = false
+script = ExtResource("48_e0bxy")
+textbox_root = NodePath(".")
+metadata/_custom_type_script = "uid://drhfq6rmdeuri"
+
+[node name="ChoiceArea" type="Control" parent="DialogueArea" unique_id=38326427]
+visible = false
+anchors_preset = 0
+offset_left = 425.0
+offset_top = 1.0
+offset_right = 1281.0
+offset_bottom = 722.0
+
+[node name="ChoiceA" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1871361904]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 330.0
+offset_right = 161.0
+offset_bottom = 338.0
+scale = Vector2(6.2784014, 2.7062216)
+script = ExtResource("50_2nri4")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
+
+[node name="ChoiceB" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1513152866]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 456.0
+offset_right = 160.0
+offset_bottom = 464.0
+scale = Vector2(6.278401, 2.7062213)
+script = ExtResource("50_2nri4")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
+
+[node name="ChoiceC" type="Button" parent="DialogueArea/ChoiceArea" unique_id=1787775699]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 583.0
+offset_right = 162.0
+offset_bottom = 591.0
+scale = Vector2(6.2784014, 2.7062192)
+script = ExtResource("50_2nri4")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
+
+[node name="TopBar" type="Control" parent="." unique_id=325720057]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 351.0
+offset_bottom = 64.0
+
+[node name="HeartsContainer" type="HBoxContainer" parent="TopBar" unique_id=237922356]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 15.0
+offset_right = 248.0
+offset_bottom = 51.0
+
+[node name="day1" type="Label" parent="TopBar/HeartsContainer" unique_id=1685028905]
+layout_mode = 2
+text = "♥"
+
+[node name="day2" type="Label" parent="TopBar/HeartsContainer" unique_id=471753301]
+layout_mode = 2
+text = "♡"
+
+[node name="day3" type="Label" parent="TopBar/HeartsContainer" unique_id=717411200]
+layout_mode = 2
+text = "♡"
+
+[node name="day4" type="Label" parent="TopBar/HeartsContainer" unique_id=1525771928]
+layout_mode = 2
+text = "♡"
+
+[node name="day5" type="Label" parent="TopBar/HeartsContainer" unique_id=874861667]
+layout_mode = 2
+text = "♡"
