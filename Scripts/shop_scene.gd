@@ -325,9 +325,13 @@ func start_pickup_dialogue() -> void:
 	start_dialogic_phase("pickup")
 
 
+
 func on_pickup_choice(points: int) -> void:
 	pickup_points = points
+
+	# Close dialogue and restore the shop UI.
 	dialogue_area.hide()
+	shop_work_area.show()
 
 	var result: Dictionary = GameState.complete_encounter(
 		pending_order,
@@ -338,12 +342,14 @@ func on_pickup_choice(points: int) -> void:
 	if result.is_empty():
 		return
 
+	# Animate only the customer sprite.
 	await animate_customer_exit()
 
 	if GameState.has_more_customers_today():
 		start_customer()
 	else:
 		show_day_results()
+
 
 
 func _on_dialogic_timeline_ended() -> void:

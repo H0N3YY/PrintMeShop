@@ -471,7 +471,6 @@ textbox_root = NodePath(".")
 metadata/_custom_type_script = "uid://drhfq6rmdeuri"
 
 [node name="ChoiceArea" type="Control" parent="DialogueArea" unique_id=38326427]
-visible = false
 anchors_preset = 0
 offset_left = 425.0
 offset_top = 1.0
