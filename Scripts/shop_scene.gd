@@ -86,7 +86,9 @@ const CUSTOMER_MOVE_DURATION: float = 1.5
 var customer_rest_position: Vector2
 var customer_is_moving: bool = false
 
+var preview_texture_rect: TextureRect
 var logo_preview_texture_rect: TextureRect
+
 var selected_product := ""
 var selected_color := ""
 var selected_design := ""
@@ -352,11 +354,11 @@ func confirm_order() -> void:
 	}
 	var expected: Array = GameState.current_encounter()["order"]
 	is_order_correct = (
-	selected_product == expected[0]
-	and selected_color == expected[1]
-	and GameData.canonical_design(selected_design)
-		== GameData.canonical_design(str(expected[2]))
-)
+		selected_product == expected[0]
+		and selected_color == expected[1]
+		and GameData.canonical_design(selected_design)
+			== GameData.canonical_design(str(expected[2]))
+	)
 	sell_sound.play()
 	start_pickup_dialogue()
 
@@ -716,5 +718,4 @@ func _on_idle_animation_timer_timeout() -> void:
 		customer_sprite.texture = idle_alt_texture
 	else:
 		customer_sprite.texture = idle_base_texture
-		
 		
