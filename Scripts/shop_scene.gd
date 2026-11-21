@@ -206,7 +206,7 @@ func setup_preview_texture() -> void:
 func setup_work_area_blocker() -> void:
 	work_area_blocker = ColorRect.new()
 	work_area_blocker.name = "WorkAreaBlocker"
-	work_area_blocker.color = Color(0.27, 0.13, 0.34, 0.82)
+	work_area_blocker.color = Color(0.275, 0.196, 0.302)
 	work_area_blocker.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	# Keep the overlay above all shop controls.
@@ -226,10 +226,6 @@ func setup_work_area_blocker() -> void:
 	message.add_theme_color_override(
 		"font_color",
 		Color(1.0, 0.90, 0.97)
-	)
-	message.add_theme_color_override(
-		"font_shadow_color",
-		Color(0.10, 0.04, 0.15, 0.8)
 	)
 	message.add_theme_constant_override("shadow_offset_x", 2)
 	message.add_theme_constant_override("shadow_offset_y", 3)
