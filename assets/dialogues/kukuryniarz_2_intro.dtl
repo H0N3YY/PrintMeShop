@@ -1,9 +1,9 @@
 # kukuryniarz_2 / intro 
 Dasz mi naklejki darmowe za boosta w robloxie? Mega mi się podoba ta żółta z twarzą sigmy.
-- A. Nie ma nic za darmo. Płacisz albo eluwina.
+- Nie ma nic za darmo. Płacisz albo eluwina.
 	do GameState.set_dialogue_choice(2)
-- B. Boosta nie potrzebuję, ale rollo możesz mi postawić.
+- Boosta nie potrzebuję, ale rollo możesz mi postawić.
 	do GameState.set_dialogue_choice(1)
-- C. Między bogiem a prawdą, gratis to uczciwa cena.
+- Między bogiem a prawdą, gratis to uczciwa cena.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

@@ -1,10 +1,10 @@
 # npc2_1 / intro 
 Nuci\: "Temperatura! Jest pijana no i buja się po klubach..."\
 Och, dzień dobry. Potrzebuję torby, najlepiej w czerwonym kolorze.
-- A. "Gdy z nią tańczę, ręce schodzą na jej uda"
+- "Gdy z nią tańczę, ręce schodzą na jej uda"
 	do GameState.set_dialogue_choice(2)
-- B. Znowu fanka skolima...
+- Znowu fanka skolima...
 	do GameState.set_dialogue_choice(1)
-- C. Dobrze, zabieram się do pracy
+- Dobrze, zabieram się do pracy
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

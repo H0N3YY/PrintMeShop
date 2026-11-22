@@ -1,9 +1,9 @@
 # gotka_2 / pickup 
 Wyszło lepiej niż się spodziewałam, chcesz może iść kiedyś ze mna na jakies urbexy? Wyglądasz równie tajemniczo jak te piękne cmentarne budynki.
-- A. Matyldo, tylko ty chodzisz mi po głowie, oczywiście!
+- Matyldo, tylko ty chodzisz mi po głowie, oczywiście!
 	do GameState.set_dialogue_choice(2)
-- B. Wybacz KOLEŻANKO, ale nie w głowie mi romanse jak na służbie jestem.
+- Wybacz KOLEŻANKO, ale nie w głowie mi romanse jak na służbie jestem.
 	do GameState.set_dialogue_choice(1)
-- C. Jestem bardzo bojaźliwy, ale czuję że przy tobie nic nie będzie mi straszne.
+- Jestem bardzo bojaźliwą osobą, ale czuję że przy Tobie nic nie będzie mi straszne.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

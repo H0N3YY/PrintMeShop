@@ -1,9 +1,9 @@
 # npc1_3 / intro
 Cześć, ostatnio dołączyłem do koła Hello It. Czy jest możliwość zaprojektowania dla mnie czapki z wzorem oddającym idealnie moją przynależność i oddanie?
-- A. Nawet nie wiem o czym do mnie mówisz. Postaram się.
+- Nawet nie wiem o czym do mnie mówisz. Postaram się.
 	do GameState.set_dialogue_choice(2)
-- B. Hello It? Mamy tu coś w sam raz. Daj mi tylko chwilkę
+- Hello It? Mamy tu coś w sam raz. Daj mi tylko chwilkę
 	do GameState.set_dialogue_choice(1)
-- C. Podobno jest tam super. Mógłbyś mnie też wkręcić?
+- Podobno jest tam super. Mógłbyś mnie też wkręcić?
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

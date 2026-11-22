@@ -1,9 +1,9 @@
 # oscar intro 2
 Niegdyś należałem do Hello IT. Może załatwisz mi niebieską koszulkę przypominającą ten cudowny czas?
-- A. Muszę przyznać że masz piękną grzywkę, ładnie ci z nią tak na lewo.
+- Muszę przyznać że masz piękną grzywkę, ładnie ci z nią tak na lewo.
 	do GameState.set_dialogue_choice(2)
-- B. Ceną jest randka.
+- Ceną jest randka.
 	do GameState.set_dialogue_choice(1)
-- C. Może jeszcze frytki do tego?
+- Może jeszcze frytki do tego?
 	do GameState.set_dialogue_choice(0)
 [end_timeline]
