@@ -90,9 +90,9 @@ const SOLO_ENDING := {
 
 const ENDING_TYPE_LABELS := {
 	"good": "GOOD ENDING",
-	"neutral": "NEUTRAL ENDING",
-	"bad": "BAD ENDING",
-	"solo": "BAD ENDING"
+	"neutral": "NEUTRAL",
+	"bad": "BAD",
+	"solo": "BAD"
 }
 
 
