@@ -49,6 +49,7 @@
 [ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="48_e0bxy"]
 [ext_resource type="Texture2D" uid="uid://yej6u0780ly6" path="res://assets/ui/marked.png" id="50_1kq03"]
 [ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="50_2nri4"]
+[ext_resource type="FontFile" uid="uid://cmvyfvvtr1llr" path="res://assets/font/Indie_Flower/IndieFlower-Regular.ttf" id="50_7gt6h"]
 [ext_resource type="AudioStream" uid="uid://d2ja740r6vj5j" path="res://assets/sounds/openBox.MP3" id="52_i11mu"]
 [ext_resource type="AudioStream" uid="uid://b5si6wtg5s88m" path="res://assets/sounds/colorchange.MP3" id="53_l6pmf"]
 [ext_resource type="AudioStream" uid="uid://5phr335j4l4f" path="res://assets/sounds/sticker.MP3" id="53_pvtvr"]
@@ -110,6 +111,11 @@ texture = ExtResource("50_1kq03")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kq03"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gt6h"]
+
+[sub_resource type="FontVariation" id="FontVariation_pj1qr"]
+base_font = ExtResource("50_7gt6h")
+variation_embolden = 1.0
+spacing_glyph = 3
 
 [node name="ShopScene" type="Node2D" unique_id=616358664]
 script = ExtResource("1_ggt0q")
@@ -526,11 +532,13 @@ offset_bottom = 64.0
 
 [node name="DayLabel" type="Label" parent="TopBar" unique_id=659522522]
 layout_mode = 0
-offset_left = 166.0
+offset_left = 158.0
 offset_top = 19.0
-offset_right = 235.0
-offset_bottom = 50.0
-theme_override_font_sizes/font_size = 18
+offset_right = 254.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(1, 1, 0.28627452, 1)
+theme_override_fonts/font = SubResource("FontVariation_pj1qr")
+theme_override_font_sizes/font_size = 23
 text = "DAY 1/5"
 
 [node name="ProductSound" type="AudioStreamPlayer" parent="." unique_id=1822417404]
