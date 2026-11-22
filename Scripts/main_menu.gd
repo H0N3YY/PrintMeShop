@@ -26,7 +26,7 @@ func _ready() -> void:
 		open_profile.bind("https://linktr.ee/patiszonequ")
 	)
 	quiuki_btn.pressed.connect(
-		open_profile.bind("https://linktr.ee/Quuiki")
+		open_profile.bind("https://linktr.ee/Quuiki_")
 	)
 	morfeiqo_btn.pressed.connect(
 		open_profile.bind("https://www.instagram.com/morfeiqo/")
