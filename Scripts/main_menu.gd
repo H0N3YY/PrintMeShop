@@ -7,7 +7,7 @@ extends Control
 # Credits buttons
 @onready var lavy_btn: BaseButton = $Createdby/Lavy
 @onready var harnas_btn: BaseButton = $Createdby/Harnas
-@onready var quiuki_btn: BaseButton = $Createdby/Quiuki
+@onready var quiuki_btn: BaseButton = $Createdby/Quuiki
 @onready var morfeiqo_btn: BaseButton = $Createdby/Morfeiqo
 @onready var reklama_btn: BaseButton = $Createdby/Reklama
 @onready var luc_btn: BaseButton = $Createdby/Luc
@@ -32,7 +32,7 @@ func _ready() -> void:
 		open_profile.bind("https://www.instagram.com/morfeiqo/")
 	)
 	reklama_btn.pressed.connect(
-		open_profile.bind(" https://karolinapawelec2df12.myportfolio.com/")
+		open_profile.bind("https://karolinapawelec2df12.myportfolio.com/")
 	)
 	luc_btn.pressed.connect(
 		open_profile.bind("https://www.instagram.com/loushiyen/")
