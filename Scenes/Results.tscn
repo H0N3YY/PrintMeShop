@@ -3,6 +3,43 @@
 [ext_resource type="Texture2D" uid="uid://lh6gbxf1gwve" path="res://assets/results/nightShop_background.png" id="1_fhok7"]
 [ext_resource type="Script" uid="uid://bhf5dkhy2hp3r" path="res://Scripts/results.gd" id="1_mma32"]
 [ext_resource type="Texture2D" uid="uid://die2ua7xxmdff" path="res://assets/ui/chatbox.png" id="3_7frha"]
+[ext_resource type="Texture2D" uid="uid://doatxjmgoolt1" path="res://assets/ui/ui_results.png" id="3_onfqu"]
+[ext_resource type="Texture2D" uid="uid://b5f3amof0anx7" path="res://assets/ui/stats_card.png" id="4_r24y4"]
+[ext_resource type="Texture2D" uid="uid://bdn8ap3t3vwiy" path="res://assets/ui/next2_btn.png" id="6_y0vmt"]
+[ext_resource type="Texture2D" uid="uid://c1yfqmwpyd2ps" path="res://assets/ui/next_btn.png" id="7_pmqhg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0vmt"]
+
+[sub_resource type="FontFile" id="FontFile_pmqhg"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
 
 [node name="Results" type="Control" unique_id=427100243]
 layout_mode = 3
@@ -26,6 +63,14 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
+[node name="UiResults" type="Sprite2D" parent="." unique_id=1573496472]
+position = Vector2(640, 360)
+texture = ExtResource("3_onfqu")
+
+[node name="StatsCard" type="Sprite2D" parent="." unique_id=1697068432]
+position = Vector2(1153, 518)
+texture = ExtResource("4_r24y4")
+
 [node name="Chatbox" type="Sprite2D" parent="." unique_id=477411229]
 position = Vector2(907.76984, 178.25002)
 scale = Vector2(0.80862075, 0.9637933)
@@ -44,13 +89,21 @@ max_lines_visible = 6
 
 [node name="StatsPanel" type="PanelContainer" parent="." unique_id=896260685]
 layout_mode = 0
-offset_left = 1065.0
-offset_top = 462.0
-offset_right = 1269.0
-offset_bottom = 613.0
+offset_left = 1075.0
+offset_top = 441.0
+offset_right = 1233.0
+offset_bottom = 599.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y0vmt")
 
 [node name="StatsText" type="Label" parent="StatsPanel" unique_id=1121070389]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_pmqhg")
+theme_override_font_sizes/font_size = 10
+text = "Najlepsza relacja:
+Poprawne zamówienia:
+Błędne zamówienia:
+Zdobyte punkty relacji:"
 
 [node name="DayLabel" type="Label" parent="." unique_id=1865602481]
 layout_mode = 0
@@ -60,10 +113,11 @@ offset_right = 149.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 20
 
-[node name="NextDay_btn" type="Button" parent="." unique_id=58606926]
+[node name="NextDay_btn" type="TextureButton" parent="." unique_id=619711042]
 layout_mode = 0
-offset_left = 1080.0
+offset_left = 1051.0
 offset_top = 624.0
-offset_right = 1248.0
-offset_bottom = 696.0
-text = "NEXT DAY"
+offset_right = 1256.0
+offset_bottom = 706.0
+texture_normal = ExtResource("6_y0vmt")
+texture_hover = ExtResource("7_pmqhg")
