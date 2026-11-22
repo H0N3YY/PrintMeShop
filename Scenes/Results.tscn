@@ -5,41 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://die2ua7xxmdff" path="res://assets/ui/chatbox.png" id="3_7frha"]
 [ext_resource type="Texture2D" uid="uid://doatxjmgoolt1" path="res://assets/ui/ui_results.png" id="3_onfqu"]
 [ext_resource type="Texture2D" uid="uid://b5f3amof0anx7" path="res://assets/ui/stats_card.png" id="4_r24y4"]
+[ext_resource type="FontFile" uid="uid://cmvyfvvtr1llr" path="res://assets/font/Indie_Flower/IndieFlower-Regular.ttf" id="6_pmqhg"]
 [ext_resource type="Texture2D" uid="uid://bdn8ap3t3vwiy" path="res://assets/ui/next2_btn.png" id="6_y0vmt"]
 [ext_resource type="Texture2D" uid="uid://c1yfqmwpyd2ps" path="res://assets/ui/next_btn.png" id="7_pmqhg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0vmt"]
 
-[sub_resource type="FontFile" id="FontFile_pmqhg"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/12/0/ascent = 0.0
-cache/0/12/0/descent = 0.0
-cache/0/12/0/underline_position = 0.0
-cache/0/12/0/underline_thickness = 0.0
-cache/0/12/0/scale = 1.0
-cache/0/11/0/ascent = 0.0
-cache/0/11/0/descent = 0.0
-cache/0/11/0/underline_position = 0.0
-cache/0/11/0/underline_thickness = 0.0
-cache/0/11/0/scale = 1.0
-cache/0/10/0/ascent = 0.0
-cache/0/10/0/descent = 0.0
-cache/0/10/0/underline_position = 0.0
-cache/0/10/0/underline_thickness = 0.0
-cache/0/10/0/scale = 1.0
+[sub_resource type="FontVariation" id="FontVariation_pmqhg"]
+base_font = ExtResource("6_pmqhg")
+variation_embolden = 0.47
+
+[sub_resource type="FontVariation" id="FontVariation_keknu"]
+base_font = ExtResource("6_pmqhg")
+variation_embolden = 1.03
+spacing_glyph = 3
+spacing_space = 3
 
 [node name="Results" type="Control" unique_id=427100243]
 layout_mode = 3
@@ -72,33 +52,33 @@ position = Vector2(1153, 518)
 texture = ExtResource("4_r24y4")
 
 [node name="Chatbox" type="Sprite2D" parent="." unique_id=477411229]
-position = Vector2(907.76984, 178.25002)
-scale = Vector2(0.80862075, 0.9637933)
+position = Vector2(907.76984, 183.24998)
+scale = Vector2(0.80862075, 0.9982758)
 texture = ExtResource("3_7frha")
 
 [node name="QuoteLabel" type="Label" parent="." unique_id=1922361792]
 layout_mode = 0
-offset_left = 619.0
-offset_top = 87.0
-offset_right = 1211.0
+offset_left = 640.0
+offset_top = 96.0
+offset_right = 1200.0
 offset_bottom = 268.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 15
 autowrap_mode = 3
-max_lines_visible = 6
+max_lines_visible = 7
 
 [node name="StatsPanel" type="PanelContainer" parent="." unique_id=896260685]
 layout_mode = 0
-offset_left = 1075.0
+offset_left = 1072.0
 offset_top = 441.0
-offset_right = 1233.0
+offset_right = 1240.0
 offset_bottom = 599.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y0vmt")
 
 [node name="StatsText" type="Label" parent="StatsPanel" unique_id=1121070389]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_pmqhg")
+theme_override_fonts/font = SubResource("FontVariation_pmqhg")
 theme_override_font_sizes/font_size = 10
 text = "Najlepsza relacja:
 Poprawne zamówienia:
@@ -107,11 +87,14 @@ Zdobyte punkty relacji:"
 
 [node name="DayLabel" type="Label" parent="." unique_id=1865602481]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 149.0
-offset_bottom = 66.0
+offset_left = 1104.0
+offset_top = 440.0
+offset_right = 1200.0
+offset_bottom = 472.0
+theme_override_colors/font_color = Color(1, 1, 0.05882353, 1)
+theme_override_fonts/font = SubResource("FontVariation_keknu")
 theme_override_font_sizes/font_size = 20
+text = "DAY 1/5"
 
 [node name="NextDay_btn" type="TextureButton" parent="." unique_id=619711042]
 layout_mode = 0

@@ -32,12 +32,19 @@ offset_bottom = 719.0
 mouse_filter = 2
 expand_mode = 1
 
+[node name="Summarybox" type="Sprite2D" parent="." unique_id=2032870785]
+position = Vector2(473, 79)
+scale = Vector2(1.16787, 1)
+texture = ExtResource("8_keknu")
+
 [node name="QuoteLabel" type="Label" parent="." unique_id=77188317]
 layout_mode = 0
-offset_left = 760.0
-offset_top = 406.0
-offset_right = 1231.0
-offset_bottom = 604.0
+offset_left = 187.0
+offset_top = 34.0
+offset_right = 762.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
 autowrap_mode = 3
 max_lines_visible = 5
 
@@ -72,7 +79,3 @@ offset_right = 1257.0
 offset_bottom = 704.0
 texture_normal = ExtResource("4_3puwj")
 texture_hover = ExtResource("5_keknu")
-
-[node name="Summarybox" type="Sprite2D" parent="." unique_id=2032870785]
-position = Vector2(477, 141)
-texture = ExtResource("8_keknu")
