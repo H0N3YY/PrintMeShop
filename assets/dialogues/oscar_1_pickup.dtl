@@ -1,10 +1,10 @@
 # oscar leave 1
 Bardzo Ci dziękuję. Jesteś niesamowicie profesjonalną osobą. Z pewnością jeszcze tu do Ciebie zajrzę.\
 Polecam to miejsce, jako bezdomny Oscar.
-- A. Dziękuję i życzę miłego dnia.
+- A. Zapraszamy ponownie
 	do GameState.set_dialogue_choice(2)
-- B. A mogę dołączyć?
+- B. A wstawisz nam tą opinię na google?
 	do GameState.set_dialogue_choice(1)
-- C. Dobrze idź już błagam.
+- C. Dobrze, idź już błagam
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

@@ -1,9 +1,9 @@
 # npc1_1 / pickup
 Jest idealna! Będzie pasować do mojego... znaczy do pokoju mojej przyjaciółki. Wielkie dzięki, na pewno jej się spodoba.
-- A.
+- A. Nie musisz się wstydzić że lubisz Hatsune Miku.
 	do GameState.set_dialogue_choice(2)
-- B.
+- B. Nie mam pojęcia dlaczego jakąś dziewczynkę chcesz mieć na plakacie... trochę dziwne. Ale proszę.
 	do GameState.set_dialogue_choice(1)
-- C.
+- C. Oto twój piękny plakat. Polecam powiesić naprzeciwko łóżka by codziennie budzić się z tym pięknym widokiem!
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

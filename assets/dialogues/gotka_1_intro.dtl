@@ -1,9 +1,9 @@
 # gotka_1 / intro 
-Dzień dobry, szukam koszulki która idealnie będzie pasować do mojego mrocznego stylu. Najlepiej takiej, której nie wystraszy się mój ukochany kot.
-- A.
+Dzień dobry, szukam czarnej koszulki która idealnie będzie pasować do mojego mrocznego stylu. Najlepiej z jakimś wielkim, pięknym kociskiem.
+- A. Dla tak pięknej kobiety WSZYSTKO.
 	do GameState.set_dialogue_choice(2)
-- B. Rozumiem, że czarna koszulka. Tak?
+- B. Rozumiem, że czarna koszulka tak?
 	do GameState.set_dialogue_choice(1)
-- C. Ok, nie pytałem.
+- C. Kociara... Chyba jesteś moją bratnią duszą...
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

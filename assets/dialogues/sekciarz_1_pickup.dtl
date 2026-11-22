@@ -1,10 +1,10 @@
 # sekciarz_1 / pickup 
 No nieźle, może jednak do czegoś się nadajesz.\
 Jeszcze pewnie tu wpadnę.
-- A.
+- A. Chętnie następnym razem zobaczę cię bez kaptura ;)
 	do GameState.set_dialogue_choice(2)
-- B.
+- B. Nadaję się do tańca i do różańca ;)
 	do GameState.set_dialogue_choice(1)
-- C.
+- C. Jeśli musisz...
 	do GameState.set_dialogue_choice(0)
 [end_timeline]
