@@ -19,7 +19,6 @@ offset_right = 1279.0
 offset_bottom = 719.0
 mouse_filter = 2
 expand_mode = 1
-stretch_mode = 5
 
 [node name="QuoteLabel" type="Label" parent="." unique_id=77188317]
 layout_mode = 0
