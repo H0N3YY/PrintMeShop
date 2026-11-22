@@ -1,9 +1,9 @@
 # skolim_1 / pickup 
 Wiesz, normalnie śpiewam Nie dzwoń do mnie, ale dla ciebie zrobię wyjątek. Możesz nawet zadzwonić dwa razy...
 - Haha, niezła próba. Ale najpierw sprawdźmy, czy czapka pasuje, Romeo.
-	do GameState.set_dialogue_choice(2)
-- Uważaj, bo jeszcze się zgodzę! I będziesz w głowie miał tylko "wejdę wyjdę".
 	do GameState.set_dialogue_choice(1)
-- Dzięki, ale wolę wrócić autobusem niż zostać gwiazdą twojego następnego teledysku.
+- Uważaj, bo jeszcze się zgodzę! I będziesz w głowie miał tylko "wejdę wyjdę".
 	do GameState.set_dialogue_choice(0)
+- Dzięki, ale wolę wrócić autobusem niż zostać gwiazdą twojego następnego teledysku.
+	do GameState.set_dialogue_choice(2)
 [end_timeline]
