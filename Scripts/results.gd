@@ -99,7 +99,7 @@ func show_day_results() -> void:
 	if display_id.is_empty():
 		display_id = "solo"
 
-	var character_name := "Samotny wieczór"
+	var character_name := "Nikt"
 
 	if character_id != "":
 		character_name = str(

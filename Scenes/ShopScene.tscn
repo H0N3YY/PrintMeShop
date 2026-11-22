@@ -490,6 +490,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_pvtvr")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2nri4")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_xr7fy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v8vj0")
+autowrap_mode = 3
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
@@ -505,6 +506,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_l6pmf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1kq03")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0mlar")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ff6r3")
+autowrap_mode = 3
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
@@ -520,6 +522,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_7gt6h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i11mu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1kq03")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7gt6h")
+autowrap_mode = 3
 script = ExtResource("50_2nri4")
 metadata/_custom_type_script = "uid://bldt7xlfum7ov"
 
