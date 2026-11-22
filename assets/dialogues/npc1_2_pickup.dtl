@@ -1,9 +1,9 @@
 # npc1_2 / pickup
 Z takim gadżetem teraz na pewno wyjdę z silvera.
-- A. Jak zainstaluję od nowa to możemy razem pograć, dasz nick?
+- Jak zainstaluję od nowa to możemy razem pograć, dasz nick?
 	do GameState.set_dialogue_choice(2)
-- B. Raczej nie, ale powodzenia.
-	do GameState.set_dialogue_choice(1)
-- C. Ja już 3 lata na odwyku od ligi, ale chyba znowu zainstaluję.
+- Raczej nie, ale powodzenia.
 	do GameState.set_dialogue_choice(0)
+- Ja już 3 lata na odwyku od ligi, ale chyba znowu zainstaluję.
+	do GameState.set_dialogue_choice(1)
 [end_timeline]

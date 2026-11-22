@@ -1,9 +1,9 @@
 # sekciarz_1 / intro 
 Witam... Przydaj się na coś i załatw mi jakąś żółtą przypinkę ideis. I lepiej się pośpiesz.
-- A. Klient nasz Pan.
-	do GameState.set_dialogue_choice(2)
-- B. A może jakieś "proszę"?
+- Klient nasz Pan.
 	do GameState.set_dialogue_choice(1)
-- C. Zaraz zobaczę czy mamy rzeczy na stanie, o mroczny nieznajomy.
+- A może jakieś "proszę"?
 	do GameState.set_dialogue_choice(0)
+- Zaraz zobaczę czy mamy rzeczy na stanie, o mroczny nieznajomy.
+	do GameState.set_dialogue_choice(2)
 [end_timeline]

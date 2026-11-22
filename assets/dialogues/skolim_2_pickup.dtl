@@ -1,9 +1,9 @@
 # skolim_2 / pickup 
 Idealny, teraz możesz go wziąć na pamiątkę, a w zamian dać mi swój numer myszko.
-- A. Oczywiście że dam ci swój numer... Nawęt chętnie ci za to zapłacę!
-	do GameState.set_dialogue_choice(2)
-- B. Numer? Jeśli chcesz go zdobyć musisz bardziej się postarać.
-	do GameState.set_dialogue_choice(1)
-- C. Bardzo mi miło, jednak najpierw poproszę zapłatę.
+- Oczywiście że dam ci swój numer... Nawęt chętnie ci za to zapłacę!
 	do GameState.set_dialogue_choice(0)
+- Numer? Jeśli chcesz go zdobyć musisz bardziej się postarać.
+	do GameState.set_dialogue_choice(2)
+- Bardzo mi miło, jednak najpierw poproszę zapłatę.
+	do GameState.set_dialogue_choice(1)
 [end_timeline]

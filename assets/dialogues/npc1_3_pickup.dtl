@@ -1,9 +1,9 @@
 # npc1_3 / pickup
 To idealny gadżet którym będę mógł się pochwalić na nadchodzącym Welcome Game Jam 2026!
-- A. Ale super! To również idealna okazja by zapoznać się z grupą Endowych Kotów!
-	do GameState.set_dialogue_choice(2)
-- B. A znasz projekt „Mrokot” w którym Endowe Koty tworzą uniwersum inspirowane słowiańskimi wierzeniami?
-	do GameState.set_dialogue_choice(1)
-- C. Ej, a jesteś bezdomny? Chętnie przygarniemy Cię do Endowych.
+- Ale super! To również idealna okazja by zapoznać się z grupą Endowych Kotów!
 	do GameState.set_dialogue_choice(0)
+- A znasz projekt „Mrokot” w którym Endowe Koty tworzą uniwersum inspirowane słowiańskimi wierzeniami?
+	do GameState.set_dialogue_choice(2)
+- Ej, a jesteś bezdomny? Chętnie przygarniemy Cię do Endowych.
+	do GameState.set_dialogue_choice(1)
 [end_timeline]

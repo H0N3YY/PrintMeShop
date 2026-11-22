@@ -1,9 +1,9 @@
 # skolim_2 / intro 
-Mam mały problem... Jak patrzę w lustro, to aż zapominam, kim jestem. Zrobisz mi różowy plakat z moją podobizną? Żebym nigdy nie zapomniał, kto tu jest Królem Latino!
-- A. Dobra, zobaczmy, co da się zrobić.
-	do GameState.set_dialogue_choice(2)
-- B. Taki przystojniak i problemy z pamięcią? Spokojnie zrobię ci plakat godny pałacu!
+Mam mały problem... Jak patrzę w lustro, to aż zapominam, kim jestem. Zrobisz mi różowy plakat z moją podobizną? Żebym zawsze pamiętał, kto tu jest Królem Latino!
+- Dobra, zobaczmy, co da się zrobić.
 	do GameState.set_dialogue_choice(1)
-- C. Spokojnie, twoje ciało na pewno ci przypomni.
+- Taki przystojniak i problemy z pamięcią? Spokojnie zrobię ci plakat godny pałacu!
 	do GameState.set_dialogue_choice(0)
+- Spokojnie, twoje ciało na pewno ci przypomni.
+	do GameState.set_dialogue_choice(2)
 [end_timeline]

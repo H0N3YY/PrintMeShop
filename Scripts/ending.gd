@@ -63,7 +63,7 @@ const ENDING_SCENES := {
 			"quote": "Z Matyldą odkrywasz zupełnie nowe hobby: polowanie na żywe krasnale! Uzbrojeni w kukiriny przemierzacie ulice Wrocławia, tropiąc małych uciekinierów. Kto powiedział, że randki muszą być nudne?"
 			},
 		"bad": {
-			"image": "res://assets/ending/e_gotka_3", 
+			"image": "res://assets/ending/e_gotka_3.png", 
 			"quote": "Miłość zmienia człowieka, a ciebie zmieniła w prawdziwego glamour gotha. Razem z Matyldą spędzacie romantyczne popołudnie na pikniku pod katedrą. Czarna koronka, mroczna muzyka i pełnia szczęścia."
 		}
 	},
@@ -85,14 +85,14 @@ const ENDING_SCENES := {
 
 const SOLO_ENDING := {
 	"image": "res://assets/ending/e_foreveralone.png",
-	"quote": "[Opis zakończenia Forever Alone]"
+	"quote": "Jesteś sam, ze swoim długiem, niestety nie udało ci się poznać bratniej duszy. Może następnym razem się uda!"
 }
 
 const ENDING_TYPE_LABELS := {
 	"good": "GOOD ENDING",
-	"neutral": "NEUTRAL ENDING",
-	"bad": "BAD ENDING",
-	"solo": "BAD ENDING"
+	"neutral": "NEUTRAL",
+	"bad": "BAD",
+	"solo": "BAD"
 }
 
 
@@ -100,9 +100,6 @@ const ENDING_TYPE_LABELS := {
 func _ready() -> void:
 	replay_button.pressed.connect(_on_replay_pressed)
 	main_menu_button.pressed.connect(_on_main_menu_pressed)
-
-	replay_button.text = "ZAGRAJ PONOWNIE"
-	main_menu_button.text = "MENU GŁÓWNE"
 
 	show_ending()
 

@@ -1,9 +1,9 @@
 # npc2_2 / intro
 Zaczęłam ostatnio uczęszczać na najlepszą uczelnię ideis, i marzy mi się zielony kubek z przygotowanym przez was logiem.
-- A. O ja również rozważam ideis!Oczywiście przygotuję dla ciebie najpiękniejszy kubek do porannej kawki.
+- O ja również rozważam ideis! Oczywiście przygotuję dla ciebie najpiękniejszy kubek do porannej kawki.
 	do GameState.set_dialogue_choice(2)
-- B. Jasne, proszę poczekać.
+- Jasne, proszę poczekać.
 	do GameState.set_dialogue_choice(1)
-- C. Czy w tym mieście nie ma naprawdę innej uczelni?
+- Czy w tym mieście nie ma naprawdę innej uczelni?
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

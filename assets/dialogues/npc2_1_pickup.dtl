@@ -1,10 +1,10 @@
 # npc2_1 / pickup
 Na pewno jeszcze do was wpadnę, do zobaczenia!\
 "Teemperaturaaaaaaa..."
-- A. Błagam ciszej...
-	do GameState.set_dialogue_choice(2)
-- B. "Powiedz, czemu znowu tonę w jej perfumach..."
-	do GameState.set_dialogue_choice(1)
-- C. Ktoś tu chyba ma dobry humor. Miłego dnia!
+- Błagam ciszej...
 	do GameState.set_dialogue_choice(0)
+- "Powiedz, czemu znowu tonę w jej perfumach..."
+	do GameState.set_dialogue_choice(2)
+- Ktoś tu chyba ma dobry humor. Miłego dnia!
+	do GameState.set_dialogue_choice(1)
 [end_timeline]

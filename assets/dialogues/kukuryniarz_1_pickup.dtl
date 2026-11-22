@@ -1,9 +1,9 @@
 # kukuryniarz_1 / pickup
 Ale aura farming! Idealnie będzie pasować, od razu pochwale się innym krasnalom!
-- A. Do widzenia, dziękujemy za zakup.
-	do GameState.set_dialogue_choice(2)
-- B. Dzięki za zakup młody wbijaj na nową dostawę w piątek!
-	do GameState.set_dialogue_choice(1)
-- C. Dobra NAAARA 67 67 67 67 67
+- Do widzenia, dziękujemy za zakup.
 	do GameState.set_dialogue_choice(0)
+- Dzięki za zakup młody wbijaj na nową dostawę w piątek!
+	do GameState.set_dialogue_choice(1)
+- Dobra NAAARA 67 67 67 67 67
+	do GameState.set_dialogue_choice(2)
 [end_timeline]

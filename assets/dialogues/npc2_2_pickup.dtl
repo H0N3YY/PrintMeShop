@@ -1,9 +1,9 @@
 # npc2_2 / pickup — placeholder text; edit in Dialogic
 Zdecydowanie polecę to miejsce swoim znajomym. Do zobaczenia!
-- A. Wykładowcom też śmiało polecaj!
-	do GameState.set_dialogue_choice(2)
-- B. Może następnym razem bez tego kartonu na głowie?Ledwo Cię rozumiem.
+- Wykładowcom też śmiało polecaj!
 	do GameState.set_dialogue_choice(1)
-- C. Do widzenia i smacznej kawusi <3
+- Może następnym razem bez tego kartonu na głowie? Ledwo Cię rozumiem.
 	do GameState.set_dialogue_choice(0)
+- Do widzenia i smacznej kawusi <3
+	do GameState.set_dialogue_choice(2)
 [end_timeline]

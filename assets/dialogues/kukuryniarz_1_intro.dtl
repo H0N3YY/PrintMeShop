@@ -1,9 +1,9 @@
 # kukuryniarz_1 / intro 
 Yo bro, jestem Norbert. Szukam jakichś mega tuff zielonych naklejek, ten kolor to absolutny peak! Tak żeby podbić wartość mojego kukyrydza.
-- A. ok.
-	do GameState.set_dialogue_choice(2)
-- B. Gitara siema, rozumiem, że chodzi o naklejke do twojego szybkiego sprzętu.
-	do GameState.set_dialogue_choice(1)
-- C. OG, sprawdzę czy mamy na stanie dla takiego goata jak ty.
+- Ok.
 	do GameState.set_dialogue_choice(0)
+- Gitara siema, rozumiem, że chodzi o naklejke do twojego szybkiego sprzętu.
+	do GameState.set_dialogue_choice(1)
+- OG, sprawdzę czy mamy na stanie dla takiego goata jak Ty.
+	do GameState.set_dialogue_choice(2)
 [end_timeline]

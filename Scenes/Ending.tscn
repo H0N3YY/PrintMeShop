@@ -39,12 +39,12 @@ texture = ExtResource("8_keknu")
 
 [node name="QuoteLabel" type="Label" parent="." unique_id=77188317]
 layout_mode = 0
-offset_left = 187.0
+offset_left = 199.0
 offset_top = 34.0
-offset_right = 762.0
+offset_right = 746.0
 offset_bottom = 122.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 15
 autowrap_mode = 3
 max_lines_visible = 5
 
