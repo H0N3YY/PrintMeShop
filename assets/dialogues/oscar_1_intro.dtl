@@ -1,9 +1,9 @@
 # oscar intro 1
 Szukam ciepłych skarpet. Znalazłyby się jakieś białe? I piwo. Piwo nie ma nóg, i samo do mnie ze sklepu nie przywędruje.
 - Już sprawdzam co mogę dla Ciebie przygotować.
-	do GameState.set_dialogue_choice(2)
-- Zabieram się do pracy przystojniaku ;)
 	do GameState.set_dialogue_choice(1)
+- Zabieram się do pracy przystojniaku ;)
+	do GameState.set_dialogue_choice(2)
 - Dobrze, ale nie siedź tu długo bo odstraszasz mi klientów.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]
