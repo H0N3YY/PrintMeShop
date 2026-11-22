@@ -1,10 +1,10 @@
 # npc2_1 / pickup
 Na pewno jeszcze do was wpadnę, do zobaczenia!\
-Nuci dalej\: "Wejdę, wyjdę, wejdę, bejbe..."
-- A.
+"Teemperaturaaaaaaa..."
+- A. Błagam ciszej...
 	do GameState.set_dialogue_choice(2)
-- B.
+- B. "Powiedz, czemu znowu tonę w jej perfumach..."
 	do GameState.set_dialogue_choice(1)
-- C.
+- C. Ktoś tu chyba ma dobry humor. Miłego dnia!
 	do GameState.set_dialogue_choice(0)
 [end_timeline]
