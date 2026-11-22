@@ -115,7 +115,6 @@ texture = ExtResource("50_1kq03")
 [sub_resource type="FontVariation" id="FontVariation_pj1qr"]
 base_font = ExtResource("50_7gt6h")
 variation_embolden = 1.0
-spacing_glyph = 3
 
 [node name="ShopScene" type="Node2D" unique_id=616358664]
 script = ExtResource("1_ggt0q")

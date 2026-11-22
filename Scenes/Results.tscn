@@ -18,8 +18,6 @@ variation_embolden = 0.47
 [sub_resource type="FontVariation" id="FontVariation_keknu"]
 base_font = ExtResource("6_pmqhg")
 variation_embolden = 1.03
-spacing_glyph = 3
-spacing_space = 3
 
 [node name="Results" type="Control" unique_id=427100243]
 layout_mode = 3
