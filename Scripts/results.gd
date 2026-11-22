@@ -13,7 +13,7 @@ const ENDING_SCENE_PATH := "res://Scenes/Ending.tscn"
 const RESULT_SCENES := {
 	"oscar": {
 		1: { "image": "res://assets/characters/osci.png", "quote": "Czekałem na Ciebie cały dzień. Nie żebym miał niezdrową obsesję na twoim punkcie, po prostu bardzo ładnie pachniesz. Nie to co ja. Ale po co komu ładne zapachy? Inni mogą się chwalić sukcesami, zarobkami czy jakimś przereklamowanym dachem nad głową. Ja za to mam mój ulubiony most i gromadkę zaprzyjaźnionych szczurów. Swoją drogą, może masz ochotę mnie nakarmić? Trochę przymieram z głodu." },
-		2: { "image": "res://assets/characters/oscianimation.png", "quote": "Moje kochane szczurki donoszą że podobno kończysz pracę! Akurat szukam wsparcia do następnej wielkiej bitwy o butelki kaucyjne mającej miejsce w… (może macie jakiś fajny pomysł na to gdzie we Wrocławiu najlepiej to umiejscowić dla największej beki xd). Cała największa menelnia się zjawi, zatem ja też muszę. To mój obowiązek. Myślę że świetnie poradzimy sobie w parze, a potem mogę pomóc ci się umyć w Odrze." }
+		2: { "image": "res://assets/characters/oscianimation.png", "quote": "Moje kochane szczurki donoszą że podobno kończysz pracę! Akurat szukam wsparcia do następnej wielkiej bitwy o butelki kaucyjne mającej miejsce za uczelnią. Cała największa menelnia się zjawi, zatem ja też muszę. To mój obowiązek. Myślę że świetnie poradzimy sobie w parze, a potem mogę pomóc ci się umyć w Odrze." }
 	},
 
 	"gotka": { 
