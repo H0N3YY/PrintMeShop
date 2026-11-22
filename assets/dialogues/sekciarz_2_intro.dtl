@@ -1,10 +1,10 @@
 # sekciarz_2 / intro
 Byłem ostatnio zbyt opryskliwy, dlatego uznałem że pokażę ci prawdziwego siebie. Marzą mi się pomarańczowe breloczki z Love And Deepspace?\
 Jeśli dasz radę to może zmienię co do Ciebie zdanie.
-- A.
+- A. To prawda, kultura nie jest twoją mocną stroną.
 	do GameState.set_dialogue_choice(2)
-- B.
+- B. Mamy idealny wzór który na pewno sprosta Pańskim oczekiwaniom.
 	do GameState.set_dialogue_choice(1)
-- C.
+- C. Błagam zmień o mnie zdanie! Jesteś taki super i bardzo chcę cię  bliżej poznać!
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

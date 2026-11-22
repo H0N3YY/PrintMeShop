@@ -1,9 +1,9 @@
 # npc1_1 / intro 
-Siema wariacie, potrzebuję na prezent plakatu do pokoju. Najlepiej żeby przedstawiał na pięknym tle w odcieniu morskiej głębi najpiękniejszą Hatsune Miku!
-- A.
+Siema, potrzebuję na prezent plakatu do pokoju. Najlepiej żeby przedstawiał na pięknym tle w odcieniu morskiej głębi najpiękniejszą Hatsune Miku!
+- A. Dobrałbym inny kolor, ale szanuję gust. Proszę o chwilkę.
 	do GameState.set_dialogue_choice(2)
-- B.
+- B. Kocham Hatsune Miku! Przygotuję taki jaki mam w swoim pokoju. Pięknie się prezetuje!
 	do GameState.set_dialogue_choice(1)
-- C.
+- C. Hatsu... co? O czym ty do mnie mówisz.? Zobaczę czy coś takiego mamy...
 	do GameState.set_dialogue_choice(0)
 [end_timeline]

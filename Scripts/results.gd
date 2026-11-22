@@ -8,13 +8,12 @@ const ENDING_SCENE_PATH := "res://Scenes/Ending.tscn"
 @onready var quote_label: Label = $QuoteLabel
 @onready var stats_text: Label = $StatsPanel/StatsText
 @onready var day_label: Label = $DayLabel
-@onready var next_day_button: Button = $NextDay_btn
+@onready var next_day_button: TextureButton = $NextDay_btn
 
-# TODO Add correct image paths when your assets are ready
 const RESULT_SCENES := {
 	"oscar": {
 		1: { "image": "res://assets/characters/osci.png", "quote": "Czekałem na Ciebie cały dzień. Nie żebym miał niezdrową obsesję na twoim punkcie, po prostu bardzo ładnie pachniesz. Nie to co ja. Ale po co komu ładne zapachy? Inni mogą się chwalić sukcesami, zarobkami czy jakimś przereklamowanym dachem nad głową. Ja za to mam mój ulubiony most i gromadkę zaprzyjaźnionych szczurów. Swoją drogą, może masz ochotę mnie nakarmić? Trochę przymieram z głodu." },
-		2: { "image": "res://assets/characters/oscianimation.png", "quote": "Moje kochane szczurki donoszą że podobno kończysz pracę! Akurat szukam wsparcia do następnej wielkiej bitwy o butelki kaucyjne mającej miejsce w… (może macie jakiś fajny pomysł na to gdzie we Wrocławiu najlepiej to umiejscowić dla największej beki xd). Cała największa menelnia się zjawi, zatem ja też muszę. To mój obowiązek. Myślę że świetnie poradzimy sobie w parze, a potem mogę pomóc ci się umyć w Odrze." }
+		2: { "image": "res://assets/characters/oscianimation.png", "quote": "Moje kochane szczurki donoszą że podobno kończysz pracę! Akurat szukam wsparcia do następnej wielkiej bitwy o butelki kaucyjne mającej miejsce za uczelnią. Cała największa menelnia się zjawi, zatem ja też muszę. To mój obowiązek. Myślę że świetnie poradzimy sobie w parze, a potem mogę pomóc ci się umyć w Odrze." }
 	},
 
 	"gotka": { 
@@ -100,7 +99,7 @@ func show_day_results() -> void:
 	if display_id.is_empty():
 		display_id = "solo"
 
-	var character_name := "Samotny wieczór"
+	var character_name := "Nikt"
 
 	if character_id != "":
 		character_name = str(
@@ -145,12 +144,6 @@ func show_day_results() -> void:
 	else:
 		scene_image.hide()
 		push_warning("Result image not found: " + image_path)
-
-	if day_number >= GameData.MAX_DAYS:
-		next_day_button.text = "Zobacz zakończenie"
-	else:
-		next_day_button.text = "Do roboty!"
-
 
 func _on_next_day_pressed() -> void:
 	if GameState.day >= GameData.MAX_DAYS:

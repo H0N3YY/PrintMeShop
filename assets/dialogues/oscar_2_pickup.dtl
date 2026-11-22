@@ -1,8 +1,8 @@
 # oscar 2 leave 
 Wygląda idealnie, jak sobie wymarzyłem. Chętnie założę na naszą pierwszą randkę ;)
-- A.  +
+- A.  Zastanowię się, ale muszę wracać do pracy. Spotkamy się szybciej niż myślisz kochasiu!
 	do GameState.set_dialogue_choice(2)
-- B. ++
+- B. Prawdę mówiąc randka z tobą chodziła mi po głowie odkąd tylko pojawiłeś się w naszym sklepie.
 	do GameState.set_dialogue_choice(1)
 - C. Nie tak szybko kolego, ledwo się znamy.
 	do GameState.set_dialogue_choice(0)
