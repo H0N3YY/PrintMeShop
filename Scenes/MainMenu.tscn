@@ -7,6 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://b6w74dc2efbmf" path="res://assets/ui/start.png" id="5_8um5k"]
 [ext_resource type="Texture2D" uid="uid://cv13bwskly3pj" path="res://assets/ui/logoEnded.png" id="6_8um5k"]
 [ext_resource type="Texture2D" uid="uid://ddqcgdg53p2mk" path="res://assets/ui/logo.png" id="7_xim88"]
+[ext_resource type="Texture2D" uid="uid://btgxa23te7j4b" path="res://assets/ui/createdby.png" id="8_cmrfp"]
+[ext_resource type="FontFile" uid="uid://cmvyfvvtr1llr" path="res://assets/font/Indie_Flower/IndieFlower-Regular.ttf" id="9_loo7a"]
+
+[sub_resource type="FontVariation" id="FontVariation_8omci"]
+base_font = ExtResource("9_loo7a")
+variation_embolden = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1o8rw"]
+
+[sub_resource type="FontVariation" id="FontVariation_if7li"]
+base_font = ExtResource("9_loo7a")
+variation_embolden = 1.0
 
 [node name="MainMenu" type="Control" unique_id=1102603426]
 layout_mode = 3
@@ -68,3 +80,62 @@ texture_normal = ExtResource("6_8um5k")
 position = Vector2(296, 146)
 scale = Vector2(1.0433241, 1.043324)
 texture = ExtResource("7_xim88")
+
+[node name="Createdby" type="Sprite2D" parent="." unique_id=610952127]
+position = Vector2(264, 224.00002)
+scale = Vector2(0.9059406, 0.9059406)
+texture = ExtResource("8_cmrfp")
+
+[node name="Lavy" type="Button" parent="Createdby" unique_id=706311091]
+offset_left = -195.37704
+offset_top = 67.33331
+offset_right = -34.377045
+offset_bottom = 98.33331
+theme_override_fonts/font = SubResource("FontVariation_8omci")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+text = "Lavy / Kacper Czech"
+
+[node name="Harnas" type="Button" parent="Createdby" unique_id=1711192650]
+offset_left = 61.81421
+offset_top = 67.333305
+offset_right = 254.81421
+offset_bottom = 98.33331
+theme_override_fonts/font = SubResource("FontVariation_if7li")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+text = "Harnaś / Patrycja Norek"
+
+[node name="Quuiki" type="Button" parent="Createdby" unique_id=1923282569]
+offset_left = -219.6612
+offset_top = 118.109276
+offset_right = -0.66119385
+offset_bottom = 149.10928
+theme_override_fonts/font = SubResource("FontVariation_if7li")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+text = "Quuiki / Weronika Kurzawa"
+
+[node name="Morfeiqo" type="Button" parent="Createdby" unique_id=186577084]
+offset_left = 67.33332
+offset_top = 117.00545
+offset_right = 278.3333
+offset_bottom = 148.00543
+theme_override_fonts/font = SubResource("FontVariation_if7li")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+text = "Morfeiqo / Wiktoria Litwin"
+
+[node name="Reklama" type="Button" parent="Createdby" unique_id=708176339]
+offset_left = -238.42622
+offset_top = 166.67758
+offset_right = 6.5737762
+offset_bottom = 197.67758
+theme_override_fonts/font = SubResource("FontVariation_if7li")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+text = "Reklamówa / Karolina Pawelec"
+
+[node name="Luc" type="Button" parent="Createdby" unique_id=612729891]
+offset_left = 57.3989
+offset_top = 165.57376
+offset_right = 287.3989
+offset_bottom = 196.57376
+theme_override_fonts/font = SubResource("FontVariation_if7li")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+text = "Loushiyen / Wiktoria Liberda"
