@@ -85,7 +85,7 @@ const ENDING_SCENES := {
 
 const SOLO_ENDING := {
 	"image": "res://assets/ending/e_foreveralone.png",
-	"quote": "[Opis zakończenia Forever Alone]"
+	"quote": "Jesteś sam, ze swoim długiem, niestety nie udało ci się poznać bratniej duszy. Może następnym razem się uda!"
 }
 
 const ENDING_TYPE_LABELS := {
