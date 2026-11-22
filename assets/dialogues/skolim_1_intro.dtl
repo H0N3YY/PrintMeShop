@@ -1,9 +1,9 @@
 # skolim_1 / intro 
 Siema, potrzebuję czapki idealnej do mojego różowego outfitu, najlepiej coś z pazurem i energią. Żeby wszystkie señority oszalały!
-- A. Okej, różowa czapka z pazurem? Brzmi ciekawie. Zobaczę, co da się zrobić.
+- Okej, różowa czapka z pazurem i energią? Brzmi ciekawie. Zobaczę, co da się zrobić.
 	do GameState.set_dialogue_choice(2)
-- B. COOO, SKOLIM?! Król Latino we własnej osobie?! Dobra, zrobię ci taką czapkę, że wszystkie oszaleją!
+- COOO, SKOLIM?! Król Latino we własnej osobie?! Dobra, zrobię ci taką czapkę, że wszystkie stracą dla Ciebie głowę!
 	do GameState.set_dialogue_choice(1)
-- C. Skolim? Serio? Jeszcze tylko ciebie mi tu brakowało. Nie mam czasu na twoje zachcianki.
+- Skolim? Serio? Jeszcze tylko ciebie mi tu brakowało. Nie mam czasu na twoje zachcianki.
 	do GameState.set_dialogue_choice(0)
 [end_timeline]
