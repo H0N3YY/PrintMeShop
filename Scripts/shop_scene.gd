@@ -472,7 +472,6 @@ func confirm_order() -> void:
 	if current_phase != "work":
 		return
 	if selected_product == "" or selected_color == "" or selected_design == "":
-		result_label.text = "Wybierz produkt, kolor i wzór!"
 		return
 	pending_order = {
 		"product": selected_product,
