@@ -8,9 +8,8 @@ const ENDING_SCENE_PATH := "res://Scenes/Ending.tscn"
 @onready var quote_label: Label = $QuoteLabel
 @onready var stats_text: Label = $StatsPanel/StatsText
 @onready var day_label: Label = $DayLabel
-@onready var next_day_button: Button = $NextDay_btn
+@onready var next_day_button: TextureButton = $NextDay_btn
 
-# TODO Add correct image paths when your assets are ready
 const RESULT_SCENES := {
 	"oscar": {
 		1: { "image": "res://assets/characters/osci.png", "quote": "Czekałem na Ciebie cały dzień. Nie żebym miał niezdrową obsesję na twoim punkcie, po prostu bardzo ładnie pachniesz. Nie to co ja. Ale po co komu ładne zapachy? Inni mogą się chwalić sukcesami, zarobkami czy jakimś przereklamowanym dachem nad głową. Ja za to mam mój ulubiony most i gromadkę zaprzyjaźnionych szczurów. Swoją drogą, może masz ochotę mnie nakarmić? Trochę przymieram z głodu." },
@@ -145,12 +144,6 @@ func show_day_results() -> void:
 	else:
 		scene_image.hide()
 		push_warning("Result image not found: " + image_path)
-
-	if day_number >= GameData.MAX_DAYS:
-		next_day_button.text = "Zobacz zakończenie"
-	else:
-		next_day_button.text = "Do roboty!"
-
 
 func _on_next_day_pressed() -> void:
 	if GameState.day >= GameData.MAX_DAYS:
