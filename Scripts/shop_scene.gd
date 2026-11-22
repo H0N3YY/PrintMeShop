@@ -23,6 +23,10 @@ var idle_base_texture: Texture2D
 var idle_alt_texture: Texture2D
 var idle_frame_active: bool = false
 
+const CURSOR_NORMAL = preload("res://assets/ui/cursors/pointer1.png")
+const CURSOR_COLOR = preload("res://assets/ui/cursors/pointer2.png")
+const CURSOR_MERCH = preload("res://assets/ui/cursors/pointer3.png")
+
 const RESULTS_SCENE_PATH := "res://Scenes/Results.tscn"
 const ENDING_SCENE_PATH := "res://Scenes/Ending.tscn"
 
@@ -127,7 +131,32 @@ var overlay: Control
 var overlay_message: Label
 var overlay_buttons: VBoxContainer
 
+
+func set_game_cursor(cursor_texture: Texture2D) -> void:
+	if cursor_texture == null:
+		return
+
+	var image: Image = cursor_texture.get_image().duplicate()
+	var cursor_size: int = 48
+	image.resize(
+		cursor_size,
+		cursor_size,
+		Image.INTERPOLATE_LANCZOS
+	)
+	var resized_cursor: ImageTexture = ImageTexture.create_from_image(image)
+	var hotspot := Vector2(13, 12)
+
+	Input.set_custom_mouse_cursor(
+		resized_cursor,
+		Input.CURSOR_ARROW,
+		hotspot
+	)
+
+	print("Cursor size applied: ", resized_cursor.get_size())
+
+
 func _ready() -> void:
+	set_game_cursor(CURSOR_NORMAL)
 	customer_rest_position = customer_sprite.position
 	setup_preview_texture()
 	setup_product_buttons()
@@ -165,13 +194,24 @@ func setup_product_buttons() -> void:
 			continue
 		button.pressed.connect(select_product.bind(GameData.PRODUCTS[node_name]))
 
+
 func setup_color_buttons() -> void:
 	for node_name in GameData.COLORS:
-		var button: TextureButton = color_panel.get_node_or_null(node_name) as TextureButton
+		var button: TextureButton = color_panel.get_node_or_null(
+			node_name
+		) as TextureButton
 		if button == null:
 			push_warning("Color button not found: " + node_name)
 			continue
-		button.pressed.connect(select_color.bind(GameData.COLORS[node_name]))
+		button.pressed.connect(
+			select_color.bind(GameData.COLORS[node_name])
+		)
+		button.mouse_entered.connect(
+			set_game_cursor.bind(CURSOR_COLOR)
+		)
+		button.mouse_exited.connect(
+			set_game_cursor.bind(CURSOR_NORMAL)
+		)
 
 func setup_merch_list() -> void:
 	merch_select.clear()
@@ -179,6 +219,12 @@ func setup_merch_list() -> void:
 	for design in GameData.DESIGNS:
 		merch_select.add_item(design)
 	merch_select.item_selected.connect(on_design_selected)
+	merch_select.mouse_entered.connect(
+	set_game_cursor.bind(CURSOR_MERCH)
+	)
+	merch_select.mouse_exited.connect(
+		set_game_cursor.bind(CURSOR_NORMAL)
+	)
 
 func setup_preview_texture() -> void:
 	preview_texture_rect = TextureRect.new()
@@ -426,7 +472,6 @@ func confirm_order() -> void:
 	if current_phase != "work":
 		return
 	if selected_product == "" or selected_color == "" or selected_design == "":
-		result_label.text = "Wybierz produkt, kolor i wzór!"
 		return
 	pending_order = {
 		"product": selected_product,
