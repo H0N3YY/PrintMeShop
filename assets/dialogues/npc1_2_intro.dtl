@@ -1,9 +1,9 @@
 # npc1_2 / intro
 Kocham grać w lola dniami i nocami, załatwisz mi jakąś czarną koszulkę z pięknym puchatym poroskiem?
 - A kopsniesz skrzynkę?
-	do GameState.set_dialogue_choice(2)
-- Dotknij trawy.
 	do GameState.set_dialogue_choice(1)
-- AAAAA POROOOO AAAAAA SŁODZIUTKIE MILUSIE POROSKII TAAAAAAAAAK
+- Dotknij trawy.
 	do GameState.set_dialogue_choice(0)
+- AAAAA POROOOO AAAAAA SŁODZIUTKIE MILUSIE POROSKII TAAAAAAAAAK
+	do GameState.set_dialogue_choice(2)
 [end_timeline]

@@ -4,7 +4,7 @@ Och, dzień dobry. Potrzebuję torby, najlepiej w czerwonym kolorze.
 - "Gdy z nią tańczę, ręce schodzą na jej uda"
 	do GameState.set_dialogue_choice(2)
 - Znowu fanka skolima...
-	do GameState.set_dialogue_choice(1)
-- Dobrze, zabieram się do pracy
 	do GameState.set_dialogue_choice(0)
+- Dobrze, zabieram się do pracy
+	do GameState.set_dialogue_choice(1)
 [end_timeline]

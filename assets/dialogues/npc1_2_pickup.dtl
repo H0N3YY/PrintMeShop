@@ -3,7 +3,7 @@ Z takim gadżetem teraz na pewno wyjdę z silvera.
 - Jak zainstaluję od nowa to możemy razem pograć, dasz nick?
 	do GameState.set_dialogue_choice(2)
 - Raczej nie, ale powodzenia.
-	do GameState.set_dialogue_choice(1)
-- Ja już 3 lata na odwyku od ligi, ale chyba znowu zainstaluję.
 	do GameState.set_dialogue_choice(0)
+- Ja już 3 lata na odwyku od ligi, ale chyba znowu zainstaluję.
+	do GameState.set_dialogue_choice(1)
 [end_timeline]
