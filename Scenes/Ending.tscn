@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://cd2sxl2fdkeks"]
 
 [ext_resource type="Script" uid="uid://c6owwq5xtq678" path="res://Scripts/ending.gd" id="1_sbbak"]
+[ext_resource type="Texture2D" uid="uid://dufvcm4t6bng6" path="res://assets/ui/achivgment.png" id="2_3puwj"]
+[ext_resource type="Texture2D" uid="uid://bsk6dreimswf5" path="res://assets/ui/repeat_btn.png" id="2_5lsk1"]
+[ext_resource type="FontFile" uid="uid://cmvyfvvtr1llr" path="res://assets/font/Indie_Flower/IndieFlower-Regular.ttf" id="3_keknu"]
+[ext_resource type="Texture2D" uid="uid://b1h34myg751ir" path="res://assets/ui/repeat1_btn.png" id="3_m0wyw"]
+[ext_resource type="Texture2D" uid="uid://ctw4lertflvub" path="res://assets/ui/back1_btn.png" id="4_3puwj"]
+[ext_resource type="Texture2D" uid="uid://cg5uu1ebhjb4v" path="res://assets/ui/back_btn.png" id="5_keknu"]
+[ext_resource type="Texture2D" uid="uid://dt3k3ffc7ioua" path="res://assets/ui/summarybox.png" id="8_keknu"]
+
+[sub_resource type="FontVariation" id="FontVariation_5lsk1"]
+base_font = ExtResource("3_keknu")
+variation_face_index = 1
+variation_embolden = 1.0
 
 [node name="Ending" type="Control" unique_id=1464278732]
 layout_mode = 3
@@ -29,23 +41,38 @@ offset_bottom = 604.0
 autowrap_mode = 3
 max_lines_visible = 5
 
+[node name="Achivgment" type="Sprite2D" parent="." unique_id=2146868639]
+position = Vector2(72, 70)
+texture = ExtResource("2_3puwj")
+
 [node name="EndingTypeLabel" type="Label" parent="." unique_id=1392132884]
 layout_mode = 0
-offset_right = 154.0
-offset_bottom = 49.0
+offset_left = 24.0
+offset_top = 87.0
+offset_right = 120.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(0.42745098, 0.29411766, 0.4745098, 1)
+theme_override_fonts/font = SubResource("FontVariation_5lsk1")
+text = "ENDING TYPE"
 
-[node name="Roleplay_btn" type="Button" parent="." unique_id=1717398384]
+[node name="Roleplay_btn" type="TextureButton" parent="." unique_id=1341942158]
 layout_mode = 0
-offset_left = 760.0
-offset_top = 624.0
-offset_right = 990.0
-offset_bottom = 696.0
-text = "Zagraj Ponownie"
+offset_left = 773.0
+offset_top = 603.0
+offset_right = 1017.0
+offset_bottom = 704.0
+texture_normal = ExtResource("2_5lsk1")
+texture_hover = ExtResource("3_m0wyw")
 
-[node name="Main_btn" type="Button" parent="." unique_id=1713257789]
+[node name="Main_btn" type="TextureButton" parent="." unique_id=1033602009]
 layout_mode = 0
-offset_left = 1000.0
-offset_top = 624.0
-offset_right = 1230.0
-offset_bottom = 696.0
-text = "Powrót do Menu"
+offset_left = 1013.0
+offset_top = 603.0
+offset_right = 1257.0
+offset_bottom = 704.0
+texture_normal = ExtResource("4_3puwj")
+texture_hover = ExtResource("5_keknu")
+
+[node name="Summarybox" type="Sprite2D" parent="." unique_id=2032870785]
+position = Vector2(477, 141)
+texture = ExtResource("8_keknu")
