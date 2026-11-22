@@ -16,6 +16,12 @@ variation_embolden = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1o8rw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if7li"]
+bg_color = Color(0.44705883, 0.22352941, 0.49411765, 0.4117647)
+border_color = Color(0.5090484, 0.00077335624, 0.62361985, 0.49019608)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_loo7a"]
+
 [sub_resource type="FontVariation" id="FontVariation_if7li"]
 base_font = ExtResource("9_loo7a")
 variation_embolden = 1.0
@@ -94,6 +100,8 @@ offset_bottom = 98.33331
 theme_override_colors/font_hover_color = Color(0.7440946, 0.38858828, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_8omci")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_if7li")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_loo7a")
 text = "Lavy / Kacper Czech"
 
 [node name="Harnas" type="Button" parent="Createdby" unique_id=1711192650]
@@ -104,6 +112,8 @@ offset_bottom = 98.33331
 theme_override_colors/font_hover_color = Color(0, 0.8558055, 0.17315516, 1)
 theme_override_fonts/font = SubResource("FontVariation_if7li")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_if7li")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_loo7a")
 text = "Harnaś / Patrycja Norek"
 
 [node name="Quuiki" type="Button" parent="Createdby" unique_id=1923282569]
@@ -114,6 +124,8 @@ offset_bottom = 149.10928
 theme_override_colors/font_hover_color = Color(0.91032666, 0.0006686324, 0.9103204, 1)
 theme_override_fonts/font = SubResource("FontVariation_if7li")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_if7li")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_loo7a")
 text = "Quuiki / Weronika Kurzawa"
 
 [node name="Morfeiqo" type="Button" parent="Createdby" unique_id=186577084]
@@ -124,6 +136,8 @@ offset_bottom = 148.00543
 theme_override_colors/font_hover_color = Color(0.95244604, 0.9524457, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_if7li")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_if7li")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_loo7a")
 text = "Morfeiqo / Wiktoria Litwin"
 
 [node name="Reklama" type="Button" parent="Createdby" unique_id=708176339]
@@ -134,6 +148,8 @@ offset_bottom = 197.67758
 theme_override_colors/font_hover_color = Color(0.93887734, 0.07496532, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_if7li")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_if7li")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_loo7a")
 text = "Reklamówa / Karolina Pawelec"
 
 [node name="Luc" type="Button" parent="Createdby" unique_id=612729891]
@@ -144,4 +160,6 @@ offset_bottom = 196.57376
 theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9490196, 1)
 theme_override_fonts/font = SubResource("FontVariation_if7li")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1o8rw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_if7li")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_loo7a")
 text = "Loushiyen / Wiktoria Liberda"
