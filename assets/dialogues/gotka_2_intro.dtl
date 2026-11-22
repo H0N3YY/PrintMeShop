@@ -1,9 +1,9 @@
 # gotka_2 / intro 
-Cześć słońce, szukam białej torby z wizerunkiem mojej ulubionej postaci tego grubasa Walaszka, Domino. Absolutne cudo, pewnie się kociaku nie spodziewałeś po mnie, że znam takie dzieła.
+Cześć słońce, szukam białej torby z wizerunkiem mojej ulubionej postaci tego grubasa Walaszka, Domino. Absolutne kino, pewnie się kociaku nie spodziewałeś po mnie, że znam takie dzieła.
 - No dobra.
-	do GameState.set_dialogue_choice(2)
+	do GameState.set_dialogue_choice(0)
 - Pyk, pyk, pyk, jako-tako i fajrant.
 	do GameState.set_dialogue_choice(1)
 - Twoja uroda jest jak śmieć na orbicie – wyjebana w kosmos.
-	do GameState.set_dialogue_choice(0)
+	do GameState.set_dialogue_choice(2)
 [end_timeline]

@@ -3,7 +3,7 @@ Taki dodatek idealnie będzie pasować na koncert!\
 Oby tylko MPK nie jebło. Swoją drogą, jestem Matylda.
 - Piękne imię dla pięknej dziewczyny, masz ochotę na Malboraska?
 	do GameState.set_dialogue_choice(2)
-- Kto pytał?
+- Ok. Nie Pytałem.
 	do GameState.set_dialogue_choice(1)
 - Zapraszamy ponownie Matyldo, z wielką przyjemnością będę ci służyć.
 	do GameState.set_dialogue_choice(0)
