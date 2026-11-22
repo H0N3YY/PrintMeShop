@@ -20,7 +20,7 @@ func _ready() -> void:
 	exit_btn.pressed.connect(exit_game)
 
 	lavy_btn.pressed.connect(
-		open_profile.bind("www.linkedin.com/in/czech03902")
+		open_profile.bind("https://www.linkedin.com/in/czech03902")
 	)
 	harnas_btn.pressed.connect(
 		open_profile.bind("https://linktr.ee/patiszonequ")
